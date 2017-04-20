@@ -42,7 +42,7 @@ shopt -s histappend
 source "$DOTFILES/bash/constant.sh"
 
 # PROGRAM CONFIGURATION
-for f in "$DOTFILES/bash/program/*.sh"
+for f in $DOTFILES/bash/program/*.sh
 do
   source "$f"
 done

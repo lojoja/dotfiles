@@ -7,6 +7,6 @@ else
   eval "$(dircolors -b)"
 fi
 
-alias lsa='ls -AFhl'
-alias lsd='ls -AFhld'
-alias ls='ls -Fhl'
+alias lsa='ls -AFhl --color=auto'
+alias lsd='ls -AFhld --color=auto'
+alias ls='ls -Fhl --color=auto'
