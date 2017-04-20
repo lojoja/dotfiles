@@ -9,11 +9,11 @@ BASH_CONF_PATH := $(DOTFILE_PATH)/bash
 GIT_CONF_PATH := $(DOTFILE_PATH)/git
 
 clean-bash:
-	test -f $(HOME_PATH)/.bash_profile && rm $(HOME_PATH)/.bash_profile
+	rm -f $(HOME_PATH)/.bash_profile
 
 clean-git:
-	test -f $(HOME_PATH)/.gitconfig && rm $(HOME_PATH)/.gitconfig
-	test -f $(HOME_PATH)/.gitignore && rm $(HOME_PATH)/.gitignore
+	rm -f $(HOME_PATH)/.gitconfig
+	rm -f $(HOME_PATH)/.gitignore
 
 install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
