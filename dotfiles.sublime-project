@@ -1,0 +1,6 @@
+{
+	"folders": [{"path": "."}],
+  "syntax_override": {
+    "git(config|ignore)$": ["Config Files", "INI", "INI"]
+  },
+}

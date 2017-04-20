@@ -1,0 +1,6 @@
+# Bash
+local.sh
+private.sh
+
+# Git
+.gitconfig-local
