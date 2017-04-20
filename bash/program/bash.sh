@@ -2,7 +2,7 @@
 
 completions='/etc/bash_completion'
 
-if [[ $DOTFILES_INIT_HOMEBREW_PREFIX -ne "" ]]
+if [[ $DOTFILES_INIT_HOMEBREW_PREFIX != "" ]]
 then
   completions="$DOTFILES_INIT_HOMEBREW_PREFIX/$completions"
 fi
