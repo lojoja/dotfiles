@@ -1,6 +1,7 @@
 {
 	"folders": [{"path": "."}],
   "syntax_override": {
-    "git(config|ignore)$": ["Config Files", "INI", "INI"]
+    "git(config|ignore)$": ["Config Files", "INI", "INI"],
+    "pip.conf": ["Config Files", "INI", "INI"]
   },
 }
