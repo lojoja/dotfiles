@@ -2,7 +2,7 @@
 
 dotfilesCurrentRepo() {
   # Format working directory repository status for bash prompt
-  local path prompt
+  local prompt
 
   if hash vcprompt &>/dev/null
   then
@@ -44,5 +44,5 @@ dotfilesPreviousCommandStatus() {
 
 PROMPT_COMMAND='PS1="\[\e[G\]${RESET}\007\n\
 ${MAGENTA}\u${BLACK_BOLD}@${YELLOW}\h\
-$(dotfilesCurrentRepo)$(dotfilesCurrentVENV)${BLACK_BOLD}: ${GREEN}\w\
-$(dotfilesPreviousCommandStatus)${RESET}\n$ "'
+$(dotfilesPreviousCommandStatus)$(dotfilesCurrentRepo)$(dotfilesCurrentVENV)\
+${BLACK_BOLD}: ${GREEN}\w${RESET}\n$ "'
