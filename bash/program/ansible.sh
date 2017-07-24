@@ -1,22 +1,22 @@
 # dotfiles/bash/program/ansible.sh
 
 # Defaults
-ANSIBLE_REMOTE_TEMP='~/.ansible/tmp'
-ANSIBLE_LOCAL_TEMP='/tmp/ansible'
-ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.ansible-vault"
-ANSIBLE_MANAGED=
+export ANSIBLE_REMOTE_TEMP='~/.ansible/tmp'
+export ANSIBLE_LOCAL_TEMP='/tmp/ansible'
+export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.ansible-vault"
+export ANSIBLE_MANAGED=
 
 # Connection
-ANSIBLE_USE_PERSISTENT_CONNECTIONS='True'
-ANSIBLE_SSH_ARGS='-C -o ControlMaster=auto -o ControlPersist=15m -o ForwardAgent=yes'
-ANSIBLE_SSH_CONTROL_PATH='%(directory)s/ssh-%%h-%%p-%%r'
-ANSIBLE_SSH_CONTROL_PATH_DIR="$ANSIBLE_LOCAL_TEMP"
-ANSIBLE_SSH_PIPELINING='True'
+export ANSIBLE_USE_PERSISTENT_CONNECTIONS='True'
+export ANSIBLE_SSH_ARGS='-C -o ControlMaster=auto -o ControlPersist=15m -o ForwardAgent=yes'
+export ANSIBLE_SSH_CONTROL_PATH='%(directory)s/ssh-%%h-%%p-%%r'
+export ANSIBLE_SSH_CONTROL_PATH_DIR="$ANSIBLE_LOCAL_TEMP"
+#export ANSIBLE_SSH_PIPELINING='True'
 
 # Display
-ANSIBLE_FORCE_COLOR='True'
-ANSIBLE_DISPLAY_SKIPPED_HOSTS='True'
-ANSIBLE_RETRY_FILES_ENABLED='False'
+export ANSIBLE_FORCE_COLOR='True'
+export ANSIBLE_DISPLAY_SKIPPED_HOSTS='True'
+export ANSIBLE_RETRY_FILES_ENABLED='False'
 
 # Plugins
-ANSIBLE_SQUASH_ACTIONS=''
+export ANSIBLE_SQUASH_ACTIONS=''
