@@ -19,6 +19,7 @@ install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
 	test -f $(BASH_CONF_PATH)/private.sh || cp $(BASH_CONF_PATH)/private.example.sh $(BASH_CONF_PATH)/private.sh
 	test -f $(BASH_CONF_PATH)/local.sh || touch $(BASH_CONF_PATH)/local.sh
+	test -f $(HOME_PATH)/.hushlogin || touch $(HOME_PATH)/.hushlogin
 
 install-git:
 	ln -s $(GIT_CONF_PATH)/gitconfig $(HOME_PATH)/.gitconfig
