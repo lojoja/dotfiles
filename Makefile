@@ -16,8 +16,8 @@ clean-bash:
 	rm -f $(HOME_PATH)/.bash_profile
 
 clean-config:
-	rm -f $(HOME_PATH)/flake8
-	rm -f $(HOME_PATH)/yamllint/config
+	rm -f $(CONFIG_PATH)/flake8
+	rm -f $(CONFIG_PATH)/yamllint/config
 
 clean-eslint:
 	rm -f $(HOME_PATH)/.eslintrc
