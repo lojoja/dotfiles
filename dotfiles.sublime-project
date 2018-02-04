@@ -1,7 +1,8 @@
 {
 	"folders": [{"path": "."}],
   "syntax_override": {
-    "git(config|ignore)$": ["Config Files", "INI", "INI"],
-    "pip.conf": ["Config Files", "INI", "INI"]
+    "eslintrc$": ["JavaScript/JSON"],
+    "flake8|git(config|ignore)|pip.conf$": ["Config Files/INI/INI"],
+    "yamllint$": ["YAML/YAML"]
   },
 }
