@@ -1,5 +1,6 @@
 {
 	"folders": [{"path": "."}],
+  "settings": {"auto_python_builder_enabled": false},
   "syntax_override": {
     "eslintrc$": ["JavaScript/JSON"],
     "flake8|git(config|ignore)|pip.conf$": ["Config Files/INI/INI"],
