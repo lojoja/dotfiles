@@ -19,7 +19,7 @@ then
 
       if [[ ${FIREFOX_PROFILE[$name]+_} ]]
       then
-        open -n -a "$FIREFOX_APP" --args -profile "$HOME/Library/Application Support/Firefox/Profiles/${FIREFOX_PROFILE[$name]}"
+        open -n -a "$FIREFOX_APP" --args -profile "$HOME/Library/Application Support/Firefox/Profiles/${FIREFOX_PROFILE[$name]}" -no-remote
       else
         printf 'Firefox profile "%s" not found' $name && return 1
       fi
