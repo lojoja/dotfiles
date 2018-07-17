@@ -6,3 +6,6 @@
 
 #export BITBUCKET_APP_TOKEN=
 #export HOMEBREW_GITHUB_API_TOKEN=
+#export CF_API_EMAIL=
+#export CF_API_KEY=
+#export DO_API_TOKEN=
