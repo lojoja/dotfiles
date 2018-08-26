@@ -46,6 +46,6 @@ install-eslint:
 
 install-git:
 	ln -s $(GIT_CONF_PATH)/gitconfig $(HOME_PATH)/.gitconfig
-	test -f $(GIT_CONF_PATH)/gitconfig-local.example || cp $(GIT_CONF_PATH)/gitconfig-local.example $(GIT_CONF_PATH)/.gitconfig-local
+	test -f $(GIT_CONF_PATH)/gitconfig-local || cp $(GIT_CONF_PATH)/gitconfig-local.example $(GIT_CONF_PATH)/gitconfig-local
 	ln -s $(GIT_CONF_PATH)/gitconfig-local $(HOME_PATH)/.gitconfig-local
 	ln -s $(GIT_CONF_PATH)/gitignore $(HOME_PATH)/.gitignore
