@@ -25,6 +25,7 @@ clean-eslint:
 
 clean-git:
 	rm -f $(HOME_PATH)/.gitconfig
+	rm -f $(HOME_PATH)/.gitconfig-local
 	rm -f $(HOME_PATH)/.gitignore
 
 install-bash:
@@ -45,5 +46,6 @@ install-eslint:
 
 install-git:
 	ln -s $(GIT_CONF_PATH)/gitconfig $(HOME_PATH)/.gitconfig
+	test -f $(GIT_CONF_PATH)/gitconfig-local.example || cp $(GIT_CONF_PATH)/gitconfig-local.example $(GIT_CONF_PATH)/.gitconfig-local
+	ln -s $(GIT_CONF_PATH)/gitconfig-local $(HOME_PATH)/.gitconfig-local
 	ln -s $(GIT_CONF_PATH)/gitignore $(HOME_PATH)/.gitignore
-	test -f $(HOME_PATH)/.gitconfig-local || touch $(HOME_PATH)/.gitconfig-local
