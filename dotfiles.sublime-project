@@ -3,7 +3,8 @@
   "settings": {"auto_python_builder_enabled": false},
   "syntax_override": {
     "eslintrc$": ["JavaScript/JSON"],
-    "flake8|git(config|ignore)|pip.conf$": ["Config Files/INI/INI"],
+    "flake8|pip.conf$": ["Config Files/INI/INI"],
+    "gitconfig-local.example$": ["Git Formats/Git Config"],
     "yamllint$": ["YAML/YAML"]
   },
 }
