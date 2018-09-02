@@ -16,6 +16,7 @@ dotfiles requirements can be installed with [Homebrew](https://brew.sh).
     brew install gnu-units --with-default-names
     brew install gnu-which --with-default-names
     brew install grep --with-default-names
+    brew install less
 
 ### Version Control Prompt
     brew install vcprompt
