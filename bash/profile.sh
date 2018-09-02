@@ -33,13 +33,17 @@ export CLICOLOR=1
 export IGNOREEOF=1
 export LC_ALL=en_US.utf-8
 export LC_CTYPE=en_US.utf-8
-export SHELL_SESSION_HISTORY=0
 export TERM=xterm-256color
 export VISUAL="$EDITOR"
-shopt -s histappend
 
 # CONSTANTS
 source "$DOTFILES/bash/constant.sh"
+
+# BASE SHELL CONFIGURATION
+source "$DOTFILES/bash/shell.sh"
+
+# SHELL UTILITY FUNCTIONS
+source "$DOTFILES/bash/utils.sh"
 
 # PROGRAM CONFIGURATION
 for f in $DOTFILES/bash/program/*.sh
