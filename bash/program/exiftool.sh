@@ -6,7 +6,7 @@ then
   then
     function exifClear() {
       local files=$@
-      exiftool -Title= -ObjectName= -Description= -Headline= -ImageDescription= -Subject= -Keywords= -City= -Country= -Rights= -Credit= -Creator= -CreatorTool= -Urgency= -UserComment= -Software= -InstanceID= -DocumentID= -OriginalDocumentID= -HistoryAction= -HistoryInstanceID= -HistoryWhen= -HistorySoftwareAgent= -HistoryChanged= -overwrite_original $files
+      exiftool -City= -Country= -Creator= -CreatorTool= -Credit= -DerivedFromDocumentID= -DerivedFromInstanceID= -DerivedFromOriginalDocumentID= -Description= -DocumentAncestors= -DocumentID= -Headline= -HistoryAction= -HistoryChanged= -HistoryInstanceID= -HistoryParameters= -HistorySoftwareAgent= -HistoryWhen= -ImageDescription= -InstanceID= -Keywords= -ObjectName= -OriginalDocumentID= -Rights= -Software= -Subject= -Title= -Urgency= -UserComment= -overwrite_original $files
     }
 
 
