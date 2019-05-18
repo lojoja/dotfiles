@@ -24,6 +24,17 @@ then
     }
 
 
+    function exifSetGPS() {
+      local lat="$1"
+      local lon="$2"
+      shift 2
+      local files=$@
+      local lat_ref=$([[ ${lat::1} == '-' ]] && printf "S" || printf "N")
+      local lon_ref=$([[ ${lon::1} == '-' ]] && printf "W" || printf "E")
+      exiftool -GPSAltitude=0 -GPSLatitude="$lat" -GPSLatitudeRef="$lat_ref" -GPSLongitude="$lon" -GPSLongitudeRef="$lon_ref" -overwrite_original $files
+    }
+
+
     function exifSetMovieDate() {
       local timestamp="$1 $2"
       shift 2
