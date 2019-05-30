@@ -20,7 +20,7 @@ then
       local timestamp="$1 $2"
       shift 2
       local files=$@
-      exiftool -CreateDate="$timestamp" -ModifyDate="$timestamp" -overwrite_original $files
+      exiftool -CreateDate="$timestamp" -DateCreated="$timestamp" -ModifyDate="$timestamp" -overwrite_original $files
     }
 
 
