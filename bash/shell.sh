@@ -7,6 +7,7 @@ shopt -s checkwinsize
 if [[ $DOTFILES_INIT_MAC -eq 1 ]]
 then
   export SHELL_SESSION_HISTORY=0
+  export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
 export HISTCONTROL='ignoredups:erasedups'
