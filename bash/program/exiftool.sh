@@ -6,6 +6,7 @@ then
   then
     function exifClear() {
       local files=$@
+      exiftool -xmp:all= -tagsfromfile @ -xmp:all $files
       exiftool -Caption-Abstract= -City= -Country= -Creator= -CreatorTool= -Credit= -DerivedFromDocumentID= -DerivedFromInstanceID= -DerivedFromOriginalDocumentID= -Description= -DocumentAncestors= -DocumentID= -GPSDateStamp= -Headline= -HistoryAction= -HistoryChanged= -HistoryInstanceID= -HistoryParameters= -HistorySoftwareAgent= -HistoryWhen= -ImageDescription= -InstanceID= -Keywords= -ObjectName= -OriginalDocumentID= -Rights= -Software= -Subject= -Title= -Urgency= -UserComment= -overwrite_original $files
     }
 
