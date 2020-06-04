@@ -73,6 +73,8 @@
   httpd=webrick
 [push]
   default=current
+[pull]
+  rebase=true
 [diff]
   algorithm = patience
 [difftool "sourcetree"]
