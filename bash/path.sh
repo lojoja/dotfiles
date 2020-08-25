@@ -2,6 +2,9 @@
 
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/opt/sqlite/bin:$PATH"
+PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-units/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-time/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
