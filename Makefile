@@ -1,7 +1,7 @@
 ## TARGETS ##
-install:	clean	install-bash	install-config	install-eslint	install-git
+install:	clean	install-bash	install-config	install-eslint	install-exiftool	install-git
 uninstall:	clean
-clean: clean-bash	clean-config	clean-eslint	clean-git
+clean: clean-bash	clean-config	clean-eslint	clean-exiftool	clean-git
 
 # SCRIPT VARIABLES
 HOME_PATH := /Users/$(shell whoami)
@@ -10,6 +10,7 @@ DOTFILE_PATH := $(HOME_PATH)/.dotfiles
 BASH_CONF_PATH := $(DOTFILE_PATH)/bash
 CONFIG_CONF_PATH := $(DOTFILE_PATH)/config
 ESLINT_CONF_PATH := $(DOTFILE_PATH)/eslint
+EXIF_CONF_PATH := $(DOTFILE_PATH)/exiftool
 GIT_CONF_PATH := $(DOTFILE_PATH)/git
 
 clean-bash:
@@ -22,6 +23,9 @@ clean-config:
 clean-eslint:
 	rm -f $(HOME_PATH)/.eslintrc
 	rm -f $(HOME_PATH)/.eslintignore
+
+clean-exiftool:
+	rm -f $(HOME_PATH)/.ExifTool_config
 
 clean-git:
 	rm -f $(HOME_PATH)/.gitconfig
@@ -43,6 +47,9 @@ install-config:
 install-eslint:
 	ln -s $(ESLINT_CONF_PATH)/eslintrc $(HOME_PATH)/.eslintrc
 	ln -s $(ESLINT_CONF_PATH)/eslintignore $(HOME_PATH)/.eslintignore
+
+install-exiftool:
+	ln -s $(EXIF_CONF_PATH)/ExifTool_config $(HOME_PATH)/.ExifTool_config
 
 install-git:
 	ln -s $(GIT_CONF_PATH)/gitconfig $(HOME_PATH)/.gitconfig
