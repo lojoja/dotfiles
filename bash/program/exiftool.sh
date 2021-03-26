@@ -18,9 +18,10 @@ then
 
     function exifSetDate() {
       local timestamp="$1 $2"
-      shift 2
+      local offset="$3"
+      shift 3
       local files=$@
-      exiftool -CreateDate="$timestamp" -DateCreated="$timestamp" -ModifyDate="$timestamp" -overwrite_original $files
+      exiftool -CreateDate="$timestamp" -ModifyDate="$timestamp" -DateCreated="$timestamp" -DateTimeOriginal="$timestamp" -OffsetTime="$offset" -OffsetTimeOriginal="$offset" -OffsetTimeDigitized="$offset" -overwrite_original $files
     }
 
 
