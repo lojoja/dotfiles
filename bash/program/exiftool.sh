@@ -12,7 +12,7 @@ then
 
     function exifClearGPS() {
       local files=$@
-      exiftool -GPSAltitude= -GPSLatitude= -GPSLatitudeRef= -GPSLongitude= -GPSLongitudeRef= -overwrite_original $files
+      exiftool -GPSAltitude= -GPSDateStamp= -GPSLatitude= -GPSLatitudeRef= -GPSLongitude= -GPSLongitudeRef= -overwrite_original $files
     }
 
 
