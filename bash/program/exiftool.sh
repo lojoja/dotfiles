@@ -29,11 +29,49 @@ then
 
 
     function exifSetDate() {
-      local timestamp="$1 $2"
-      local offset="$3"
+      # Example: exifSetDate 2021-01-01 13:45 EST picture.jpg
+      local date="${1//-/:}"
+      local time="$2"
+      local zone="$3"
       shift 3
       local files=$@
-      exiftool -CreateDate="$timestamp" -ModifyDate="$timestamp" -DateCreated="$timestamp" -DateTimeOriginal="$timestamp" -OffsetTime="$offset" -OffsetTimeOriginal="$offset" -OffsetTimeDigitized="$offset" -overwrite_original $files
+      local datetime="${date} ${time}"
+      local i=0
+
+      # Check time format
+      local time_check="${time//[^:]}";
+
+      if [[ ${#time_check} -ne 1 ]]
+      then
+        printf "${RED_BOLD}Error:${RESET} Time format is HH:MM\n" && return 1
+      fi
+
+      case $zone in
+        EDT)
+          zone="-04:00"
+          ;;
+        CDT | EST)
+          zone="-05:00"
+          ;;
+        MDT | CST)
+          zone="-06:00"
+          ;;
+        PDT | MST)
+          zone="-07:00"
+          ;;
+        PST)
+          zone="-08:00"
+          ;;
+        *)
+          printf "${RED_BOLD}Error:${RESET} Unknown Time Zone%s\n" "$zone" && return 1
+      esac
+
+      for f in $files
+      do
+        printf -v sec ":%02d" $i;
+        exiftool -s -CreateDate="${datetime}${sec}" -DateCreated="${datetime}${sec}" -DateTimeOriginal="${datetime}${sec}" -ModifyDate="${datetime}${sec}"  -OffsetTime="${zone}" -OffsetTimeDigitized="${zone}" -OffsetTimeOriginal="${zone}" -overwrite_original "$f";
+        ((i=i+1));
+      done
     }
 
 
