@@ -10,6 +10,18 @@ then
     }
 
 
+    function exifClearAll() {
+      local files=$@
+      exiftool -xmp:all= -tagsfromfile @ -xmp:all -Caption-Abstract= -City= -Country= -CreateDate= -Creator= -CreatorTool= -Credit= -DateCreated= -DateTimeOriginal= -DerivedFromDocumentID= -DerivedFromInstanceID= -DerivedFromOriginalDocumentID= -Description= -DocumentAncestors= -DocumentID= -GPSAltitude= -GPSDateStamp= -GPSLatitude= -GPSLatitudeRef= -GPSLongitude= -GPSLongitudeRef= -Headline= -HistoryAction= -HistoryChanged= -HistoryInstanceID= -HistoryParameters= -HistorySoftwareAgent= -HistoryWhen= -ImageDescription= -InstanceID= -Keywords= -ModifyDate= -ObjectName= -OffsetTime= -OffsetTimeDigitized= -OffsetTimeOriginal= -OriginalDocumentID= -Rights= -Software= -Subject= -Title= -Urgency= -UserComment= -overwrite_original $files
+    }
+
+
+    function exifClearDate() {
+      local files=$@
+      exiftool -CreateDate= -DateCreated= -DateTimeOriginal= -ModifyDate= -OffsetTime= -OffsetTimeDigitized= -OffsetTimeOriginal= -overwrite_original $files
+    }
+
+
     function exifClearGPS() {
       local files=$@
       exiftool -GPSAltitude= -GPSDateStamp= -GPSLatitude= -GPSLatitudeRef= -GPSLongitude= -GPSLongitudeRef= -overwrite_original $files
