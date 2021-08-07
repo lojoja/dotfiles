@@ -74,7 +74,6 @@ then
       done
     }
 
-
     function exifSetGPS() {
       local lat="$1"
       local lon="$2"
@@ -85,12 +84,25 @@ then
       exiftool -GPSAltitude=0 -GPSLatitude="$lat" -GPSLatitudeRef="$lat_ref" -GPSLongitude="$lon" -GPSLongitudeRef="$lon_ref" -overwrite_original $files
     }
 
-
     function exifSetMovieDate() {
       local timestamp="$1 $2"
       shift 2
       local files=$@
       exiftool -CreateDate="$timestamp" -DateCreated="$timestamp" -MediaCreateDate="$timestamp" -MediaModifyDate="$timestamp" -ModifyDate="$timestamp" -TrackCreateDate="$timestamp" -TrackModifyDate="$timestamp" -overwrite_original $files
+    }
+
+    function exifSetMovieTitle() {
+      local file=$1
+      local name="${f%.*}"
+      exiftool -Title="${name}" -overwrite_original "$f"
+    }
+
+    function exifSetMovieTitles() {
+      local dir="$1"
+      for f in "$dir"/*.mp4
+      do
+        exifSetMovieTitle "$f"
+      done
     }
   fi
 fi
