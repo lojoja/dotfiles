@@ -2,7 +2,7 @@
 	"folders": [{"path": "."}],
   "settings": {"auto_python_builder_enabled": false},
   "syntax_override": {
-    "eslintrc$": ["JavaScript/JSON"],
+    "eslintrc$": ["JSON/JSON"],
     "flake8|pip.conf$": ["Config Files/INI/INI"],
     "gitconfig-local.example$": ["Git Formats/Git Config"],
     "yamllint$": ["YAML/YAML"]
