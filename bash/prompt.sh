@@ -17,8 +17,8 @@ dotfilesCurrentVENV() {
 
   if [ x$VIRTUAL_ENV != x ]
   then
-    folder=`dirname "${VIRTUAL_ENV}"`
-    name=`basename "$folder"`
+    folder="$(dirname "$VIRTUAL_ENV")"
+    name="$(basename "$folder")/$(basename "$VIRTUAL_ENV")"
     printf " ${BLACK_BOLD}[${BLACK}venv ${BLUE}${name}${BLACK_BOLD}]"
   fi
 
