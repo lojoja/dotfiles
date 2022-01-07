@@ -17,13 +17,9 @@ dotfilesCurrentVENV() {
 
   if [ x$VIRTUAL_ENV != x ]
   then
-    if [[ $VIRTUAL_ENV == *.virtualenvs/* ]]
-    then
-      name=`basename "${VIRTUAL_ENV}"`
-    else
-      folder=`dirname "${VIRTUAL_ENV}"`
-      name=`basename "$folder"`
-    fi
+    folder=`dirname "${VIRTUAL_ENV}"`
+    name=`basename "$folder"`
+  fi
 
     printf " ${BLACK_BOLD}[${BLACK}venv ${BLUE}${name}${BLACK_BOLD}]"
   fi
