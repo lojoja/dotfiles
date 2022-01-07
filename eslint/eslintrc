@@ -18,8 +18,6 @@
     "no-extra-parens": "error",
     "no-prototype-builtins": "error",
     "no-template-curly-in-string": "error",
-    "compat/compat": "error",
-    "valid-jsdoc": "error",
 
     // Best Practices
     "accessor-pairs": "error",
