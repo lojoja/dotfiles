@@ -1,18 +1,18 @@
 # dotfiles/bash/program/pip.sh
 
 export PIP_CONFIG_FILE="$DOTFILES/pip/pip.conf"
-export PIPLOJOJA_VENV_BASE="/usr/local/opt/lojoja"
 
-function piplojoja() {
-  local repo_name=$1
-  local repo_url="git+https://github.com/lojoja/$repo_name.git@master"
-  local venv="$PIPLOJOJA_VENV_BASE/$repo_name"
+function pippriv() {
+  local user=$1
+  local repo=$2
+  local url="git+ssh://git@github.com:/$user/$repo.git"
+  local venv="/usr/local/opt/$user/$repo"
 
-  /usr/local/bin/virtualenv "$venv" -p /usr/local/bin/python3 --always-copy
-  $venv/bin/pip install $repo_url --no-cache-dir --no-binary :all:
+  /usr/local/bin/python3 -m venv --copies --upgrade $venv
+  $venv/bin/pip install $url --no-cache-dir --no-binary :all:
 
-  if ! [[ -r "/usr/local/bin/$repo_name" ]]
+  if ! [[ -r "/usr/local/bin/$repo" ]]
   then
-    ln -s "$venv/bin/$repo_name" "/usr/local/bin/$repo_name"
+    ln -s "$venv/bin/$repo" "/usr/local/bin/$repo"
   fi
 }
