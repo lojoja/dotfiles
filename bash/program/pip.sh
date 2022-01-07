@@ -8,7 +8,13 @@ function pippriv() {
   local url="git+ssh://git@github.com:/$user/$repo.git"
   local venv="/usr/local/opt/$user/$repo"
 
-  /usr/local/bin/python3 -m venv --copies --upgrade $venv
+  if [[ -d "$venv" ]]
+  then
+    /usr/local/bin/python3 -m venv --upgrade $venv
+  else
+    /usr/local/bin/python3 -m venv --copies $venv
+  fi
+
   $venv/bin/pip install $url --no-cache-dir --no-binary :all:
 
   if ! [[ -r "/usr/local/bin/$repo" ]]
