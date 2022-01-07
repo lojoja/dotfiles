@@ -19,8 +19,6 @@ dotfilesCurrentVENV() {
   then
     folder=`dirname "${VIRTUAL_ENV}"`
     name=`basename "$folder"`
-  fi
-
     printf " ${BLACK_BOLD}[${BLACK}venv ${BLUE}${name}${BLACK_BOLD}]"
   fi
 
