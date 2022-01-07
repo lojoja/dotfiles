@@ -2,7 +2,7 @@
 
 export PIP_CONFIG_FILE="$DOTFILES/pip/pip.conf"
 
-function pippriv() {
+function pipPriv() {
   local user=$1
   local repo=$2
   local url="git+ssh://git@github.com:/$user/$repo.git"
