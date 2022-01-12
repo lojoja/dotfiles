@@ -1,7 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
-  editor = subl -n -w
+  editor = nano
 [color]
   ui = auto
 [color "branch"]
@@ -77,14 +77,6 @@
   rebase=true
 [diff]
   algorithm = patience
-  tool = smerge
-[difftool "smerge"]
-	ccmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
-[merge]
-  tool = smerge
-[mergetool "smerge"]
-  cmd = smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
-	trustExitCode = true
 [credential]
 	helper = osxkeychain
 [include]
