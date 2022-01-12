@@ -20,7 +20,7 @@ then
     DOTFILES_INIT_BREW_PREFIX="`brew --prefix`"
   fi
 
-  export EDITOR='subl -n -w'
+  export EDITOR='nano'
   export COPYFILE_DISABLE=true
   export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 else
