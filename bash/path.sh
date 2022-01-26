@@ -21,6 +21,15 @@ fi
 
 unset SUBL_BASE_PATH
 
+SMERGE_BASE_PATH="$(find /Applications -maxdepth 1 -type d -name 'Sublime Merge*.app')"
+
+if [[ -d $SMERGE_BASE_PATH ]]
+then
+  PATH="$SMERGE_BASE_PATH/Contents/SharedSupport/bin:$PATH"
+fi
+
+unset SMERGE_BASE_PATH
+
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
