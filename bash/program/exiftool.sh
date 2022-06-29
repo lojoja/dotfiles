@@ -92,9 +92,10 @@ then
     }
 
     function exifSetMovieTitle() {
-      local file=$1
-      local name="${f%.*}"
-      exiftool -Title="${name}" -overwrite_original "$f"
+      local file="$1"
+      local name=${file##*/} # remove path
+      name="${name%.*}" # remove extension
+      exiftool -Title="${name}" -overwrite_original "$file"
     }
 
     function exifSetMovieTitles() {
