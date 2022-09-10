@@ -31,6 +31,5 @@ fi
 unset SMERGE_BASE_PATH
 
 PATH="$HOME/bin:$PATH"
-PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"
 export PATH="$PATH"
