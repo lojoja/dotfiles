@@ -10,7 +10,7 @@ PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+PATH="/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
 
 SUBL_BASE_PATH="$(find /Applications -maxdepth 1 -type d -name 'Sublime Text*.app')"
 
@@ -31,7 +31,6 @@ fi
 unset SMERGE_BASE_PATH
 
 PATH="$HOME/bin:$PATH"
-PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
+PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"
 export PATH="$PATH"
