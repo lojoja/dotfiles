@@ -273,27 +273,31 @@ EXEC  01;31
 .wmv  01;33
 
 # Binary formats / Media Source [Bold Cyan]
-.ai   01;36
-.doc  01;36
-.docx 01;36
-.dot  01;36
-.dotx 01;36
-.fla  01;36
-.indb 01;36
-.indd 01;36
-.odp  01;36
-.ods  01;36
-.odt  01;36
-.otp  01;36
-.ots  01;36
-.ott  01;36
-.pdf  01;36
-.ppt  01;36
-.pptx 01;36
-.psd  01;36
-.rtf  01;36
-.xls  01;36
-.xlsx 01;36
+.ai       01;36
+.doc      01;36
+.docx     01;36
+.dot      01;36
+.dotx     01;36
+.fla      01;36
+.indb     01;36
+.indd     01;36
+.numbers  01;36
+.odp      01;36
+.ods      01;36
+.odt      01;36
+.otp      01;36
+.ots      01;36
+.ott      01;36
+.pages    01;36
+.pdf      01;36
+.ppt      01;36
+.pptx     01;36
+.prproj   01;36
+.psd      01;36
+.rtf      01;36
+.sesx     01;36
+.xls      01;36
+.xlsx     01;36
 
 # Archives / Compressed [Bold Magenta]
 .7z   01;35
