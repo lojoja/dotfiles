@@ -6,10 +6,6 @@ DOTFILES_INIT_DIRCOLORS="$DOTFILES/bash/program/ls.colors"
 DOTFILES_INIT_MAC=0
 DOTFILES_INIT_BREW_PREFIX=""
 
-# PATHS
-source "$DOTFILES/bash/path.sh"
-source "$DOTFILES/bash/manpath.sh"
-
 # OS-SPECIFIC
 if [[ `uname -s` -eq 'Darwin' ]]
 then
@@ -26,6 +22,10 @@ then
 else
   export EDITOR='nano'
 fi
+
+# PATHS
+source "$DOTFILES/bash/path.sh"
+source "$DOTFILES/bash/manpath.sh"
 
 # GENERAL
 export ARCHFLAGS="-arch i386 -arch x86_64"
