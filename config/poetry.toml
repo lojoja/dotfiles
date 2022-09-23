@@ -11,7 +11,7 @@ parallel = true
 
 [virtualenvs]
 create = true
-in-project = false
+in-project = true
 options.always-copy = false
 options.no-pip = false
 options.no-setuptools = false
