@@ -20,8 +20,7 @@ dotfilesCurrentVENV() {
 
     if [[ -r "$VIRTUAL_ENV/pyvenv.cfg" ]] # Poetry-style virtualenv prompt
     then
-      name=$(basename "$VIRTUAL_ENV")
-      name=${name/-*-/-}
+      name=$(cat .venv/pyvenv.cfg | sed -n -e 's|prompt\s*=\s*\(.*\)$|\1|p')
     else
       folder="$(dirname "$VIRTUAL_ENV")"
       name="$(basename "$folder")/$(basename "$VIRTUAL_ENV")"
