@@ -18,6 +18,7 @@ clean-bash:
 
 clean-config:
 	rm -f $(CONFIG_PATH)/flake8
+	rm -f $(CONFIG_PATH)/poetry/config.toml
 	rm -f $(CONFIG_PATH)/yamllint/config
 
 clean-eslint:
@@ -41,6 +42,8 @@ install-bash:
 install-config:
 	test -d $(CONFIG_PATH) || mkdir $(CONFIG_PATH)
 	ln -s $(CONFIG_CONF_PATH)/flake8 $(CONFIG_PATH)/flake8
+	test -d $(CONFIG_PATH)/poetry || mkdir $(CONFIG_PATH)/poetry
+	ln -s $(CONFIG_CONF_PATH)/poetry.toml $(CONFIG_PATH)/poetry/config.toml
 	test -d $(CONFIG_PATH)/yamllint || mkdir $(CONFIG_PATH)/yamllint
 	ln -s $(CONFIG_CONF_PATH)/yamllint $(CONFIG_PATH)/yamllint/config
 
