@@ -15,6 +15,7 @@ GIT_CONF_PATH := $(DOTFILE_PATH)/git
 
 clean-bash:
 	rm -f $(HOME_PATH)/.bash_profile
+	rm -f $(HOME_PATH)/.bashrc
 
 clean-config:
 	rm -f $(CONFIG_PATH)/flake8
@@ -35,6 +36,7 @@ clean-git:
 
 install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
+	ln -s $(BASH_CONF_PATH)/rc.sh $(HOME_PATH)/.bashrc
 	test -f $(BASH_CONF_PATH)/private.sh || cp $(BASH_CONF_PATH)/private.example.sh $(BASH_CONF_PATH)/private.sh
 	test -f $(BASH_CONF_PATH)/local.sh || touch $(BASH_CONF_PATH)/local.sh
 	test -f $(HOME_PATH)/.hushlogin || touch $(HOME_PATH)/.hushlogin
