@@ -1,4 +1,4 @@
-cache-dir = "~/Library/Caches/pypoetry"
+#cache-dir = "~/Library/Caches/pypoetry"
 
 [experimental]
 new-installer = true
