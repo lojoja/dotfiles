@@ -17,8 +17,16 @@ dotfilesCurrentVENV() {
 
   if [ x$VIRTUAL_ENV != x ]
   then
-    folder="$(dirname "$VIRTUAL_ENV")"
-    name="$(basename "$folder")/$(basename "$VIRTUAL_ENV")"
+
+    if [[ -r "$VIRTUAL_ENV/pyvenv.cfg" ]] # Poetry-style virtualenv prompt
+    then
+      name=$(basename "$VIRTUAL_ENV")
+      name=${name/-*-/-}
+    else
+      folder="$(dirname "$VIRTUAL_ENV")"
+      name="$(basename "$folder")/$(basename "$VIRTUAL_ENV")"
+    fi
+
     printf " ${BLACK_BOLD}[${BLACK}venv ${BLUE}${name}${BLACK_BOLD}]"
   fi
 
