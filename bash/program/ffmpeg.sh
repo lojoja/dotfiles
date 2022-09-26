@@ -11,7 +11,7 @@ then
       local extension="${file##*.}"
       local filename="${file%.*}"
 
-      ffmpeg -i $file -metadata location=${lat}${lon} -metadata location-eng=${lat}${lon} -codec copy "${filename}_tagged.${extension}"
+      ffmpeg -i "$file" -metadata location="${lat}${lon}" -metadata location-eng="${lat}${lon}"-codec copy "${filename}_tagged.${extension}"
     }
   fi
 fi

@@ -1,7 +1,7 @@
 # dotfiles/bash/program/ansible.sh
 
 # Defaults
-export ANSIBLE_REMOTE_TEMP='~/.ansible/tmp'
+export ANSIBLE_REMOTE_TEMP='$HOME/.ansible/tmp'
 export ANSIBLE_LOCAL_TEMP='/tmp/ansible'
 export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.ansible-vault"
 

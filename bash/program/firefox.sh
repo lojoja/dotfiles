@@ -21,7 +21,7 @@ then
       then
         open -n -a "$FIREFOX_APP" --args -profile "$HOME/Library/Application Support/Firefox/Profiles/${FIREFOX_PROFILE[$name]}" -no-remote
       else
-        printf 'Firefox profile "%s" not found' $name && return 1
+        printf 'Firefox profile "%s" not found' "$name" && return 1
       fi
     }
   fi

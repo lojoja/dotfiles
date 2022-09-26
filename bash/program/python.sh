@@ -9,6 +9,6 @@ alias py3='python3'
 
 function upgradeVenv() {
   for venv in /usr/local/opt/{lojoja,snldev}/*; do
-    /usr/local/bin/python3 -m venv --upgrade --copies $venv
+    /usr/local/bin/python3 -m venv --upgrade --copies "$venv"
   done
 }

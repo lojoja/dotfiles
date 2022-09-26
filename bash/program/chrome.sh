@@ -22,7 +22,7 @@ then
       then
         open -n -a "$CHROME_APP" --args $CHROME_ARGS --profile-directory="Profile ${CHROME_PROFILE[$name]}"
       else
-        printf 'Google Chrome profile "%s" not found' $name && return 1
+        printf 'Google Chrome profile "%s" not found' "$name" && return 1
       fi
     }
   fi

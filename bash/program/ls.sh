@@ -2,7 +2,7 @@
 
 if [[ -r $DOTFILES_INIT_DIRCOLORS ]]
 then
-  eval "$(dircolors -b $DOTFILES_INIT_DIRCOLORS)"
+  eval "$(dircolors -b "$DOTFILES_INIT_DIRCOLORS")"
 else
   eval "$(dircolors -b)"
 fi
