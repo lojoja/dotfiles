@@ -31,7 +31,7 @@
   lasttag = describe --tags --abbrev=0
   branches = branch -vv
   getbranch = "!x() { git co origin/$1 -b $1; }; x"
-  fixbranch = "!x() { b=`git symbolic-ref -q --short HEAD` && git rebase --onto $b master $1 && git diff --stat $b && git checkout $b; }; x"
+  fixbranch = "!x() { b=`git symbolic-ref -q --short HEAD` && git rebase --onto $b main $1 && git diff --stat $b && git checkout $b; }; x"
   autotrack = "!x() { b=`git symbolic-ref -q --short HEAD` && git branch -u \"origin/$b\" || echo \"error: not a branch\"; }; x"
   slog = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
   glog = log --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
@@ -43,7 +43,7 @@
         rup = !git remote update `git rev-parse --symbolic-full-name HEAD@{u}|cut -d/ -f3`
   in = !git wtf HEAD..HEAD@{u}
   out = !git wtf HEAD@{u}..HEAD
-  killbranches = !git branch | grep -v '\\bmaster\\b' | xargs git branch -d 2> /dev/null
+  killbranches = !git branch | grep -v '\\bmain\\b' | xargs git branch -d 2> /dev/null
   sync = !git pull --rebase && git push
   down = "!git remote update; git pull --ff-only"
   comerge = "!x() { target=`git symbolic-ref HEAD`; git co $1; git merge $target; }; x"
@@ -79,5 +79,7 @@
   algorithm = patience
 [credential]
 	helper = osxkeychain
+[init]
+  defaultBranch = main
 [include]
   path = ~/.gitconfig-local
