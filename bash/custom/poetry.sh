@@ -1,4 +1,5 @@
-# dotfiles/bash/program/poetry.sh
+# dotfiles/bash/custom/poetry.sh
+# shellcheck shell=bash
 
 if hash poetry &>/dev/null
 then

@@ -1,6 +1,8 @@
-# dotfiles/bash/program/ansible.sh
+# dotfiles/bash/custom/ansible.sh
+# shellcheck shell=bash
 
 # Defaults
+# shellcheck disable=2016
 export ANSIBLE_REMOTE_TEMP='$HOME/.ansible/tmp'
 export ANSIBLE_LOCAL_TEMP='/tmp/ansible'
 export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.ansible-vault"

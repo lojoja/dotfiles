@@ -1,13 +1,11 @@
 # dotfiles/bash/prompt.sh
+# shellcheck shell=bash
 
 dotfilesCurrentRepo() {
   # Format working directory repository status for bash prompt
-  local prompt
-
   if hash vcprompt &>/dev/null
   then
-    prompt=" ${BLACK_BOLD}[${BLACK}repo ${BLUE}%n${BLACK_BOLD}:${YELLOW}%b${GREEN}%m%u${BLACK_BOLD}]"
-    vcprompt -f "$prompt"
+    vcprompt -f " ${BLACK_BOLD}[${BLACK}repo ${BLUE}%n${BLACK_BOLD}:${YELLOW}%b${GREEN}%m%u${BLACK_BOLD}]"
   fi
 }
 
@@ -15,18 +13,18 @@ dotfilesCurrentVENV() {
   # Format the current virtual env for bash prompt
   local folder name
 
-  if [ x$VIRTUAL_ENV != x ]
+  if [[ x${VIRTUAL_ENV} != x ]]
   then
 
     if [[ -r "$VIRTUAL_ENV/pyvenv.cfg" ]] # Poetry-style virtualenv prompt
     then
-      name=$(cat .venv/pyvenv.cfg | sed -n -e 's|^prompt\s*=\s*\(.*\)$|\1|p')
+      name=$(sed -n -e 's|^prompt\s*=\s*\(.*\)$|\1|p' < .venv/pyvenv.cfg)
     else
       folder="$(dirname "$VIRTUAL_ENV")"
       name="$(basename "$folder")/$(basename "$VIRTUAL_ENV")"
     fi
 
-    printf " ${BLACK_BOLD}[${BLACK}venv ${BLUE}${name}${BLACK_BOLD}]"
+    printf " %s[%svenv %s%s%s]" "$BLACK_BOLD" "$BLACK" "$BLUE" "$name" "$BLACK_BOLD"
   fi
 
   stty werase undef
@@ -39,7 +37,7 @@ dotfilesPreviousCommandStatus() {
 
   if [[ $code -ne 0 ]]
   then
-    printf " ${BLACK_BOLD}[${BLACK}exited ${RED}${code}${BLACK_BOLD}]"
+    printf " %s[%sexited %s%s%s]" "$BLACK_BOLD" "$BLACK" "$RED" "$code" "$BLACK_BOLD"
   fi
 }
 

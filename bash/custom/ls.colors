@@ -1,4 +1,4 @@
-# dotfiles/bash/program/ls.colors
+# dotfiles/bash/custom/ls.colors
 
 # COLOR needs one of these arguments:
 #   tty: colorizes output to ttys, but not pipes.
