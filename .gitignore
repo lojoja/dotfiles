@@ -7,3 +7,7 @@ private.sh
 # Git
 .gitconfig-local
 gitconfig-local
+
+# Zsh
+local.zsh
+private.zsh
