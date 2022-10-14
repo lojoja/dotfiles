@@ -94,7 +94,7 @@ plugins=(
   copyfile
   copypath
   git
-  git-prompt
+  #git-prompt
   jsontools
   macos
   pip
