@@ -37,7 +37,7 @@ clean-git:
 	rm -f $(HOME_PATH)/.gitignore
 
 clean-zsh:
-	rm -f $(HOME_PATH)/.bashrc
+	rm -f $(HOME_PATH)/.zshrc
 
 install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
