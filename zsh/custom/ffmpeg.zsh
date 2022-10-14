@@ -3,7 +3,7 @@
 
 if hash ffmpeg &>/dev/null
 then
-  ffmpegSetMovieGPS() {
+  function ffmpegSetMovieGPS() {
     local lat="$1"
     local lon="$2"
     local file="$3"

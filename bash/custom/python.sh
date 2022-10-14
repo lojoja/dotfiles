@@ -7,7 +7,7 @@ if [[ $HOMEBREW_PREFIX != "" ]]
 then
   alias py3='$HBBIN/python3'
 
-  upgradeVenv() {
+  function upgradeVenv() {
     for venv in "$HBOPT"/{lojoja,snldev}/*; do
       "$HBBIN/python3" -m venv --upgrade --copies "$venv"
     done &>/dev/null

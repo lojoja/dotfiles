@@ -13,31 +13,31 @@ xmp_tags=(-xmp:all= -tagsfromfile @ -xmp:all)
 
 if hash exiftool &>/dev/null
 then
-  exifClear() {
+  function exifClear() {
     local files=("${@}")
     exiftool "${xmp_tags[@]}" "${common_tags[@]}" -overwrite_original "${files[@]}"
   }
 
 
-  exifClearAll() {
+  function exifClearAll() {
     local files=("${@}")
     exiftool "${xmp_tags[@]}" "${common_tags[@]}" "${datetime_tags[@]}" "${gps_tags[@]}" -overwrite_original "${files[@]}"
   }
 
 
-  exifClearDate() {
+  function exifClearDate() {
     local files=("${@}")
     exiftool "${datetime_tags[@]}" -overwrite_original "${files[@]}"
   }
 
 
-  exifClearGPS() {
+  function exifClearGPS() {
     local files=("${@}")
     exiftool "${gps_tags[@]}" -overwrite_original "${files[@]}"
   }
 
 
-  exifSetDate() {
+  function exifSetDate() {
     # Example: exifSetDate 2021-01-01 13:45 EST picture.jpg
     local date="${1//-/:}"
     local time="$2"
@@ -86,7 +86,7 @@ then
     done
   }
 
-  exifSetGPS() {
+  function exifSetGPS() {
     local lat="$1"
     local lon="$2"
     shift 2
@@ -111,21 +111,21 @@ then
     exiftool -GPSAltitude=0 -GPSLatitude="$lat" -GPSLatitudeRef="$lat_ref" -GPSLongitude="$lon" -GPSLongitudeRef="$lon_ref" -overwrite_original "${files[@]}"
   }
 
-  exifSetMovieDate() {
+  function exifSetMovieDate() {
     local ts="$1 $2"
     shift 2
     local files=("${@}")
     exiftool -CreateDate="$ts" -DateCreated="$ts" -MediaCreateDate="$ts" -MediaModifyDate="$ts" -ModifyDate="$ts" -TrackCreateDate="$ts" -TrackModifyDate="$ts" -overwrite_original "${files[@]}"
   }
 
-  exifSetMovieTitle() {
+  function exifSetMovieTitle() {
     local file="$1"
     local name=${file##*/} # remove path
     name="${name%.*}" # remove extension
     exiftool -Title="${name}" -overwrite_original "$file"
   }
 
-  exifSetMovieTitles() {
+  function exifSetMovieTitles() {
     local dir="$1"
     for f in "$dir"/*.mp4
     do

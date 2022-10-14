@@ -5,7 +5,7 @@ export PIP_CONFIG_FILE="$DOTFILES/pip/pip.conf"
 
 if [[ $HOMEBREW_PREFIX != "" ]]
 then
-  pipPriv() {
+  function pipPriv() {
     local user=$1
     local name=$2
     local host
