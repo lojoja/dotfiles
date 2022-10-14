@@ -1,7 +1,7 @@
 ## TARGETS ##
-install:	clean	install-bash	install-config	install-eslint	install-exiftool	install-git
+install:	clean	install-bash	install-config	install-eslint	install-exiftool	install-git	install-zsh
 uninstall:	clean
-clean: clean-bash	clean-config	clean-eslint	clean-exiftool	clean-git
+clean: clean-bash	clean-config	clean-eslint	clean-exiftool	clean-git	clean-zsh
 
 # SCRIPT VARIABLES
 HOME_PATH := /Users/$(shell whoami)
@@ -12,6 +12,7 @@ CONFIG_CONF_PATH := $(DOTFILE_PATH)/config
 ESLINT_CONF_PATH := $(DOTFILE_PATH)/eslint
 EXIF_CONF_PATH := $(DOTFILE_PATH)/exiftool
 GIT_CONF_PATH := $(DOTFILE_PATH)/git
+ZSH_CONF_PATH := $(DOTFILE_PATH)/zsh
 
 clean-bash:
 	rm -f $(HOME_PATH)/.bash_profile
@@ -20,6 +21,7 @@ clean-bash:
 clean-config:
 	rm -f $(CONFIG_PATH)/flake8
 	rm -f $(CONFIG_PATH)/poetry/config.toml
+	rm -f $(CONFIG_PATH)/starship.toml
 	rm -f $(CONFIG_PATH)/yamllint/config
 
 clean-eslint:
@@ -34,6 +36,9 @@ clean-git:
 	rm -f $(HOME_PATH)/.gitconfig-local
 	rm -f $(HOME_PATH)/.gitignore
 
+clean-zsh:
+	rm -f $(HOME_PATH)/.bashrc
+
 install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
 	ln -s $(BASH_CONF_PATH)/rc.sh $(HOME_PATH)/.bashrc
@@ -46,6 +51,7 @@ install-config:
 	ln -s $(CONFIG_CONF_PATH)/flake8 $(CONFIG_PATH)/flake8
 	test -d $(CONFIG_PATH)/poetry || mkdir $(CONFIG_PATH)/poetry
 	ln -s $(CONFIG_CONF_PATH)/poetry.toml $(CONFIG_PATH)/poetry/config.toml
+	ln -s $(CONFIG_CONF_PATH)/starship.toml $(CONFIG_PATH)/starship.toml
 	test -d $(CONFIG_PATH)/yamllint || mkdir $(CONFIG_PATH)/yamllint
 	ln -s $(CONFIG_CONF_PATH)/yamllint $(CONFIG_PATH)/yamllint/config
 
@@ -61,3 +67,8 @@ install-git:
 	test -f $(GIT_CONF_PATH)/gitconfig-local || cp $(GIT_CONF_PATH)/gitconfig-local.example $(GIT_CONF_PATH)/gitconfig-local
 	ln -s $(GIT_CONF_PATH)/gitconfig-local $(HOME_PATH)/.gitconfig-local
 	ln -s $(GIT_CONF_PATH)/gitignore $(HOME_PATH)/.gitignore
+
+install-zsh:
+	ln -s $(ZSH_CONF_PATH)/rc.zsh $(HOME_PATH)/.zshrc
+	test -f $(ZSH_CONF_PATH)/private.zsh || cp $(ZSH_CONF_PATH)/private.example.zsh $(ZSH_CONF_PATH)/private.zsh
+	test -f $(ZSH_CONF_PATH)/local.zsh || touch $(ZSH_CONF_PATH)/local.zsh
