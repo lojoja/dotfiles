@@ -63,16 +63,17 @@ symbol = " "
 
 [git_status]
 conflicted = ""
-ahead = ""
-behind = "丹"
 diverged = ""
-untracked = ""
+untracked = " x${count} "
 stashed = " "
-modified = ""
-staged = ""
-renamed = ""
-deleted = "﫧"
+modified = " x${count} "
+staged = " x${count} "
+renamed = " x${count} "
+deleted = "﫧 x${count} "
+ahead = " "
+behind = "丹 "
 style = "bold blue"
+format = '([\[ $conflicted$untracked$stashed$modified$renamed$deleted$staged$ahead$behind\]]($style) )'
 
 [golang]
 symbol = " "
@@ -124,4 +125,3 @@ symbol = "🅢 "
 
 [status]
 disabled = false
-
