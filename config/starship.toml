@@ -25,9 +25,10 @@ $status\
 $container\
 $shell\
 $character"""
+
 right_format = ""
 scan_timeout = 30
-command_timeout = 300
+command_timeout = 1000
 add_newline = true
 
 [aws]
@@ -59,6 +60,19 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+
+[git_status]
+conflicted = ""
+ahead = ""
+behind = "丹"
+diverged = ""
+untracked = ""
+stashed = " "
+modified = ""
+staged = ""
+renamed = ""
+deleted = "﫧"
+style = "bold blue"
 
 [golang]
 symbol = " "
@@ -110,3 +124,4 @@ symbol = "🅢 "
 
 [status]
 disabled = false
+
