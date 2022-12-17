@@ -28,7 +28,7 @@ $character"""
 
 right_format = ""
 scan_timeout = 30
-command_timeout = 1000
+command_timeout = 5000
 add_newline = true
 
 [aws]
