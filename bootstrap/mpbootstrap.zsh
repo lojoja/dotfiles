@@ -13,7 +13,7 @@ yes | sudo port install git subversion
 yes | sudo port install libsass libxml2 libyaml
 
 # Javascript
-yes | sudo port install nodejs19 yarn
+yes | sudo port install nodejs19 npm9 yarn
 
 # PHP
 yes | sudo port install php81 -libedit +readline php81-pcov php81-curl php81-mbstring php81-mysql php81-openssl php81-posix php81-sodium php81-sqlite
