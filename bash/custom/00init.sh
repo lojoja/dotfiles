@@ -53,7 +53,7 @@ then
 fi
 
 # Macports
-if hash port &> /dev/null
+if hash /opt/local/bin/port &> /dev/null
 then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/macports.sh"
 
