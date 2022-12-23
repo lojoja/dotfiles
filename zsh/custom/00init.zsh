@@ -11,15 +11,21 @@ then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/homebrew.sh"
 
   # Update PATH for brew installed programs
-  for dir in "$HOMEBREW_PREFIX"/{bin,sbin} "$HBOPT"/*/libtool/gnubin
+  for dir in "$HOMEBREW_PREFIX"/{bin,sbin} "$HBOPT"/*/libexec/gnubin
   do
-    path=($dir $path)
+    if [[ -d $dir ]]
+    then
+      path=($dir $path)
+    fi
   done &>/dev/null
 
   # Update MANPATH for brew installed programs
-  for dir in "$HBSHR"/man "$HBOPT"/*/libtool/gnuman
+  for dir in "$HBSHR"/man "$HBOPT"/*/libexec/gnuman
   do
-    manpath=($dir $manpath)
+    if [[ -d $dir ]]
+    then
+      manpath=($dir $manpath)
+    fi
   done &>/dev/null
 fi
 
@@ -29,15 +35,21 @@ then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/macports.sh"
 
   # Update PATH for port installed programs
-  for dir in "$MACPORTS_PREFIX"/{bin,sbin} "$MPOPT"/*/{libexec,libtool}/gnubin
+  for dir in "$MACPORTS_PREFIX"/{bin,sbin,libexec/gnubin}
   do
-    path=($dir $path)
+    if [[ -d $dir ]]
+    then
+      path=($dir $path)
+    fi
   done &>/dev/null
 
   # Update MANPATH for port installed programs
-  for dir in "$MPSHR"/man "$MPOPT"/{sqlite,ruby}/share/man "$MPOPT"/*/{libexec,libtool}/gnuman
+  for dir in "$MACPORTS_PREFIX"/{man,libexec/gnubin/man}
   do
-    manpath=($dir $manpath)
+    if [[ -d $dir ]]
+    then
+      manpath=($dir $manpath)
+    fi
   done &>/dev/null
 
   # ZSH completion
