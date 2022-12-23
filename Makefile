@@ -1,7 +1,7 @@
 ## TARGETS ##
-install:	clean	install-bash	install-config	install-zsh
+install:	clean	install-bash	install-config	install-shell-common	install-zsh
 uninstall:	clean
-clean: clean-bash	clean-config	clean-zsh
+clean: clean-bash	clean-config	clean-shell-common	clean-zsh
 
 # SCRIPT VARIABLES
 HOME_PATH := /Users/$(shell whoami)
@@ -9,6 +9,7 @@ CONFIG_PATH := $(HOME_PATH)/.config
 DOTFILE_PATH := $(HOME_PATH)/.dotfiles
 BASH_CONF_PATH := $(DOTFILE_PATH)/bash
 CONFIG_CONF_PATH := $(DOTFILE_PATH)/config
+SHELL_SHARED_CONF_PATH := $(DOTFILE_PATH)/shared/shell
 ZSH_CONF_PATH := $(DOTFILE_PATH)/zsh
 
 clean-bash:
@@ -28,15 +29,15 @@ clean-config:
 	rm -f $(CONFIG_PATH)/starship.toml
 	rm -rf $(CONFIG_PATH)/yamllint
 
+clean-shell-common:
+	rm -f $(HOME_PATH)/.hushlogin
+
 clean-zsh:
 	rm -f $(HOME_PATH)/.zshrc
 
 install-bash:
 	ln -s $(BASH_CONF_PATH)/profile.sh $(HOME_PATH)/.bash_profile
 	ln -s $(BASH_CONF_PATH)/rc.sh $(HOME_PATH)/.bashrc
-	test -f $(BASH_CONF_PATH)/private.sh || cp $(BASH_CONF_PATH)/private.example.sh $(BASH_CONF_PATH)/private.sh
-	test -f $(BASH_CONF_PATH)/local.sh || touch $(BASH_CONF_PATH)/local.sh
-	test -f $(HOME_PATH)/.hushlogin || touch $(HOME_PATH)/.hushlogin
 
 install-config:
 	ln -s $(CONFIG_CONF_PATH)/eslint/eslintrc $(HOME_PATH)/.eslintrc
@@ -53,7 +54,10 @@ install-config:
 	ln -s $(CONFIG_CONF_PATH)/starship.toml $(CONFIG_PATH)/starship.toml
 	ln -s $(CONFIG_CONF_PATH)/yamllint $(CONFIG_PATH)/yamllint
 
+install-shell-common:
+	test -f $(SHELL_SHARED_CONF_PATH)/private.sh || cp $(SHELL_SHARED_CONF_PATH)/private.example.sh $(SHELL_SHARED_CONF_PATH)/private.sh
+	test -f $(SHELL_SHARED_CONF_PATH)/local.sh || touch $(SHELL_SHARED_CONF_PATH)/local.sh
+	test -f $(HOME_PATH)/.hushlogin || touch $(HOME_PATH)/.hushlogin
+
 install-zsh:
 	ln -s $(ZSH_CONF_PATH)/rc.zsh $(HOME_PATH)/.zshrc
-	test -f $(ZSH_CONF_PATH)/private.zsh || cp $(ZSH_CONF_PATH)/private.example.zsh $(ZSH_CONF_PATH)/private.zsh
-	test -f $(ZSH_CONF_PATH)/local.zsh || touch $(ZSH_CONF_PATH)/local.zsh
