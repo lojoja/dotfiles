@@ -17,7 +17,7 @@ DOTFILES_SHARED_SHELL_INIT_PATH="$DOTFILES_SHARED_SHELL_PATH/init"
 
 # Export paths to editable files for convenience
 export DOTFILES_PRIVATE="$DOTFILES_SHARED_SHELL_PATH/private.sh"
-export DOTFILES_LOCAL="$DOTFILES_ZSH_PATH/local.sh"
+export DOTFILES_LOCAL="$DOTFILES_SHARED_SHELL_PATH/local.sh"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

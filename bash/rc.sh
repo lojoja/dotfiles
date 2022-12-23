@@ -19,7 +19,7 @@ DOTFILES_SHARED_SHELL_INIT_PATH="$DOTFILES_SHARED_SHELL_PATH/init"
 
 # Export paths to editable files for convenience
 export DOTFILES_PRIVATE="$DOTFILES_SHARED_SHELL_PATH/private.sh"
-export DOTFILES_LOCAL="$DOTFILES_BASH_PATH/local.sh"
+export DOTFILES_LOCAL="$DOTFILES_SHARED_SHELL_PATH/local.sh"
 
 # Load configuration files
 # The files are loaded in the following order
