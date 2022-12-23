@@ -24,7 +24,7 @@ then
 fi
 
 # Macports
-if hash /opt/local/bin/port &> /dev/null
+if [[ -r /opt/local/bin/port ]]
 then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/macports.sh"
 
