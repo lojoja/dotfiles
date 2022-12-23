@@ -6,20 +6,30 @@ export PIP_CONFIG_FILE="$DOTFILES_INSTALLED_CONFIG_PATH/pip.conf"
 if [[ $MACPORTS_PREFIX != "" ]]
 then
   function pipPriv() {
-    local user=$1
+    local account=$1
     local name=$2
     local host
 
-    if [[ $user = 'snldev' ]]
+    if [[ $USER = 'jl' ]]
     then
-      host='gh-snldev'
+      if [[ $account = 'snldev' ]]
+      then
+        host="gh-snldev"
+      else
+        host="gh"
+      fi
     else
-      host='gh'
+      if [[ $account = 'snldev' ]]
+      then
+        host="gh"
+      else
+        host="gh-lojoja"
+      fi
     fi
 
-    local url="git+ssh://$host:/$user/$name.git"
-    local venv="$MPOPT/$user/$name"
-    local cmd="$MPBIN/$name"
+    local url="git+ssh://$host:/$account/$name.git"
+    local venv="$HBOPT/$account/$name"
+    local cmd="$HBBIN/$name"
 
     if [[ -d "$venv" ]]
     then
