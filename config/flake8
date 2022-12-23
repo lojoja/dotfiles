@@ -1,4 +1,5 @@
 # dotfiles/config/flake8
+
 [flake8]
 count = True
 disable-noqa = False

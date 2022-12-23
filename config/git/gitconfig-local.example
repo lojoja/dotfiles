@@ -1,0 +1,5 @@
+# dotfiles/config/git/gitconfig-local.example
+#
+# File for local system/environment/user specific variables. These are not stored in the repo.
+# Copy this file to ~/.dotfiles/config/git/gitconfig-local
+#

@@ -1,12 +1,12 @@
 # dotfiles/bash/custom/fzf.sh
 # shellcheck shell=bash disable=1090,1091
 
-if [[ $HOMEBREW_PREFIX != "" ]]
+if [[ $MACPORTS_PREFIX != "" ]]
 then
   # Auto-completion
   if [[ $- == *i* ]]
   then
-    completion="${HBOPT}/fzf/shell/completion.bash"
+    completion="${MPOPT}/fzf/shell/completion.bash"
 
     if [[ -r $completion ]]
     then
@@ -17,7 +17,7 @@ then
   fi
 
   # Key bindings
-  bindings="${HBOPT}/fzf/shell/key-bindings.bash"
+  bindings="${MPOPT}/fzf/shell/key-bindings.bash"
 
   if [[ -r $bindings ]]
   then

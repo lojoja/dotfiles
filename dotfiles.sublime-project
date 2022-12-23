@@ -15,7 +15,7 @@
     "gitconfig-local.example$": [
       "Git Formats/Git Config"
     ],
-    "yamllint$": [
+    "yamllint/config$": [
       "YAML/YAML"
     ]
   },
