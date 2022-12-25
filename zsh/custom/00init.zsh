@@ -6,7 +6,7 @@ source "$DOTFILES_SHARED_SHELL_INIT_PATH/base.sh"
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 
-if hash brew &> /dev/null
+if [[ -r /usr/local/bin/brew ]]
 then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/homebrew.sh"
 

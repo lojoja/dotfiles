@@ -2,9 +2,9 @@
 # shellcheck shell=bash
 
 # Homebrew envvars (official)
-HOMEBREW_PREFIX="$(brew --prefix)"
-HOMEBREW_CELLAR="$(brew --cellar)"
-HOMEBREW_REPOSITORY="$(brew --repository)"
+HOMEBREW_PREFIX="/usr/local"
+HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 export HOMEBREW_PREFIX
 export HOMEBREW_CELLAR
 export HOMEBREW_REPOSITORY
