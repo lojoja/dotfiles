@@ -1,5 +1,5 @@
 # dotfiles/zsh/custom/00init.zsh
-# shellcheck shell=zsh
+# shellcheck shell=zsh disable=1009,1036,1058,1072,1073
 
 source "$DOTFILES_SHARED_SHELL_INIT_PATH/base.sh"
 
@@ -11,7 +11,7 @@ then
   source "$DOTFILES_SHARED_SHELL_INIT_PATH/homebrew.sh"
 
   # Update PATH for brew installed programs
-  for dir in "$HOMEBREW_PREFIX"/{bin,sbin} "$HBOPT"/*/libexec/gnubin
+  for dir in "$HOMEBREW_PREFIX"/{bin,sbin} "$HBOPT"/*/libexec/gnubin(N)
   do
     if [[ -d $dir ]]
     then
@@ -20,7 +20,7 @@ then
   done &>/dev/null
 
   # Update MANPATH for brew installed programs
-  for dir in "$HBSHR"/man "$HBOPT"/*/libexec/gnuman
+  for dir in "$HBSHR"/man "$HBOPT"/*/libexec/gnuman(N)
   do
     if [[ -d $dir ]]
     then
