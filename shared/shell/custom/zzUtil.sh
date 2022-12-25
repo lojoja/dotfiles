@@ -1,8 +1,8 @@
 # dotfiles/shared/shell/custom/zzUtil.sh
 # shellcheck shell=bash
 
-function cliInstall() {
-  # Install cli utils by passing "<owner>/<package>" arguments to this function.
+function utilAdd() {
+  # Install private cli utils by passing "<owner>/<package>" arguments to this function.
 
   local args=("${@}")
   local python="$MPBIN/python3.10"
@@ -29,16 +29,20 @@ function cliInstall() {
 
     if [[ ! -d $venv ]]
     then
+      printf "Installing %s\n" "$package"
       "$python" -m venv "$venv"
     else
+      printf "Upgrading %s\n" "$package"
       pip_args="$pip_args --upgrade"
     fi
 
     "$pip" install --upgrade pip
     "$pip" install "$pip_args" "$package"
 
-    for file in "$venv_bin"/*
+    for file_path in "$venv_bin"/*
     do
+      local file
+      file=$(basename "$file_path")
       local re="^([Aa]ctivate|pip|python).*"
 
       if [[ ! $file =~ $re ]]
@@ -49,32 +53,33 @@ function cliInstall() {
   done
 }
 
-function cliUninstall() {
-  # Remove cli utils by passing one or more utility names to this function.
+function utilDel() {
+  # Uninstall private cli utils by passing one or more utility names to this function.
 
   local args=("${@}")
 
   for arg in "${args[@]}"
   do
     local venv="$HBOPT/util/$arg"
+    local venv_bin="$venv/bin"
 
     if [[ -d $venv ]]
     then
-      for file in "$venv"/bin/*
+      printf "Uninstalling %s\n" "$arg"
+
+      for file_path in "$venv_bin"/*
       do
-        local re="^([Aa]ctivate|pip|python).*"
+        local file
+        file=$(basename "$file_path")
+        local re="([Aa]ctivate|pip|python).*"
 
         if [[ ! $file =~ $re ]]
         then
-          if [[ -r $HBBIN/file ]]
-          then
-            rm "$HBBIN/file"
-          fi
+          rm -f "$HBBIN/$file"
         fi
       done
 
       rm -rf "$venv"
-      printf "Uninstalled %s\n" "$arg"
     else
       printf "Error: Unknown util %s\n" "$arg"
     fi
