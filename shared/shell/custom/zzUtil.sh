@@ -50,7 +50,6 @@ function utilAdd() {
 
     for file_path in "$venv_bin"/*
     do
-      file
       file=$(basename "$file_path")
       re="^([Aa]ctivate|pip|python).*"
 
@@ -82,7 +81,6 @@ function utilDel() {
 
       for file_path in "$venv_bin"/*
       do
-        file
         file=$(basename "$file_path")
         re="([Aa]ctivate|pip|python).*"
 
