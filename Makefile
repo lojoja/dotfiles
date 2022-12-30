@@ -27,6 +27,7 @@ clean-config:
 	rm -f $(CONFIG_PATH)/pip.conf
 	rm -rf $(CONFIG_PATH)/poetry
 	rm -f $(CONFIG_PATH)/starship.toml
+	rm -f $(CONFIG_PATH)/wake.toml
 	rm -rf $(CONFIG_PATH)/yamllint
 
 clean-shell-common:
@@ -52,6 +53,7 @@ install-config:
 	ln -s $(CONFIG_CONF_PATH)/pip.conf $(CONFIG_PATH)/pip.conf
 	ln -s $(CONFIG_CONF_PATH)/poetry $(CONFIG_PATH)/poetry
 	ln -s $(CONFIG_CONF_PATH)/starship.toml $(CONFIG_PATH)/starship.toml
+	ln -s $(CONFIG_CONF_PATH)/wake.toml $(CONFIG_PATH)/wake.toml
 	ln -s $(CONFIG_CONF_PATH)/yamllint $(CONFIG_PATH)/yamllint
 
 install-shell-common:
