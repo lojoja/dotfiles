@@ -35,6 +35,7 @@ function utilAdd() {
     fi
 
     pip_args="--extra-index-url=$index"
+    package_args="$package"
 
     if [[ ! -d $venv ]]
     then
@@ -42,11 +43,11 @@ function utilAdd() {
       "$python" -m venv "$venv"
     else
       printf "Upgrading %s\n" "$package"
-      pip_args="$pip_args --upgrade"
+      package_args="$package_args --upgrade"
     fi
 
     "$pip" install --upgrade pip
-    "$pip" install "$pip_args" "$package"
+    "$pip" install "$pip_args" "$package_args"
 
     for file_path in "$venv_bin"/*
     do
