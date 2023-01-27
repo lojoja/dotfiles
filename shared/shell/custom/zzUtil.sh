@@ -6,48 +6,36 @@ function utilAdd() {
 
   local args=("${@}")
   local python="$MPBIN/python3.10"
-  local owner
   local package
   local venv
   local venv_bin
   local pip
-  local pip_args
-  local index
   local file
   local re
 
   for arg in "${args[@]}"
   do
-    owner="${arg%/*}"
-    package="${arg#*/}"
+    package="$arg"
     venv="$HBOPT/util/$package"
     venv_bin="$venv/bin"
     pip="$venv_bin/pip"
 
-    if [[ $owner = 'lojoja' ]]
-    then
-      index="$GITEA_PYPI_PACKAGE_INDEX_LOJOJA"
-    elif [[ $owner = 'snldev' ]]
-      then
-        index="$GITEA_PYPI_PACKAGE_INDEX_SNLDEV"
-    else
-      printf "Error: Unknown user %s\n" "$owner" && return 1
-    fi
-
-    pip_args="--extra-index-url=$index"
-    package_args="$package"
-
     if [[ ! -d $venv ]]
     then
-      printf "Installing %s\n" "$package"
+      printf "Creating virtualenv\n"
       "$python" -m venv "$venv"
-    else
-      printf "Upgrading %s\n" "$package"
-      package_args="$package_args --upgrade"
     fi
 
-    "$pip" install --upgrade pip
-    "$pip" install "$pip_args" "$package_args"
+    $pip install pip --upgrade
+
+    if [[ -f $venv_bin/$package ]]
+    then
+      printf "Upgrading %s\n" "$package"
+      $pip install $package --upgrade --extra-index-url=$GITEA_PYPI_PACKAGE_INDEX_LOJOJA --extra-index-url=$GITEA_PYPI_PACKAGE_INDEX_SNLDEV
+    else
+      printf "Installing %s\n" "$package"
+      $pip install $package --extra-index-url=$GITEA_PYPI_PACKAGE_INDEX_LOJOJA --extra-index-url=$GITEA_PYPI_PACKAGE_INDEX_SNLDEV
+    fi
 
     for file_path in "$venv_bin"/*
     do
