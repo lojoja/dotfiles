@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+#
+# dotfiles command stub
+
+exec "${0:A:h:h}/dotfiles.zsh" "$@"
