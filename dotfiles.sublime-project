@@ -17,6 +17,9 @@
     ],
     "yamllint/config$": [
       "YAML/YAML"
-    ]
+    ],
+    "(.+)\\.yml$": [
+        "Ansible/Ansible"
+    ],
   },
 }
