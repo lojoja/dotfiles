@@ -1,13 +1,4 @@
-.DS_Store
-
-# Bash
-local.sh
-private.sh
-
-# Git
-.gitconfig-local
-gitconfig-local
-
-# Zsh
-local.zsh
-private.zsh
+!*
+*.DS_Store
+._*
+*.sublime-workspace
