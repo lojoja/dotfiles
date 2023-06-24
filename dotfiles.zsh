@@ -254,7 +254,7 @@ function install() {
 
   info 'Installing dotfiles'
 
-  for $playbook in $playbooks
+  for playbook in $playbooks
   do
     if ! runPlaybook "$playbook" $check
     then
@@ -279,7 +279,7 @@ function uninstall() {
 
   info 'Uninstalling dotfiles'
 
-  for $playbook in $playbooks
+  for playbook in $playbooks
   do
     if ! runPlaybook "$playbook" $check
     then
@@ -304,7 +304,7 @@ function update() {
 
   info 'Updating dotfiles'
 
-  for $playbook in $playbooks
+  for playbook in $playbooks
   do
     if ! runPlaybook "$playbook" $check
     then
