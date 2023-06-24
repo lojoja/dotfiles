@@ -133,6 +133,22 @@ function joinItems() {
   print -n -- ${(j/::/)@}
 }
 
+# Run an ansible playbook.
+#
+# $1 - The name of the playbook to run.
+# $2 - Run playbook in check mode. Set to 1 to use check mode. Default is 0.
+function runPlaybook() {
+  validateArgCount "$0" $# 1 2
+  local playbook="$1" check="${2:-'0'}"
+
+  if [[ $check == 1 ]]
+  then
+    ansible-playbook --check "$playbook"
+  else
+    ansible-playbook "$playbook"
+  fi
+}
+
 # Validate argument count.
 #
 # $1 - The calling command or function name.
@@ -163,23 +179,23 @@ function validateArgCountEven() {
 # Commands #
 ############
 
-OPT_DEBUG_FLAG='-d, --debug'
-OPT_DEBUG_DESC='Target a tmp directory for debugging'
-
 OPT_HELP_FLAG='-h, --help'
 OPT_HELP_DESC='Show this message and exit'
 
+OPT_TEST_FLAG='-t, --test'
+OPT_TEST_DESC='Test the command without altering the system'
+
 CMD_INSTALL_NAME='install'
 CMD_INSTALL_DESC="Install $PROGRAM_NAME"
-CMD_INSTALL_OPTS="$(joinItems "$OPT_DEBUG_FLAG" "$OPT_DEBUG_DESC" "$OPT_HELP_FLAG" "$OPT_HELP_DESC")"
+CMD_INSTALL_OPTS="$(joinItems "$OPT_HELP_FLAG" "$OPT_HELP_DESC" "$OPT_TEST_FLAG" "$OPT_TEST_DESC")"
 
 CMD_UNINSTALL_NAME='uninstall'
 CMD_UNINSTALL_DESC="Uninstall $PROGRAM_NAME"
-CMD_UNINSTALL_OPTS="$(joinItems "$OPT_DEBUG_FLAG" "$OPT_DEBUG_DESC" "$OPT_HELP_FLAG" "$OPT_HELP_DESC")"
+CMD_UNINSTALL_OPTS="$(joinItems "$OPT_HELP_FLAG" "$OPT_HELP_DESC" "$OPT_TEST_FLAG" "$OPT_TEST_DESC")"
 
 CMD_UPDATE_NAME='update'
 CMD_UPDATE_DESC='Check for and install available updates'
-CMD_UPDATE_OPTS="$(joinItems "$OPT_HELP_FLAG" "$OPT_HELP_DESC")"
+CMD_UPDATE_OPTS="$(joinItems "$OPT_HELP_FLAG" "$OPT_HELP_DESC" "$OPT_TEST_FLAG" "$OPT_TEST_DESC")"
 
 CMD_MAIN_NAME=''
 CMD_MAIN_DESC="Manage lojoja's dotfiles on this system"
@@ -211,49 +227,76 @@ function main() {
 
 function install() {
   validateArgCount "$0" $# 0 1
-  local debug
+  local check=0 playbooks=('uninstall_legacy.yml')
 
   case $1 in
     -h|--help)  showHelp "$CMD_INSTALL_NAME" "$CMD_INSTALL_DESC" "$CMD_INSTALL_OPTS";;
-    -d|--debug) debug=1;;
-    "")         debug=0;;
+    -d|--debug) check=1;;
     -*)         die "Unknown option $1";;
     *)          die "Unknown command $1";;
   esac
 
   info 'Installing dotfiles'
+
+  for $playbook in $playbooks
+  do
+    if ! runPlaybook "$playbook" $check
+    then
+      die "Installation failed ($playbook)"
+    fi
+  done
+
+  ok 'dotfiles installed'
   quit
 }
 
 function uninstall() {
   validateArgCount "$0" $# 0 1
-  local debug
+  local check=0 playbooks=()
 
   case $1 in
     -h|--help)  showHelp "$CMD_UNINSTALL_NAME" "$CMD_UNINSTALL_DESC" "$CMD_UNINSTALL_OPTS";;
-    -d|--debug) debug=1;;
-    "")         debug=0;;
+    -d|--debug) check=1;;
     -*)         die "Unknown option $1";;
     *)          die "Unknown command $1";;
   esac
 
   info 'Uninstalling dotfiles'
+
+  for $playbook in $playbooks
+  do
+    if ! runPlaybook "$playbook" $check
+    then
+      die "Uninstall failed ($playbook)"
+    fi
+  done
+
+  ok 'dotfiles uninstalled'
   quit
 }
 
 function update() {
   validateArgCount "$0" $# 0 1
-  local debug
+  local check=0 playbooks=()
 
   case $1 in
     -h|--help)  showHelp "$CMD_UPDATE_NAME" "$CMD_UPDATE_DESC" "$CMD_UPDATE_OPTS";;
-    -d|--debug) debug=1;;
-    "")         debug=0;;
+    -d|--debug) check=1;;
     -*)         die "Unknown option $1";;
     *)          die "Unknown command $1";;
   esac
 
   info 'Updating dotfiles'
+
+  for $playbook in $playbooks
+  do
+    if ! runPlaybook "$playbook" $check
+    then
+      die "Update failed ($playbook)"
+    fi
+  done
+
+  ok 'dotfiles updated'
   quit
 }
 
