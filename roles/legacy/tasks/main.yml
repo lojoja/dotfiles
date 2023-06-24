@@ -1,0 +1,36 @@
+# roles/legacy/tasks/main.yml
+---
+- name: Check for legacy installation
+  ansible.builtin.stat:
+    path: "{{ legacy_repository_path }}"
+    get_checksum: no
+  register: repo
+
+- block:
+    - name: Remove legacy files
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      with_items: "{{ legacy_files }}"
+
+    - name: Find legacy symlinks
+      ansible.builtin.stat:
+        path: "{{ item }}"
+        get_checksum: no
+      with_items: "{{ legacy_symlinks }}"
+      register: symlink
+
+    - name: Remove legacy symlinks
+      ansible.builtin.file:
+        path: "{{ item.item }}"
+        state: absent
+      with_items: "{{ symlink.results }}"
+      when: item.stat.islnk is defined and item.stat.islnk and item.stat.lnk_source.startswith(legacy_repository_path)
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Remove legacy repository
+      ansible.builtin.file:
+        path: "{{ legacy_repository_path }}"
+        state: absent
+  when: repo.stat.isdir is defined and repo.stat.isdir

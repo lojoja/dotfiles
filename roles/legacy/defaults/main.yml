@@ -1,0 +1,27 @@
+# roles/legacy/defaults/main.yml
+---
+
+legacy_repository_path: "{{ ansible_env.HOME }}/.dotfiles"
+
+legacy_files:
+  - "{{ legacy_repository_path }}/shared/shell/local.sh"
+  - "{{ legacy_repository_path }}/shared/shell/private.sh"
+  - "{{ ansible_env.HOME }}/.hushlogin"
+
+legacy_symlinks:
+  - "{{ ansible_env.HOME }}/.bash_profile"
+  - "{{ ansible_env.HOME }}/.bashrc"
+  - "{{ ansible_env.HOME }}/.eslintrc"
+  - "{{ ansible_env.HOME }}/.eslintignore"
+  - "{{ ansible_env.HOME }}/.gitconfig"
+  - "{{ ansible_env.HOME }}/.gitconfig-local"
+  - "{{ ansible_env.HOME }}/.gitignore"
+  - "{{ ansible_env.HOME }}/.zshrc"
+  - "{{ ansible_env.HOME }}/.config/.ExifTool_config"
+  - "{{ ansible_env.HOME }}/.config/flake8"
+  - "{{ ansible_env.HOME }}/.config/pip.conf"
+  - "{{ ansible_env.HOME }}/.config/poetry"
+  - "{{ ansible_env.HOME }}/.config/service.toml"
+  - "{{ ansible_env.HOME }}/.config/starship.toml"
+  - "{{ ansible_env.HOME }}/.config/wake.toml"
+  - "{{ ansible_env.HOME }}/.config/yamllint"
