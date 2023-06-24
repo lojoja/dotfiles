@@ -1,0 +1,8 @@
+# uninstall_legacy.yml
+#
+# This playbook removes legacy (pre-ansible) dotfiles installations.
+---
+- name: Remove legacy dotfiles installation
+  hosts: localhost
+  roles:
+    - legacy
