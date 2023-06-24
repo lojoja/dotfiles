@@ -7,6 +7,22 @@ REPOSITORY=https://github.com/lojoja/dotfiles
 REPOSITORY_PATH="${0:A:h:h}"
 LEGACY_REPOSITORY_PATH="$HOME/.dotfiles"
 
+###############
+# Environment #
+###############
+
+unset ANSIBLE_LOCAL_TEMP
+unset ANSIBLE_REMOTE_TEMP
+unset ANSIBLE_SQUASH_ACTIONS
+unset ANSIBLE_SSH_CONTROL_PATH
+unset ANSIBLE_SSH_CONTROL_PATH_DIR
+unset ANSIBLE_VAULT_PASSWORD_FILE
+
+export ANSIBLE_DISPLAY_SKIPPED_HOSTS=0
+export ANSIBLE_FORCE_COLOR=1
+export ANSIBLE_RETRY_FILES_ENABLED=0
+export ANSIBLE_SSH_PIPELINING=1
+
 ##########
 # Output #
 ##########
