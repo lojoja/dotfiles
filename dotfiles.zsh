@@ -243,7 +243,7 @@ function main() {
 
 function install() {
   validateArgCount "$0" $# 0 1
-  local check=0 playbooks=('uninstall_legacy.yml')
+  local check=0 playbooks=('uninstall_legacy.yml' 'vault_password.yml')
 
   case $1 in
     -h|--help)  showHelp "$CMD_INSTALL_NAME" "$CMD_INSTALL_DESC" "$CMD_INSTALL_OPTS";;
