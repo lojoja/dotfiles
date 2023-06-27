@@ -1,4 +1,5 @@
 !*
 *.DS_Store
-._*
 *.sublime-workspace
+._*
+.ansible-vault

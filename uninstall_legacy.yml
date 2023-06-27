@@ -3,6 +3,6 @@
 # This playbook removes legacy (pre-ansible) dotfiles installations.
 ---
 - name: Remove legacy dotfiles installation
-  hosts: localhost
+  hosts: devbox
   roles:
     - legacy

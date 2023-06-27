@@ -2,15 +2,7 @@
 ---
 all:
   children:
-    controller:
-      hosts:
-        localhost:
     devbox:
       hosts:
-        lojoja:
-        snldev:
-      vars:
-        vault_password_file: "{{ local_vault_password_file }}"
-  vars:
-    ansible_connection: local
-    local_vault_password_file: "{{ playbook_dir }}/.ansible-vault"
+        jll3:
+        snm:
