@@ -1,0 +1,9 @@
+# install.yml
+#
+# This playbook installs dotfiles.
+---
+- name: Install dotfiles
+  hosts: devbox
+  vars:
+    dotfiles_install: true
+  roles: []

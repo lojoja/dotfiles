@@ -1,0 +1,9 @@
+# uninstall.yml
+#
+# This playbook uninstalls dotfiles.
+---
+- name: Uninstall dotfiles
+  hosts: devbox
+  vars:
+    dotfiles_install: false
+  roles: []
