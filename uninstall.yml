@@ -6,4 +6,5 @@
   hosts: devbox
   vars:
     dotfiles_install: false
-  roles: []
+  roles:
+    - ssh

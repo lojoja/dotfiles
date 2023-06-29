@@ -1,0 +1,49 @@
+{{ ansible_managed | comment }}
+{% for section in ssh_hosts %}
+
+{{ section.name | comment }}
+  {% for ssh_host in section.hosts %}
+
+Host {{ ssh_host.hosts | join(' ') }}
+{% if ssh_host.hostname | default %}
+  Hostname {{ ssh_host.hostname }}
+{% endif -%}
+
+{% if ssh_host.user | default %}
+  User {{ ssh_host.user }}
+{% endif -%}
+
+{% if ssh_host.port | default %}
+  Port {{ ssh_host.port }}
+{% endif -%}
+
+{% if ssh_host.add_keys_to_agent | default %}
+  AddKeysToAgent {{ ssh_host.add_keys_to_agent }}
+{% endif -%}
+
+{% if ssh_host.use_keychain | default %}
+  UseKeychain {{ ssh_host.use_keychain }}
+{% endif -%}
+
+{% if ssh_host.preferred_authentications | default %}
+  PreferredAuthentications {{ ssh_host.preferred_authentications }}
+{% endif -%}
+
+{% if ssh_host.identities_only | default %}
+  IdentitiesOnly {{ ssh_host.identities_only }}
+{% endif -%}
+
+{% if ssh_host.public_key_accepted_algorithms | default %}
+  PubKeyAcceptedAlgorithms {{ssh_host.public_key_accepted_algorithms }}
+{% endif -%}
+
+    {%- for host in ssh_host.hosts %}
+      {%- for ssh_key in ssh_keys %}
+{% if host in ssh_key.hosts %}
+  IdentityFile {{ ssh_dir }}/{{ ssh_key.file }}
+{% endif -%}
+
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}

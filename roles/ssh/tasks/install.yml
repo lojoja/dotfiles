@@ -1,0 +1,65 @@
+# roles/ssh/tasks/install.yml
+---
+- name: Create ssh directory
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}"
+    mode: 0755
+    state: directory
+
+- name: Add known hosts
+  ansible.builtin.template:
+    src: known_hosts.j2
+    dest: "{{ ssh_dir }}/known_hosts"
+    mode: 0600
+
+- name: Add ssh config
+  ansible.builtin.template:
+    src: config.j2
+    dest: "{{ ssh_dir }}/config"
+    mode: 0644
+
+- name: Remove keys from ssh-agent
+  ansible.builtin.command: ssh-add -d --apple-use-keychain "{{ ssh_dir }}/{{ item }}"
+  register: remove_keys_cmd
+  changed_when: remove_keys_cmd.rc == 0
+  failed_when: remove_keys_cmd.rc == 2
+  loop: "{{ ssh_keys_remove }}"
+
+- name: Remove public keys
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}.pub"
+    state: absent
+  loop: "{{ ssh_keys_remove }}"
+
+- name: Remove private keys
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}"
+    state: absent
+  loop: "{{ ssh_keys_remove }}"
+
+- name: Add public keys
+  ansible.builtin.copy:
+    dest: "{{ ssh_dir }}/{{ item.file }}.pub"
+    mode: 0644
+    content: "{{ item.public_key }}"
+  loop: "{{ ssh_keys }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Add private keys
+  ansible.builtin.copy:
+    dest: "{{ ssh_dir }}/{{ item.file }}"
+    mode: 0600
+    content: "{{ item.private_key }}"
+  loop: "{{ ssh_keys }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Add private keys to ssh-agent
+  ansible.builtin.expect:
+    command: /usr/bin/ssh-add --apple-use-keychain "{{ ssh_dir }}/{{ item.file }}"
+    responses:
+      Enter passphrase for(.+): "{{ item.passphrase }}"
+  loop: "{{ ssh_keys }}"
+  loop_control:
+    label: "{{ item.file }}"

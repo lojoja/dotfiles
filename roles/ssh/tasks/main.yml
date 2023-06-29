@@ -1,0 +1,4 @@
+# roles/ssh/tasks/main.yml
+---
+- name: Select tasks
+  ansible.builtin.include_tasks: "{{ dotfiles_install | ternary('install.yml', 'uninstall.yml') }}"

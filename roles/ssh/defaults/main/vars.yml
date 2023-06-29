@@ -1,0 +1,99 @@
+# roles/ssh/defaults/main/vars.yml
+---
+
+ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
+
+ssh_known_hosts: "{{ vault_ssh_known_hosts }}"
+
+ssh_keys: []
+ssh_keys_remove: []
+
+ssh_host_user_bitbucket: "{{ vault_ssh_host_user_bitbucket }}"
+ssh_host_user_cloudkey: "{{ vault_ssh_host_user_cloudkey }}"
+ssh_host_user_gitea: "{{ vault_ssh_host_user_gitea }}"
+ssh_host_user_github: "{{ vault_ssh_host_user_github }}"
+ssh_host_user_nas: "{{ vault_ssh_host_user_nas }}"
+ssh_host_user_router: "{{ vault_ssh_host_user_router }}"
+ssh_host_user_ssp: "{{ vault_ssh_host_user_ssp }}"
+ssh_host_user_sspr: "{{ vault_ssh_host_user_sspr }}"
+ssh_host_user_switch: "{{ vault_ssh_host_user_switch }}"
+
+ssh_hosts:
+  - name: LAN
+    hosts:
+      - hosts:
+          - cloudkey
+        hostname: cloudkey.lojoja.com
+        user: "{{ ssh_host_user_cloudkey }}"
+      - hosts:
+          - er1
+          - router
+        hostname: er1.lojoja.com
+        user: "{{ ssh_host_user_router }}"
+      - hosts:
+          - es1
+          - switch1
+        hostname: es1.lojoja.com
+      - hosts:
+          - es2
+          - switch2
+        hostname: es2.lojoja.com
+      - hosts:
+          - es1
+          - es2
+          - switch1
+          - switch2
+        user: "{{ ssh_host_user_switch }}"
+        preferred_authentications: password
+      - hosts:
+          - nas
+        hostname: nas1.lojoja.com
+        user: "{{ ssh_host_user_nas }}"
+  - name: Servers
+    hosts:
+      - hosts:
+          - ssp
+        user: "{{ ssh_host_user_ssp }}"
+      - hosts:
+          - sspr
+        user: "{{ ssh_host_user_sspr }}"
+      - hosts:
+          - ssp
+          - sspr
+        hostname: chi.snlsrvr.com
+  - name: Version Control
+    hosts:
+      - hosts:
+          - bitbucket-lojoja
+      - hosts:
+          - bitbucket-snldev
+      - hosts:
+          - bitbucket*
+        hostname: bitbucket.org
+        user: "{{ ssh_host_user_bitbucket }}"
+      - hosts:
+          - gitea-lojoja
+      - hosts:
+          - gitea-snldev
+      - hosts:
+          - gitea*
+        hostname: gitea.lojoja.com
+        port: 2222
+        user: "{{ ssh_host_user_gitea }}"
+      - hosts:
+          - github-lojoja
+      - hosts:
+          - github-snldev
+      - hosts:
+          - github*
+        hostname: github.com
+        user: "{{ ssh_host_user_github }}"
+  - name: Default
+    hosts:
+      - hosts:
+          - "*"
+        add_keys_to_agent: "yes"
+        use_keychain: "yes"
+        preferred_authentications: publickey
+        identities_only: "yes"
+        public_key_accepted_algorithms: +ssh-rsa

@@ -1,0 +1,28 @@
+# roles/ssh/tasks/uninstall.yml
+---
+- name: Remove keys from ssh-agent
+  ansible.builtin.command: ssh-add -d --apple-use-keychain "{{ ssh_dir }}/{{ item }}"
+  register: remove_keys_cmd
+  changed_when: remove_keys_cmd.rc == 0
+  failed_when: remove_keys_cmd.rc == 2
+  loop: "{{ ssh_keys | map(attribute='file') }}"
+
+- name: Remove public keys
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}.pub"
+    state: absent
+  loop: "{{ ssh_keys | map(attribute='file') }}"
+
+- name: Remove private keys
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}"
+    state: absent
+  loop: "{{ ssh_keys | map(attribute='file') }}"
+
+- name: Remove ssh settings
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}"
+    state: absent
+  loop:
+    - config
+    - known_hosts

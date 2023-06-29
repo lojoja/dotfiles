@@ -1,0 +1,11 @@
+{{ ansible_managed | comment }}
+{% for section in ssh_known_hosts %}
+
+{{ section.name | comment }}
+  {% for item in section.hosts %}
+
+{{ item.host }} {{ item.fingerprint }}
+  {% endfor -%}
+{% endfor %}
+
+{{ 'Manual Additions' | comment }}
