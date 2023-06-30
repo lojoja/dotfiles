@@ -1,0 +1,116 @@
+# roles/macports/defaults/main.yml
+---
+macports_prefix: /opt/local
+macports_bin: "{{ macports_prefix }}/bin"
+macports_etc: "{{ macports_prefix }}/etc"
+macports_lib: "{{ macports_prefix }}/lib"
+macports_opt: "{{ macports_prefix }}/opt"
+
+macports_ports:
+  # Core
+  - port: bash
+  - port: bash-completion
+  - port: zsh
+  - port: zsh-autosuggestions
+  - port: zsh-completions
+  - port: coreutils
+  - port: curl
+  - port: findutils
+  - port: git
+  - port: gsed
+  - port: gnutar
+  - port: grep
+  - port: gzip
+  - port: less
+  - port: libpng
+  - port: libsass
+  - port: libxml2
+  - port: libyaml
+  - port: openssl
+  - port: p7zip
+  - port: sqlite3
+  - port: wget
+  - port: xz
+  # Languages
+  - port: python3_select
+  - port: python38
+  - port: python39
+  - port: python310
+  - port: python311
+  - port: pip_select
+  - port: py38-pip
+  - port: py39-pip
+  - port: py310-pip
+  - port: py311-pip
+  - port: py38-setuptools
+  - port: py39-setuptools
+  - port: py310-setuptools
+  - port: py311-setuptools
+  - port: virtualenv_select
+  - port: py38-virtualenv
+  - port: py39-virtualenv
+  - port: py310-virtualenv
+  - port: py311-virtualenv
+  - port: go
+  - port: php_select
+  - port: php82
+    variant: -libedit +readline
+  - port: php82-curl
+  - port: php82-iconv
+  - port: php82-intl
+  - port: php82-mbstring
+  - port: php82-openssl
+  - port: php82-pcov
+  - port: php82-posix
+  - port: php82-sodium
+  - port: php82-sqlite
+  - port: ruby_select
+  - port: ruby
+  - port: nodejs19
+  - port: npm9
+  - port: yarn
+  # Misc.
+  - port: ansible_select
+  - port: py311-ansible
+  - port: exiftool
+  - port: exiv2
+  - port: ffmpeg
+  - port: fzf
+  - port: guetzli
+  - port: ImageMagick
+  - port: lame
+  - port: mysql_select
+  - port: mysql8-server
+  - port: optipng
+  - port: poetry
+  - port: pv
+  - port: pygments_select
+  - port: py38-pygments
+  - port: py39-pygments
+  - port: py310-pygments
+  - port: py311-pygments
+  - port: ripgrep
+  - port: shellcheck
+  - port: starship
+  - port: thefuck
+  - port: watch
+  - port: youtube-dl
+  - port: yt-dlp
+
+macports_ports_select:
+  - program: ansible
+    binary: py311-ansible
+  - program: mysql
+    binary: mysql8
+  - program: php
+    binary: php82
+  - program: pip3
+    binary: pip311
+  - program: pygments
+    binary: py311-pygments
+  - program: python3
+    binary: python311
+  - program: ruby
+    binary: ruby18
+  - program: virtualenv
+    binary: virtualenv311

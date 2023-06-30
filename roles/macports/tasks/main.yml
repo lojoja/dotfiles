@@ -1,0 +1,31 @@
+# roles/macports/tasks/main.yml
+---
+- block:
+    - name: Update Macports and upgrade installed ports
+      community.general.macports:
+        selfupdate: true
+        upgrade: true
+
+    - name: Install ports
+      community.general.macports:
+        name: "{{ item.port }}"
+        variant: "{{ item.variant | default(None) }}"
+        state: present
+      loop: "{{ macports_ports }}"
+      loop_control:
+        label: "{{ item.port }}"
+
+    - name: Activate ports
+      community.general.macports:
+        name: "{{ item.port }}"
+        state: active
+      loop: "{{ macports_ports }}"
+      loop_control:
+        label: "{{ item.port }}"
+
+    - name: Select default ports
+      ansible.builtin.command: port -N select --set {{ item.program }} {{ item.binary }}
+      loop: "{{ macports_ports_select }}"
+      loop_control:
+        label: "{{ item.program }}"
+  become: yes
