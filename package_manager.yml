@@ -1,0 +1,11 @@
+# package_manager.yml
+#
+# This playbook installs and updates packages via Macports and Homebrew.
+---
+- name: Manage packages
+  hosts: devbox
+  roles:
+    - macports
+    - homebrew
+  environment:
+    HOMEBREW_NO_ANALYTICS: 1
