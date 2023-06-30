@@ -1,0 +1,18 @@
+# roles/homebrew/tasks/main.yml
+---
+- name: Update Homebrew and upgrade installed formulae
+  community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+
+- name: Install formulae
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew_formulae }}"
+
+- name: Install casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew_casks }}"
