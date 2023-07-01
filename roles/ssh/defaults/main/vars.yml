@@ -65,26 +65,35 @@ ssh_hosts:
     hosts:
       - hosts:
           - bitbucket-lojoja
+          - bb-lojoja
       - hosts:
           - bitbucket-snldev
+          - bb-snldev
       - hosts:
           - bitbucket*
+          - bb-*
         hostname: bitbucket.org
         user: "{{ ssh_host_user_bitbucket }}"
       - hosts:
           - gitea-lojoja
+          - gt-lojoja
       - hosts:
           - gitea-snldev
+          - gt-snldev
       - hosts:
           - gitea*
+          - gt-*
         hostname: gitea.lojoja.com
         port: 2222
         user: "{{ ssh_host_user_gitea }}"
       - hosts:
+          - gh-lojoja
           - github-lojoja
       - hosts:
+          - gh-lojoja
           - github-snldev
       - hosts:
+          - gh-*
           - github*
         hostname: github.com
         user: "{{ ssh_host_user_github }}"
