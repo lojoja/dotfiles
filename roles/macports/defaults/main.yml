@@ -6,6 +6,13 @@ macports_etc: "{{ macports_prefix }}/etc"
 macports_lib: "{{ macports_prefix }}/lib"
 macports_opt: "{{ macports_prefix }}/opt"
 
+# Overrides for programs that should use the macOS versions instead of macports
+macports_overrides:
+  - src: /bin/stty
+    dest: "{{ local_bin }}/stty"
+  - src: /usr/bin/tty
+    dest: "{{ local_bin }}/tty"
+
 macports_ports:
   # Core
   - port: bash

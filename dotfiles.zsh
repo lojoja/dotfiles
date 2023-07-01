@@ -7,6 +7,11 @@ REPOSITORY=https://github.com/lojoja/dotfiles
 REPOSITORY_PATH="${0:A:h}"
 LEGACY_REPOSITORY_PATH="$HOME/.dotfiles"
 
+###############
+# Environment #
+###############
+export PATH="$HOME/.local/bin:$PATH"
+
 ############
 # Commands #
 ############

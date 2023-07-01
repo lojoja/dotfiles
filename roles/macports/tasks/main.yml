@@ -1,5 +1,14 @@
 # roles/macports/tasks/main.yml
 ---
+- name: Override installed ports
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ macports_overrides }}"
+  loop_control:
+    label: "{{ item.src }}"
+
 - block:
     - name: Update Macports and upgrade installed ports
       community.general.macports:
