@@ -247,6 +247,8 @@ function main() {
 
   local name='main'
 
+  cd "$REPOSITORY_PATH"
+
   case $1 in
     -h|--help)                          showHelp "$name";;
     password)                           shift; checkVaultPassword "$@";;
