@@ -11,6 +11,7 @@ LEGACY_REPOSITORY_PATH="$HOME/.dotfiles"
 # Environment #
 ###############
 export PATH="$HOME/.local/bin:$PATH"
+export HOMEBREW_NO_ANALYTICS=1
 
 ############
 # Commands #

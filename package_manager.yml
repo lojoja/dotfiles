@@ -7,5 +7,3 @@
   roles:
     - macports
     - homebrew
-  environment:
-    HOMEBREW_NO_ANALYTICS: 1
