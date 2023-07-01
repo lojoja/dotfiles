@@ -5,3 +5,8 @@ ansible_become_pass: "{{ vault_ansible_become_pass | default(None) }}"
 
 dotfiles_install: true
 dotfiles_install_base_dir: "{{ ansible_env.HOME }}"
+
+local_prefix: "{{ dotfiles_install_base_dir }}/.local"
+local_bin: "{{ local_prefix }}/bin"
+local_etc: "{{ local_prefix }}/etc"
+local_opt: "{{ local_prefix }}/opt"
