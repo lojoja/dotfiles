@@ -24,6 +24,7 @@ typeset -A OPT_DESC=(
 typeset -A CMD=(
   'main' ''
   'install' 'install'
+  'packages' 'packages'
   'password' 'password'
   'uninstall' 'uninstall'
   'update' 'update'
@@ -32,6 +33,7 @@ typeset -A CMD=(
 typeset -A CMD_DESC=(
   'main' "Manage $PROGRAM_NAME on this system"
   'install' "Install $PROGRAM_NAME"
+  'packages' "Manage $PROGRAM_NAME packages on this system"
   'password' "Set/validate the $PROGRAM_NAME vault password"
   'uninstall' "Uninstall $PROGRAM_NAME"
   'update' "Update $PROGRAM_NAME"
@@ -40,6 +42,7 @@ typeset -A CMD_DESC=(
 typeset -A CMD_SUBCMD=(
   'main' "$CMD[install]::$CMD_DESC[install]::$CMD[password]::$CMD_DESC[password]::$CMD[uninstall]::$CMD_DESC[uninstall]::$CMD[update]::$CMD_DESC[update]"
   'install' ''
+  'packages' ''
   'password' ''
   'uninstall' ''
   'update' ''
@@ -48,6 +51,7 @@ typeset -A CMD_SUBCMD=(
 typeset -A CMD_OPTS=(
   'main' "$OPT[help]::$OPT_DESC[help]"
   'install' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
+  'packages' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'password' "$OPT[help]::$OPT_DESC[help]"
   'uninstall' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'update' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
@@ -55,6 +59,7 @@ typeset -A CMD_OPTS=(
 
 typeset -A CMD_MSG_END=(
   'install' "$PROGRAM_NAME installed"
+  'packages' "$PROGRAM_NAME packages installed/updated"
   'password' "$PROGRAM_NAME vault password validated"
   'uninstall' "$PROGRAM_NAME uninstalled"
   'update' "$PROGRAM_NAME updated"
@@ -62,6 +67,7 @@ typeset -A CMD_MSG_END=(
 
 typeset -A CMD_MSG_FAIL=(
   'install' "$PROGRAM_NAME installation failed"
+  'packages' "$PROGRAM_NAME packages install/update failed"
   'password' "$PROGRAM_NAME vault password validation failed"
   'uninstall' "$PROGRAM_NAME uninstall failed"
   'update' "$PROGRAM_NAME update failed"
@@ -69,6 +75,7 @@ typeset -A CMD_MSG_FAIL=(
 
 typeset -A CMD_MSG_START=(
   'install' "Installing $PROGRAM_NAME"
+  'packages' "Installing/updating $PROGRAM_NAME packages"
   'password' "Checking $PROGRAM_NAME vault password"
   'uninstall' "Uninstalling $PROGRAM_NAME"
   'update' "Updating $PROGRAM_NAME"
@@ -93,7 +100,8 @@ export ANSIBLE_VAULT_PASSWORD_FILE="$REPOSITORY_PATH/.ansible-vault"
 # A mapping of command names to ansible playbooks. Multiple playbooks are separated by "::".
 # When multiple playbooks are specified they are run in the order listed.
 typeset -A PLAYBOOKS=(
-  $CMD[install] 'uninstall_legacy.yml'
+  $CMD[install] 'uninstall_legacy.yml::package_manager.yml'
+  $CMD[packages] 'package_manager.yml'
   $CMD[uninstall] 'uninstall.yml'
   $CMD[update] 'update.yml'
 )
@@ -240,11 +248,11 @@ function main() {
   local name='main'
 
   case $1 in
-    -h|--help)                showHelp "$name";;
-    password)                 shift; checkVaultPassword "$@";;
-    install|uninstall|update) name="$1"; shift; runPlaybooks "$name" "$@";;
-    -*)                       die "Unknown option $1";;
-    *)                        die "Unknown command $1";;
+    -h|--help)                          showHelp "$name";;
+    password)                           shift; checkVaultPassword "$@";;
+    install|packages|uninstall|update)  name="$1"; shift; runPlaybooks "$name" "$@";;
+    -*)                                 die "Unknown option $1";;
+    *)                                  die "Unknown command $1";;
   esac
 
   quit
