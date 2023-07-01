@@ -1,5 +1,7 @@
 # group_vars/all.yml
 ---
 ansible_connection: local
+ansible_become_pass: "{{ vault_ansible_become_pass | default(None) }}"
+
 dotfiles_install: true
 dotfiles_install_base_dir: "{{ ansible_env.HOME }}"
