@@ -1,0 +1,3 @@
+# roles/config/defaults/main.yml
+---
+config_dir: "{{ dotfiles_install_base_dir }}/.config"
