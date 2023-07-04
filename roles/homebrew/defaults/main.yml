@@ -1,10 +1,17 @@
 # roles/homebrew/defaults/main.yml
 ---
 homebrew_prefix: /usr/local
+
 homebrew_bin: "{{ homebrew_prefix }}/bin"
 homebrew_etc: "{{ homebrew_prefix }}/etc"
 homebrew_lib: "{{ homebrew_prefix }}/lib"
 homebrew_opt: "{{ homebrew_prefix }}/opt"
+homebrew_sbin: "{{ homebrew_prefix }}/sbin"
+homebrew_share: "{{ homebrew_prefix }}/share"
+homebrew_gnubin: "{{ homebrew_opt }}/*/libexec/gnubin"
+
+homebrew_man: "{{ homebrew_prefix }}/man"
+homebrew_gnuman: "{{ homebrew_opt }}/*/libexec/gnuman"
 
 homebrew_formulae:
   - composer
@@ -18,3 +25,5 @@ homebrew_casks:
   - homebrew/cask-fonts/font-inconsolata
   - homebrew/cask-fonts/font-sauce-code-pro-nerd-font
   - homebrew/cask-fonts/font-source-code-pro
+
+homebrew_no_analytics: 1

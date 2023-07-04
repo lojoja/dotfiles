@@ -1,10 +1,17 @@
 # roles/macports/defaults/main.yml
 ---
 macports_prefix: /opt/local
+
 macports_bin: "{{ macports_prefix }}/bin"
 macports_etc: "{{ macports_prefix }}/etc"
 macports_lib: "{{ macports_prefix }}/lib"
 macports_opt: "{{ macports_prefix }}/opt"
+macports_sbin: "{{ macports_prefix }}/sbin"
+macports_share: "{{ macports_prefix }}/share"
+macports_gnubin: "{{ macports_prefix }}/libexec/gnubin"
+
+macports_man: "{{ macports_prefix }}/man"
+macports_gnuman: "{{ macports_gnubin }}/man"
 
 # Overrides for programs that should use the macOS versions instead of macports
 macports_overrides:
