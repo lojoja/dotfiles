@@ -1,0 +1,13 @@
+# roles/env/tasks/main.yml
+---
+- name: Add .env
+  ansible.builtin.template:
+    src: env.j2
+    dest: "{{ env }}"
+    mode: 0644
+
+- name: Add .env.local
+  ansible.builtin.file:
+    dest: "{{ env_local }}"
+    state: present
+    mode: 0644

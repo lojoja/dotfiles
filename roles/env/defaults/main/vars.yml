@@ -1,0 +1,45 @@
+# roles/env/defaults/main/vars.yml
+---
+env: "{{ dotfiles_install_base_dir }}/.env"
+env_local: "{{ dotfiles_install_base_dir }}/.env.local"
+
+env_editor: vi
+env_ignore_eof: 1
+env_term: xterm-256color
+env_visual: "{{ env_editor }}"
+env_lc_all: en_US.utf-8
+env_arch_flags: -arch x86_64 -arch i386
+
+# Ansible
+env_ansible_display_skipped_hosts: 0
+env_ansible_rety_files_enabled: 0
+env_ansible_ssh_pipelining: 1
+
+# Git
+env_git_editor: "{{ env_editor }}"
+
+# Homebrew
+env_homebrew_no_analytics: "{{ homebrew_no_analytics }}"
+
+# Java
+env_java_home: /usr/libexec/java_home
+
+# macOS
+env_cli_color: 1
+env_copyfile_disable: "true"
+env_copy_extended_attributes_disable: "true"
+
+# Python
+env_python_dontwritebytecode: 1
+
+# Tar
+env_tar_options: --exclude=.DS_Store --exclude=._* --exclude=__MACOSX
+
+# Vagrant
+env_vagrant_disable_vboxsymlinkcreate: 1
+
+# XZ
+env_xz_opt: -9 --threads={{ ansible_processor_nproc - 1 }}
+
+# Zip
+env_zip_opt: -9 -x "\*.DS_Store" "\*._\*" "__MACOSX" @
