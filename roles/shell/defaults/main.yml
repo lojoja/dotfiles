@@ -1,0 +1,73 @@
+# roles/shell/defaults/main.yml
+---
+shell_bash_path: "{{ macports_bin }}/bash"
+shell_zsh_path: "{{ macports_bin }}/zsh"
+
+shell_approved_shells:
+  - "{{ shell_bash_path }}"
+  - "{{ shell_zsh_path }}"
+shell_login_shell: "{{ shell_zsh_path }}"
+
+shell_paths:
+  - "{{ homebrew_bin }}"
+  - "{{ homebrew_sbin }}"
+  - "{{ homebrew_gnubin }}(N)"
+  - "{{ macports_bin }}"
+  - "{{ macports_sbin }}"
+  - "{{ macports_gnubin }}"
+  - "{{ local_bin }}"
+shell_man_paths:
+  - "{{ homebrew_man }}"
+  - "{{ homebrew_gnuman }}(N)"
+  - "{{ macports_man }}"
+  - "{{ macports_gnuman }}"
+
+shell_aliases:
+  - alias: gzip
+    command: gzip -9
+  - alias: ls
+    command: ls --color=auto
+  - alias: l
+    command: ls -lah
+  - alias: la
+    command: ls -lAh
+  - alias: ll
+    command: ls -lh
+  - alias: lsa
+    command: l
+  - alias: sudo
+    command: "sudo "
+
+shell_env: "{{ env }}"
+shell_env_local: "{{ env_local }}"
+
+shell_fzf_completions: "{{ macports_opt }}/fzf/shell/completion.zsh"
+shell_fzf_bindings: "{{ macports_opt }}/fzf/shell/key-bindings.zsh"
+
+shell_omz_dir: "{{ dotfiles_install_base_dir }}/.oh-my-zsh"
+shell_omz_custom_dir: "{{ shell_omz_dir }}/custom"
+shell_omz_script: "{{ shell_omz_dir }}/oh-my-zsh.sh"
+shell_omz_theme: robbyrussell
+shell_omz_hist_stamps: yyyy-mm-dd
+shell_omz_plugins:
+  - aliases
+  - ansible
+  - colored-man-pages
+  - colorize
+  - copyfile
+  - copypath
+  - git
+  - jsontools
+  - macos
+  - pip
+  - poetry
+  - python
+  - sublime
+  - sublime-merge
+  - thefuck
+  - zsh-interactive-cd
+shell_omz_colorize_style: github-dark
+shell_omz_colorize_tool: pygmentize
+
+shell_zsh_completions_dir: "{{ macports_share }}/zsh-completions"
+shell_zsh_auto_suggestions: "{{ macports_opt }}/zsh-autosuggestions/zsh-autosuggestions.zsh"

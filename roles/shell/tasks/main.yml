@@ -1,0 +1,26 @@
+# roles/shell/tasks/main.yml
+---
+- block:
+    - name: Set approved shells
+      ansible.builtin.lineinfile:
+        dest: /etc/shells
+        state: present
+        line: "{{ item }}"
+      loop: "{{ shell_approved_shells }}"
+
+    - name: Set login shell
+      user:
+        name: "{{ ansible_env.USER }}"
+        shell: "{{ shell_login_shell }}"
+  become: yes
+
+- name: Install oh-my-zsh
+  ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  args:
+    creates: "{{ shell_omz_dir }}"
+
+- name: Add .zshrc
+  ansible.builtin.template:
+    src: zshrc.j2
+    dest: "{{ dotfiles_install_base_dir }}/.zshrc"
+    mode: 0644
