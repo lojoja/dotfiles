@@ -6,6 +6,9 @@
   hosts: devbox
   vars:
     dotfiles_install: true
+  vars_files:
+    - roles/homebrew/defaults/main.yml
+    - roles/macports/defaults/main.yml
   roles:
     - ssh
     - config
