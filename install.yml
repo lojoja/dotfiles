@@ -8,3 +8,4 @@
     dotfiles_install: true
   roles:
     - ssh
+    - config
