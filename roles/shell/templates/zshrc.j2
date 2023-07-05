@@ -123,6 +123,17 @@ fi
 # User configuration
 #
 
+# Init dircolors
+if command -v dircolors &>/dev/null
+then
+  if [[ -r {{ shell_dircolors }} ]]
+  then
+    eval "$(dircolors -b "{{ shell_dircolors }}")"
+  else
+    eval "$(dircolors -b)"
+  fi
+fi
+
 # Load env files
 for file in "{{ shell_env }}" "{{ shell_env_local }}"
 do
@@ -137,7 +148,6 @@ unset $file
 # Aliases
 {% for shell_alias in shell_aliases %}
 alias {{ shell_alias.alias }}='{{ shell_alias.command }}'
-
 {% endfor %}
 
 # Load fzf

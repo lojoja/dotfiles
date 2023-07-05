@@ -38,6 +38,8 @@ shell_aliases:
   - alias: sudo
     command: "sudo "
 
+shell_dircolors: "{{ config_dircolors }}"
+
 shell_env: "{{ env }}"
 shell_env_local: "{{ env_local }}"
 
