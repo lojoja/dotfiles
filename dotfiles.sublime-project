@@ -6,20 +6,8 @@
   ],
   "settings": {},
   "syntax_override": {
-    "eslintrc$": [
-      "JSON/JSON"
-    ],
-    "flake8|pip.conf$": [
-      "Config Files/INI/INI"
-    ],
-    "gitconfig-local.example$": [
-      "Git Formats/Git Config"
-    ],
-    "yamllint/config$": [
-      "YAML/YAML"
-    ],
     "(.+)\\.yml$": [
-        "Ansible/Ansible"
+      "Ansible/Ansible"
     ],
   },
 }
