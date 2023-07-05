@@ -1,0 +1,18 @@
+{{ ansible_managed | comment }}
+
+COLOR {{ config_dircolors_color }}
+
+{% for termtype in config_dircolors_termtypes %}
+TERM {{ termtype }}
+{% endfor %}
+
+EIGHTBIT {{ config_dircolors_eightbit }}
+{% for color_scheme in config_dircolors_color_schemes %}
+
+{{ color_scheme.name | comment }}
+  {% for type in color_scheme.types %}
+
+{{ type }} {{ color_scheme.code }}
+  {%- endfor %}
+
+{% endfor %}

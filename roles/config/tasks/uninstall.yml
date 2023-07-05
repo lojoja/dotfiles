@@ -1,0 +1,19 @@
+# roles/config/tasks/uninstall.yml
+---
+- name: Remove ssl certificates
+  ansible.builtin.file:
+    dest: "{{ config_ssl_certs_lojoja }}"
+    state: absent
+
+- name: Remove config files
+  ansible.builtin.file:
+    dest: "{{ item.file }}"
+    state: absent
+  loop: "{{ config_templates }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Remove .hushlogin
+  ansible.builtin.file:
+    dest: "{{ config_hushlogin }}"
+    state: absent

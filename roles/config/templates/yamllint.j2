@@ -1,6 +1,5 @@
-# dotfiles/config/yamllint/config
+{{ ansible_managed | comment }}
 ---
-
 rules:
   braces:
     min-spaces-inside: 0
@@ -39,18 +38,18 @@ rules:
   hyphens:
     max-spaces-after: 1
   indentation:
-    spaces: consistent
-    indent-sequences: consistent
-    check-multi-line-strings: true
+    spaces: {{ config_yamllint_indentation_spaces }}
+    indent-sequences: {{ config_yamllint_indent_sequences }}
+    check-multi-line-strings: {{ config_yamllint_check_multi_line_strings }}
   key-duplicates: enable
   key-ordering: disable
   line-length:
-    max: 200
+    max: {{ config_yamllint_line_length_max }}
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: false
   new-line-at-end-of-file: enable
   new-lines:
-    type: unix
+    type: {{ config_yamllint_new_lines_type }}
   octal-values:
     forbid-implicit-octal: false
     forbid-explicit-octal: false

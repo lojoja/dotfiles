@@ -1,0 +1,8 @@
+{{ ansible_managed | comment }}
+
+[flake8]
+exclude = {{ config_flake8_exclude | join(',') }}
+ignore = {{ config_flake8_ignore | join(',') }}
+jobs = {{ config_flake8_jobs }}
+max-line-length = {{ config_flake8_max_line_length }}
+select = {{ config_flake8_select | join(',') }}

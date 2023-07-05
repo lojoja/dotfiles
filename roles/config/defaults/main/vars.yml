@@ -1,0 +1,515 @@
+# roles/config/defaults/main/vars.yml
+---
+config_dir: "{{ dotfiles_install_base_dir }}/.config"
+
+config_dircolors: "{{ config_dir }}/.dircolors"
+config_dircolors_color: tty
+config_dircolors_color_schemes:
+  - name: None
+    code: 00
+    types:
+      - FILE
+      - NORMAL
+  - name: Black
+    code: 30
+    types:
+      - "*,v"
+      - .bak
+      - .BAK
+      - .dist
+      - .DIST
+      - .off
+      - .OFF
+      - .old
+      - .OLD
+      - .org_archive
+      - .orig
+      - .ORIG
+      - .swo
+      - .swp
+  - name: Black on Blue
+    code: 30;44
+    types:
+      - FIFO
+  - name: Blinking White on Red
+    code: 05;37;41
+    types:
+      - MISSING
+      - ORPHAN
+  - name: Blue on Black
+    code: 34;40
+    types:
+      - OTHER_WRITABLE
+  - name: Bold Blue
+    code: 01;34
+    types:
+      - DIR
+  - name: Bold Cyan
+    code: 01;36
+    types:
+      - .ai
+      - .doc
+      - .docx
+      - .dot
+      - .dotx
+      - .fla
+      - .indb
+      - .indd
+      - .numbers
+      - .odp
+      - .ods
+      - .odt
+      - .otp
+      - .ots
+      - .ott
+      - .pages
+      - .pdf
+      - .ppt
+      - .pptx
+      - .prproj
+      - .psd
+      - .rtf
+      - .sesx
+      - .xls
+      - .xlsx
+  - name: Bold Green
+    code: 01;32
+    types:
+      - .0
+      - .1
+      - .2
+      - .3
+      - .4
+      - .5
+      - .6
+      - .7
+      - .8
+      - .9
+      - .bash
+      - .c
+      - .C
+      - .cc
+      - .cl
+      - .coffee
+      - .cpp
+      - .csh
+      - .css
+      - .csv
+      - .cxx
+      - .el
+      - .erb
+      - .go
+      - .h
+      - .haml
+      - .hpp
+      - .hs
+      - .htm
+      - .html
+      - .java
+      - .js
+      - .json
+      - .l
+      - .less
+      - .man
+      - .markdown
+      - .md
+      - .mkd
+      - .n
+      - .objc
+      - .org
+      - .p
+      - .php
+      - .pl
+      - .pm
+      - .pod
+      - .py
+      - .rb
+      - .rdf
+      - .rst
+      - .sass
+      - .scss
+      - .sh
+      - .shtml
+      - .sql
+      - .tex
+      - .txt
+      - .vim
+      - .xml
+      - .yaml
+      - .yml
+      - .zsh
+  - name: Bold Magenta
+    code: 01;35
+    types:
+      - .7z
+      - .apk
+      - .arj
+      - .bin
+      - .bz
+      - .bz2
+      - .cab
+      - .deb
+      - .dmg
+      - .gem
+      - .gz
+      - .iso
+      - .jar
+      - .lzh
+      - .msi
+      - .rar
+      - .rpm
+      - .tar
+      - .taz
+      - .tbz
+      - .tbz2
+      - .tgz
+      - .tx
+      - .war
+      - .xpi
+      - .xz
+      - .z
+      - .Z
+      - .zip
+      - LINK
+  - name: Bold Magenta on Blue
+    code: 01;35;44
+    types:
+      - DOOR
+      - SOCK
+  - name: Bold Red
+    code: 01;31
+    types:
+      - EXEC
+      - .app
+      - .bat
+      - .cmd
+      - .com
+      - .exe
+      - .reg
+  - name: Bold Yellow
+    code: 01;33
+    types:
+      - .aac
+      - .aiff
+      - .anx
+      - .asf
+      - .au
+      - .avi
+      - .axv
+      - .bmp
+      - .cgm
+      - .dl
+      - .dl
+      - .dvi
+      - .emf
+      - .eps
+      - .flac
+      - .flc
+      - .fli
+      - .flv
+      - .gif
+      - .gl
+      - .jpeg
+      - .jpg
+      - .JPG
+      - .m2v
+      - .m4a
+      - .m4v
+      - .mid
+      - .midi
+      - .mka
+      - .mkv
+      - .mng
+      - .mov
+      - .MOV
+      - .mp3
+      - .mp4
+      - .mp4
+      - .mp4v
+      - .mpa
+      - .mpeg
+      - .mpeg
+      - .mpg
+      - .mpg
+      - .nuv
+      - .ogg
+      - .ogm
+      - .ogv
+      - .ogx
+      - .opus
+      - .pbm
+      - .pcx
+      - .pgm
+      - .png
+      - .PNG
+      - .ppm
+      - .pps
+      - .ppsx
+      - .ps
+      - .qt
+      - .ra
+      - .rm
+      - .rmvb
+      - .svg
+      - .svgz
+      - .swf
+      - .tga
+      - .tif
+      - .tiff
+      - .vob
+      - .wav
+      - .webm
+      - .wma
+      - .wmv
+      - .xbm
+      - .xcf
+      - .xpm
+      - .xwd
+      - .xwd
+      - .yuv
+  - name: Bold Yellow on Blue
+    code: 01;33;44
+    types:
+      - BLK
+  - name: Green
+    code: 32
+    types:
+      - "*#"
+      - "*~"
+      - .log
+  - name: White on Blue
+    code: 37;44
+    types:
+      - CHR
+
+config_dircolors_eightbit: 1
+config_dircolors_termtypes:
+  - ansi
+  - color_xterm
+  - color-xterm
+  - con132x25
+  - con132x30
+  - con132x43
+  - con132x60
+  - con80x25
+  - con80x28
+  - con80x30
+  - con80x43
+  - con80x50
+  - con80x60
+  - cons25
+  - console
+  - cygwin
+  - dtterm
+  - dvtm
+  - dvtm-256color
+  - Eterm
+  - eterm-color
+  - fbterm
+  - gnome
+  - gnome-256color
+  - jfbterm
+  - konsole
+  - konsole-256color
+  - kterm
+  - linux
+  - linux-c
+  - mach-color
+  - mlterm
+  - nxterm
+  - putty
+  - putty-256color
+  - rxvt
+  - rxvt-256color
+  - rxvt-cygwin
+  - rxvt-cygwin-native
+  - rxvt-unicode
+  - rxvt-unicode256
+  - rxvt-unicode-256color
+  - screen
+  - screen-16color
+  - screen-16color-bce
+  - screen-16color-s
+  - screen-16color-bce-s
+  - screen-256color
+  - screen-256color-bce
+  - screen-256color-s
+  - screen-256color-bce-s
+  - screen-256color-italic
+  - screen-bce
+  - screen-w
+  - screen.linux
+  - screen.xterm-256color
+  - screen.xterm-new
+  - st
+  - st-meta
+  - st-256color
+  - st-meta-256color
+  - tmux
+  - tmux-256color
+  - vt100
+  - xterm
+  - xterm-new
+  - xterm-16color
+  - xterm-256color
+  - xterm-256color-italic
+  - xterm-88color
+  - xterm-color
+  - xterm-debian
+  - xterm-termite
+
+config_eslint: "{{ dotfiles_install_base_dir }}/.eslintrc"
+
+config_exiftool: "{{ config_dir }}/.ExifTool_config"
+config_exiftool_largefilesupport: 1
+
+config_flake8: "{{ config_dir }}/flake8"
+config_flake8_exclude:
+  - "*.egg-info"
+  - .dist
+  - .git
+  - .pyc
+  - .venv
+  - __pycache__
+config_flake8_ignore:
+  - E121
+  - E123
+  - E126
+  - E133
+  - E204
+  - E226
+  - E241
+  - E242
+  - E501
+  - E704
+  - W503
+  - W504
+config_flake8_jobs: auto
+config_flake8_max_line_length: 120
+config_flake8_select:
+  - B
+  - B950
+  - C
+  - E
+  - F
+  - W
+
+config_git_accounts: "{{ vault_config_git_accounts }}"
+config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
+config_git_config_core_editor: vi
+config_git_config_diff_algorithm: patience
+config_git_config_credential_helper: osxkeychain
+config_git_config_init_default_branch: main
+config_git_urls:
+  - host_prefix: bitbucket
+    rewrites:
+      - bb
+      - bitbucket.com
+  - host_prefix: github
+    rewrites:
+      - gh
+      - github.com
+  - host_prefix: gitea
+    rewrites:
+      - gt
+      - gitea.lojoja.com
+config_git_config_user_name: "{{ vault_config_git_config_user_name }}"
+config_git_config_user_email: "{{ vault_config_git_config_user_email }}"
+
+config_git_ignore: "{{ dotfiles_install_base_dir }}/.gitignore"
+config_git_ignore_patterns:
+  - "*.DS_Store"
+  - "*.sublime-workspace"
+  - ._*
+  - .apdisk
+  - .AppleDB
+  - .AppleDesktop
+  - .AppleDouble
+  - .com.apple.timemachine.donotpresent
+  - .DocumentRevisions-V100
+  - .fseventsd
+  - .LSOverride
+  - .Spotlight-V100
+  - .TemporaryItems
+  - .Trashes
+  - .VolumeIcon.icns
+
+config_hushlogin: "{{ config_dir }}/.hushlogin"
+
+config_pip_dir: "{{ config_dir }}/pip"
+config_pip: "{{ config_pip_dir }}/pip.conf"
+config_pip_global_timeout: 60
+config_pip_freeze_timeout: 10
+config_pip_list_format: columns
+
+config_poetry: "{{ config_dir }}/poetry.toml"
+config_poetry_experimental_new_installer: "true"
+config_poetry_experimental_system_git_client: "false"
+config_poetry_installer_parallel: "true"
+config_poetry_venv_create: "true"
+config_poetry_venv_in_project: "true"
+config_poetry_venv_options_always_copy: "false"
+config_poetry_venv_options_no_pip: "false"
+config_poetry_venv_options_no_setup_tools: "false"
+config_poetry_venv_options_no_system_site_packages: "false"
+config_poetry_venv_path: "{cache-dir}/virtualenvs"
+config_poetry_venv_prefer_active_python: "false"
+config_poetry_venv_prompt: "{project_name}-py{python_version}"
+
+config_service: "{{ config_dir }}/service.toml"
+config_service_reverse_domains:
+  - com.lojoja
+  - com.snlsrvr
+
+config_ssl_dir: "{{ config_dir }}/ssl"
+config_ssl_certs_lojoja: "{{ config_ssl_dir }}/lojojaChain.pem"
+
+config_starship: "{{ config_dir }}/starship.toml"
+config_starship_right_format: ""
+config_starship_scan_timeout: 30
+config_starship_command_timeout: 5000
+config_starship_add_newline: "true"
+config_starship_status_disabled: "false"
+
+config_wake: "{{ config_dir }}/wake.toml"
+config_wake_hosts: "{{ vault_config_wake_hosts }}"
+
+config_yamllint_dir: "{{ config_dir }}/yamllint"
+config_yamllint: "{{ config_yamllint_dir }}/config"
+config_yamllint_indentation_spaces: consistent
+config_yamllint_indent_sequences: consistent
+config_yamllint_check_multi_line_strings: "true"
+config_yamllint_line_length_max: 200
+config_yamllint_new_lines_type: unix
+
+config_dirs:
+  - "{{ config_dir }}"
+  - "{{ config_pip_dir }}"
+  - "{{ config_ssl_dir }}"
+  - "{{ config_yamllint_dir }}"
+
+config_templates:
+  - template: dircolors.j2
+    file: "{{ config_dircolors }}"
+  - template: eslintrc.j2
+    file: "{{ config_eslint }}"
+  - template: exiftool.j2
+    file: "{{ config_exiftool }}"
+  - template: flake8.j2
+    file: "{{ config_flake8 }}"
+  - template: gitconfig.j2
+    file: "{{ config_git_config }}"
+  - template: gitignore.j2
+    file: "{{ config_git_ignore }}"
+  - template: pip.j2
+    file: "{{ config_pip }}"
+  - template: poetry.j2
+    file: "{{ config_poetry }}"
+  - template: service.j2
+    file: "{{ config_service }}"
+  - template: starship.j2
+    file: "{{ config_starship }}"
+  - template: wake.j2
+    file: "{{ config_wake }}"
+  - template: yamllint.j2
+    file: "{{ config_yamllint }}"

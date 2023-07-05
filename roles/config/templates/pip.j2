@@ -1,0 +1,10 @@
+{{ ansible_managed | comment }}
+
+[global]
+timeout = {{ config_pip_global_timeout }}
+
+[freeze]
+timeout = {{ config_pip_freeze_timeout }}
+
+[list]
+format = {{ config_pip_list_format }}

@@ -1,0 +1,9 @@
+{{ ansible_managed | comment }}
+{% for host in config_wake_hosts %}
+
+[[ hosts ]]
+name = "{{ host.name }}"
+mac = "{{ host.mac }}"
+ip = "{{ host.ip }}"
+port = {{ host.port }}
+{% endfor %}

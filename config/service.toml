@@ -1,7 +1,0 @@
-# dotfiles/config/service.toml
-#
-
-reverse-domains = [
-  "com.lojoja",
-  "com.snlsrvr"
-]

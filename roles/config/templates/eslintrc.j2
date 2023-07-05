@@ -1,5 +1,5 @@
-// dotfiles/config/eslint/eslintrc
-//
+{{ ansible_managed | comment(decoration="// ") }}
+
 {
   "root": true,
   "parser": "espree",
@@ -117,7 +117,7 @@
     "no-mixed-requires": "error",
     "no-new-require": "error",
     "no-path-concat": "error",
-    "no-process-env": "error",
+    "no-process-env": "off",
     "no-process-exit": "error",
     "no-restricted-modules": "error",
     "no-sync": "error",
@@ -141,7 +141,7 @@
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",
-    "indent": "off",
+    "indent": ["error", 4, { "ignoreComments": true }],
     "indent-legacy": ["error", 2, { "SwitchCase": 1 }],
     "jsx-quotes": "error",
     "key-spacing": "off",

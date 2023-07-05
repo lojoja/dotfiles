@@ -1,9 +1,9 @@
-# dotfiles/config/git/gitconfig
-#
+{{ ansible_managed | comment }}
+
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = {{ config_git_ignore }}
   autocrlf = input
-  editor = nano
+  editor = {{ config_git_config_core_editor }}
 [color]
   ui = auto
 [color "branch"]
@@ -78,10 +78,31 @@
 [pull]
   rebase=true
 [diff]
-  algorithm = patience
+  algorithm = {{ config_git_config_diff_algorithm }}
 [credential]
-	helper = osxkeychain
+	helper = {{ config_git_config_credential_helper }}
 [init]
-  defaultBranch = main
-[include]
-  path = ~/.gitconfig-local
+  defaultBranch = {{ config_git_config_init_default_branch }}
+[user]
+  name = {{ config_git_config_user_name }}
+  email = {{ config_git_config_user_email }}
+{%- for git_url in config_git_urls %}
+  {%- for git_account in config_git_accounts %}
+
+[url "{{ git_url.host_prefix }}-{{ git_account }}"]
+    {%- for rewrite in git_url.rewrites %}
+
+  insteadOf = {{ rewrite }}:{{ git_account }}
+  pushInsteadOf = {{ rewrite }}:{{ git_account }}
+  insteadOf = git@{{ rewrite }}:{{ git_account }}
+  pushInsteadOf = git@{{ rewrite }}:{{ git_account }}
+      {%- if git_account == config_git_config_user_name %}
+
+  insteadOf = https://{{ rewrite }}
+  pushInsteadOf = https://{{ rewrite }}
+  insteadOf = git://{{ rewrite }}
+  pushInsteadOf = git://{{ rewrite }}
+      {%- endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}

@@ -1,0 +1,30 @@
+# roles/config/tasks/install.yml
+---
+- name: Create config directories
+  ansible.builtin.file:
+    dest: "{{ item }}"
+    mode: 0755
+    state: directory
+  loop: "{{ config_dirs }}"
+
+- name: Add .hushlogin
+  ansible.builtin.copy:
+    dest: "{{ config_hushlogin }}"
+    mode: 0644
+    force: no
+    content: ""
+
+- name: Add config files
+  ansible.builtin.template:
+    src: "{{ item.template }}"
+    dest: "{{ item.file }}"
+    mode: 0644
+  loop: "{{ config_templates }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Add ssl certificates
+  ansible.builtin.copy:
+    src: lojojaChain.pem
+    dest: "{{ config_ssl_certs_lojoja }}"
+    mode: 0644

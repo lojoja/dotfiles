@@ -1,5 +1,4 @@
-# dotfiles/config/starship.toml
-#
+{{ ansible_managed | comment }}
 
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
@@ -29,10 +28,10 @@ $container\
 $shell\
 $character"""
 
-right_format = ""
-scan_timeout = 30
-command_timeout = 5000
-add_newline = true
+right_format = "{{ config_starship_right_format }}"
+scan_timeout = {{ config_starship_scan_timeout }}
+command_timeout = {{ config_starship_command_timeout }}
+add_newline = {{ config_starship_add_newline }}
 
 [aws]
 symbol = "  "
@@ -127,4 +126,4 @@ symbol = " "
 symbol = "🅢 "
 
 [status]
-disabled = false
+disabled = {{ config_starship_status_disabled }}
