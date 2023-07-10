@@ -22,6 +22,7 @@ macports_overrides:
 
 macports_ports:
   # Core
+  - port: act
   - port: bash
   - port: bash-completion
   - port: zsh
