@@ -4,7 +4,7 @@
 {{ section.name | comment }}
   {% for item in section.hosts %}
 
-{{ item.host }} {{ item.fingerprint }}
+{{ item.host }} {{ item.key }}
   {% endfor -%}
 {% endfor %}
 
