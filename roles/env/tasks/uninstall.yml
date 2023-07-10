@@ -1,0 +1,17 @@
+# roles/env/tasks/uninstall.yml
+---
+- name: Remove .env files
+  ansible.builtin.file:
+    dest: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ env_local }}"
+    - "{{ env }}"
+
+- name: Remove Google credentials
+  ansible.builtin.file:
+    dest: "{{ env_google_credentials_dir }}/{{ item.value }}"
+    state: absent
+  loop: "{{ env_google | dict2items }}"
+  loop_control:
+    label: "{{ item.value }}"

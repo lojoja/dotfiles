@@ -10,13 +10,46 @@ env_visual: "{{ env_editor }}"
 env_lc_all: en_US.utf-8
 env_arch_flags: -arch x86_64 -arch i386
 
+env_accounts: "{{ vault_env_accounts }}"
+
 # Ansible
 env_ansible_display_skipped_hosts: 0
 env_ansible_rety_files_enabled: 0
 env_ansible_ssh_pipelining: 1
 
+# AWS
+env_aws: "{{ vault_env_aws }}"
+
+# Bitbucket
+env_bitbucket: "{{ vault_env_bitbucket }}"
+
+# Cloudflare
+env_cloudflare: "{{ vault_env_cloudflare }}"
+
+# Clientfile
+env_clientfile: "{{ vault_env_clientfile }}"
+
+# Digital Ocean
+env_digital_ocean: "{{ vault_env_digital_ocean }}"
+
+# Docker
+env_docker: "{{ vault_env_docker }}"
+
+# Exiftool
+env_exiftool_home: "{{ config_dir }}"
+
 # Git
 env_git_editor: "{{ env_editor }}"
+
+# Gitea
+env_gitea: "{{ vault_env_gitea }}"
+
+# Github
+env_github: "{{ vault_env_github }}"
+
+# Google
+env_google_credentials_dir: "{{ local_etc }}/google"
+env_google: "{{ vault_env_google }}"
 
 # Homebrew
 env_homebrew_no_analytics: "{{ homebrew_no_analytics }}"
@@ -29,6 +62,12 @@ env_cli_color: 1
 env_copyfile_disable: "true"
 env_copy_extended_attributes_disable: "true"
 
+# Mailgun
+env_mailgun: "{{ vault_env_mailgun }}"
+
+# PyPi
+env_pypi: "{{ vault_env_pypi }}"
+
 # Python
 env_python_dontwritebytecode: 1
 
@@ -39,7 +78,7 @@ env_tar_options: --exclude=.DS_Store --exclude=._* --exclude=__MACOSX
 env_vagrant_disable_vboxsymlinkcreate: 1
 
 # XZ
-env_xz_opt: -9 --threads={{ ansible_processor_nproc - 1 }}
+env_xz_opt: -9 --threads={{ ansible_processor_vcpus | int - 1 }}
 
 # Zip
 env_zip_opt: -9 -x "\*.DS_Store" "\*._\*" "__MACOSX" @
