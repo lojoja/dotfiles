@@ -98,9 +98,7 @@
   pushInsteadOf = git@{{ rewrite }}:{{ git_account }}
       {%- if git_account == config_git_config_user_name %}
 
-  insteadOf = https://{{ rewrite }}
   pushInsteadOf = https://{{ rewrite }}
-  insteadOf = git://{{ rewrite }}
   pushInsteadOf = git://{{ rewrite }}
       {%- endif %}
     {% endfor %}
