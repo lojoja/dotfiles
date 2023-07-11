@@ -1,0 +1,25 @@
+# roles/shell/tasks/uninstall.yml
+---
+- name: Remove .zshrc
+  ansible.builtin.file:
+    dest: "{{ dotfiles_install_base_dir }}/.zshrc"
+    state: absent
+
+- name: Remove oh-my-zsh
+  ansible.builtin.file:
+    dest: "{{ shell_omz_dir }}"
+    state: absent
+
+- block:
+    - name: Reset login shell
+      user:
+        name: "{{ ansible_env.USER }}"
+        shell: /bin/zsh
+
+    - name: Reset approved shells
+      ansible.builtin.lineinfile:
+        dest: /etc/shells
+        state: absent
+        line: "{{ item }}"
+      loop: "{{ shell_approved_shells }}"
+  become: yes
