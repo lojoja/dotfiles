@@ -436,6 +436,11 @@ config_git_ignore_patterns:
 
 config_hushlogin: "{{ config_dir }}/.hushlogin"
 
+config_iterm2_dir: "{{ config_dir }}/iterm2"
+config_iterm2: "{{ config_iterm2_dir }}/iterm2.plist"
+config_iterm2_theme_lojoja: "{{ config_iterm2_dir }}/themelojoja.json"
+config_iterm2_theme_lojoja_github_dimmed: "{{ config_iterm2_dir }}/themelojojaGithubDimmed.json"
+
 config_pip_dir: "{{ config_dir }}/pip"
 config_pip: "{{ config_pip_dir }}/pip.conf"
 config_pip_global_timeout: 60
@@ -484,6 +489,7 @@ config_yamllint_new_lines_type: unix
 
 config_dirs:
   - "{{ config_dir }}"
+  - "{{ config_iterm2_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_ssl_dir }}"
   - "{{ config_yamllint_dir }}"
@@ -501,6 +507,12 @@ config_templates:
     file: "{{ config_git_config }}"
   - template: gitignore.j2
     file: "{{ config_git_ignore }}"
+  - template: iterm2.j2
+    file: "{{ config_iterm2 }}"
+  - template: iterm2_theme_lojoja.j2
+    file: "{{ config_iterm2_theme_lojoja }}"
+  - template: iterm2_theme_lojoja_github_dimmed.j2
+    file: "{{ config_iterm2_theme_lojoja_github_dimmed }}"
   - template: pip.j2
     file: "{{ config_pip }}"
   - template: poetry.j2

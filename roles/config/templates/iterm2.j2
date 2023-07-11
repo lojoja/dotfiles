@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+{{ ansible_managed | comment("xml") }}
 <plist version="1.0">
 	<dict>
 		<key>AlternateMouseScroll</key>
@@ -3769,7 +3770,7 @@
 				<key>Window Type</key>
 				<integer>12</integer>
 				<key>Working Directory</key>
-				<string>/Users/jl</string>
+				<string>{{ ansible_env.HOME }}</string>
 			</dict>
 			<dict>
 				<key>ASCII Anti Aliased</key>
@@ -4659,7 +4660,7 @@
 				<key>Window Type</key>
 				<integer>0</integer>
 				<key>Working Directory</key>
-				<string>/Users/jl</string>
+				<string>{{ ansible_env.HOME }}</string>
 			</dict>
 		</array>
 		<key>OnlyWhenMoreTabs</key>
