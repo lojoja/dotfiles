@@ -50,6 +50,17 @@ shell_omz_dir: "{{ dotfiles_install_base_dir }}/.oh-my-zsh"
 shell_omz_custom_dir: "{{ shell_omz_dir }}/custom"
 shell_omz_script: "{{ shell_omz_dir }}/oh-my-zsh.sh"
 shell_omz_theme: robbyrussell
+shell_omz_random_themes: []
+shell_omz_case_sensitive: false
+shell_omz_hyphen_sensitive: false
+shell_omz_update_mode: auto
+shell_omz_update_frequency: 7
+shell_omz_disable_magic_functions: false
+shell_omz_disable_ls_colors: false
+shell_omz_disable_auto_title: false
+shell_omz_enable_correction: false
+shell_omz_completion_waiting_dots: true
+shell_omz_disable_untracked_files_dirty: false
 shell_omz_hist_stamps: yyyy-mm-dd
 shell_omz_plugins:
   - aliases
