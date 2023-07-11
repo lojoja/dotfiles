@@ -106,10 +106,10 @@ export ANSIBLE_VAULT_PASSWORD_FILE="$REPOSITORY_PATH/.ansible-vault"
 # A mapping of command names to ansible playbooks. Multiple playbooks are separated by "::".
 # When multiple playbooks are specified they are run in the order listed.
 typeset -A PLAYBOOKS=(
-  $CMD[install] 'uninstall_legacy.yml::package_manager.yml'
+  $CMD[install] 'uninstall_legacy.yml::package_manager.yml::install.yml'
   $CMD[packages] 'package_manager.yml'
   $CMD[uninstall] 'uninstall.yml'
-  $CMD[update] 'update.yml'
+  $CMD[update] 'package_manager.yml::install.yml'
 )
 
 ##########
@@ -256,11 +256,12 @@ function main() {
   cd "$REPOSITORY_PATH"
 
   case $1 in
-    -h|--help)                          showHelp "$name";;
-    password)                           shift; checkVaultPassword "$@";;
-    install|packages|uninstall|update)  name="$1"; shift; runPlaybooks "$name" "$@";;
-    -*)                                 die "Unknown option $1";;
-    *)                                  die "Unknown command $1";;
+    -h|--help)                  showHelp "$name";;
+    password)                   shift; checkVaultPassword "$@";;
+    install|packages|uninstall) name="$1"; shift; runPlaybooks "$name" "$@";;
+    update)                     name="$1"; shift; updateRepo; runPlaybooks "$name" "$@";;
+    -*)                         die "Unknown option $1";;
+    *)                          die "Unknown command $1";;
   esac
 
   quit
@@ -337,6 +338,38 @@ function runPlaybooks() {
 
   ok "$CMD_MSG_END[$name]"
   quit
+}
+
+# Update the local dotfiles repository.
+function updateRepo() {
+  validateArgCount "$0" 0 0
+  local repositoryChanges=0
+
+  info "Updating $PROGRAM_NAME repository"
+
+  if ! git fetch &>/dev/null
+  then
+    die "$PROGRAM_NAME remote repository fetch failed"
+  fi
+
+  repositoryChanges=$(git rev-list main...origin/main --count) &>/dev/null
+
+  if [[ -z $repositoryChanges ]]
+  then
+    die "$PROGRAM_NAME repository state comparison failed"
+  fi
+
+  if (( $repositoryChanges == 0 ))
+  then
+    ok "$PROGRAM_NAME is up to date"
+  fi
+
+  if ! git pull &>/dev/null
+  then
+    die "$PROGRAM_NAME remote repository pull failed"
+  fi
+
+  ok "$PROGRAM_NAME repository updated"
 }
 
 main "$@"
