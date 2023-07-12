@@ -434,7 +434,7 @@ config_git_ignore_patterns:
   - .Trashes
   - .VolumeIcon.icns
 
-config_hushlogin: "{{ config_dir }}/.hushlogin"
+config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"
 
 config_iterm2_dir: "{{ config_dir }}/iterm2"
 config_iterm2: "{{ config_iterm2_dir }}/iterm2.plist"
