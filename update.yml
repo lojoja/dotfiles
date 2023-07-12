@@ -23,4 +23,5 @@
         - ssh
         - config
         - env
+        - shell
       when: dotfiles_repo.changed | default(false)
