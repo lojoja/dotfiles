@@ -11,4 +11,3 @@
         dest: "{{ dotfiles_dir }}"
         clone: false
         update: yes
-      register: dotfiles_repo
