@@ -117,7 +117,7 @@ typeset -A PLAYBOOKS=(
   $CMD[packages] 'package_manager.yml'
   $CMD[secrets] 'secrets.yml'
   $CMD[uninstall] 'uninstall.yml'
-  $CMD[update] 'package_manager.yml::install.yml'
+  $CMD[update] 'update.yml'
 )
 
 ##########
@@ -264,13 +264,12 @@ function main() {
   cd "$REPOSITORY_PATH"
 
   case $1 in
-    -h|--help)                  showHelp "$name";;
-    password)                   shift; checkVaultPassword "$@";;
-    install|packages|uninstall) name="$1"; shift; runPlaybooks "$name" "$@";;
-    secrets)                    name="$1"; shift; showSecrets "$name" "$@";;
-    update)                     name="$1"; shift; updateProgram "$name" "$@";;;
-    -*)                         die "Unknown option $1";;
-    *)                          die "Unknown command $1";;
+    -h|--help)                          showHelp "$name";;
+    password)                           shift; checkVaultPassword "$@";;
+    install|packages|uninstall|update)  name="$1"; shift; runPlaybooks "$name" "$@";;
+    secrets)                            name="$1"; shift; showSecrets "$name" "$@";;
+    -*)                                 die "Unknown option $1";;
+    *)                                  die "Unknown command $1";;
   esac
 
   quit
@@ -391,39 +390,6 @@ function showSecrets() {
 
   ok "$CMD_MSG_END[$name]"
   quit
-}
-
-# Update the local dotfiles repository.
-function updateRepo() {
-  validateArgCount "$0" 0 0
-  local repositoryChanges=0
-
-  info "Updating $PROGRAM_NAME repository"
-
-  if ! git fetch &>/dev/null
-  then
-    die "$PROGRAM_NAME remote repository fetch failed"
-  fi
-
-  repositoryChanges=$(git rev-list main...origin/main --count) &>/dev/null
-
-  if [[ -z $repositoryChanges ]]
-  then
-    die "$PROGRAM_NAME repository state comparison failed"
-  fi
-
-  if (( $repositoryChanges == 0 ))
-  then
-    ok "$PROGRAM_NAME is up to date"
-    quit
-  fi
-
-  if ! git pull &>/dev/null
-  then
-    die "$PROGRAM_NAME remote repository pull failed"
-  fi
-
-  ok "$PROGRAM_NAME repository updated"
 }
 
 main "$@"
