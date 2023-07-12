@@ -14,10 +14,10 @@
         shell: "{{ shell_login_shell }}"
   become: yes
 
-#- name: Install oh-my-zsh
-#  ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-#  args:
-#    creates: "{{ shell_omz_dir }}"
+- name: Install oh-my-zsh
+  ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  args:
+    creates: "{{ shell_omz_dir }}"
 
 - name: Add .zshrc
   ansible.builtin.template:
