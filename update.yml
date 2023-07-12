@@ -1,6 +1,6 @@
 # secrets.yml
 #
-# This playbook updates the dotfiles installation.
+# This playbook updates the dotfiles repository.
 ---
 - name: Update dotfiles
   hosts: devbox
@@ -12,16 +12,3 @@
         clone: false
         update: yes
       register: dotfiles_repo
-
-    - name: Update installation
-      ansible.builtin.include_role:
-        role: "{{ item }}"
-        public: yes
-      loop:
-        - macports
-        - homebrew
-        - ssh
-        - config
-        - env
-        - shell
-      when: dotfiles_repo.changed | default(false)

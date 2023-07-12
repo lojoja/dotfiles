@@ -117,7 +117,7 @@ typeset -A PLAYBOOKS=(
   $CMD[packages] 'package_manager.yml'
   $CMD[secrets] 'secrets.yml'
   $CMD[uninstall] 'uninstall.yml'
-  $CMD[update] 'update.yml'
+  $CMD[update] 'update.yml::package_manager.yml::install.yml'
 )
 
 ##########
