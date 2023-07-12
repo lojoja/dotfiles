@@ -32,6 +32,7 @@ typeset -A CMD=(
   'install' 'install'
   'packages' 'packages'
   'password' 'password'
+  'secrets' 'secrets'
   'uninstall' 'uninstall'
   'update' 'update'
 )
@@ -41,15 +42,17 @@ typeset -A CMD_DESC=(
   'install' "Install $PROGRAM_NAME"
   'packages' "Manage $PROGRAM_NAME packages on this system"
   'password' "Set/validate the $PROGRAM_NAME vault password"
+  'secrets' "Show $PROGRAM_NAME secrets"
   'uninstall' "Uninstall $PROGRAM_NAME"
   'update' "Update $PROGRAM_NAME"
 )
 
 typeset -A CMD_SUBCMD=(
-  'main' "$CMD[install]::$CMD_DESC[install]::$CMD[password]::$CMD_DESC[password]::$CMD[uninstall]::$CMD_DESC[uninstall]::$CMD[update]::$CMD_DESC[update]"
+  'main' "$CMD[install]::$CMD_DESC[install]::$CMD[packages]::$CMD_DESC[packages]::$CMD[password]::$CMD_DESC[password]::$CMD[secrets]::$CMD_DESC[secrets]::$CMD[uninstall]::$CMD_DESC[uninstall]::$CMD[update]::$CMD_DESC[update]"
   'install' ''
   'packages' ''
   'password' ''
+  'secrets' ''
   'uninstall' ''
   'update' ''
 )
@@ -59,6 +62,7 @@ typeset -A CMD_OPTS=(
   'install' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'packages' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'password' "$OPT[help]::$OPT_DESC[help]"
+  'secrets' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'uninstall' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
   'update' "$OPT[help]::$OPT_DESC[help]::$OPT[test]::$OPT_DESC[test]"
 )
@@ -67,6 +71,7 @@ typeset -A CMD_MSG_END=(
   'install' "$PROGRAM_NAME installed"
   'packages' "$PROGRAM_NAME packages installed/updated"
   'password' "$PROGRAM_NAME vault password validated"
+  'secrets' "$PROGRAM_NAME secrets displayed and removed"
   'uninstall' "$PROGRAM_NAME uninstalled"
   'update' "$PROGRAM_NAME updated"
 )
@@ -75,6 +80,7 @@ typeset -A CMD_MSG_FAIL=(
   'install' "$PROGRAM_NAME installation failed"
   'packages' "$PROGRAM_NAME packages install/update failed"
   'password' "$PROGRAM_NAME vault password validation failed"
+  'secrets' "$PROGRAM_NAME secret extraction failed"
   'uninstall' "$PROGRAM_NAME uninstall failed"
   'update' "$PROGRAM_NAME update failed"
 )
@@ -83,6 +89,7 @@ typeset -A CMD_MSG_START=(
   'install' "Installing $PROGRAM_NAME"
   'packages' "Installing/updating $PROGRAM_NAME packages"
   'password' "Checking $PROGRAM_NAME vault password"
+  'secrets' "Displaying $PROGRAM_NAME secrets"
   'uninstall' "Uninstalling $PROGRAM_NAME"
   'update' "Updating $PROGRAM_NAME"
 )
@@ -108,6 +115,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE="$REPOSITORY_PATH/.ansible-vault"
 typeset -A PLAYBOOKS=(
   $CMD[install] 'uninstall_legacy.yml::package_manager.yml::install.yml'
   $CMD[packages] 'package_manager.yml'
+  $CMD[secrets] 'secrets.yml'
   $CMD[uninstall] 'uninstall.yml'
   $CMD[update] 'package_manager.yml::install.yml'
 )
@@ -259,7 +267,8 @@ function main() {
     -h|--help)                  showHelp "$name";;
     password)                   shift; checkVaultPassword "$@";;
     install|packages|uninstall) name="$1"; shift; runPlaybooks "$name" "$@";;
-    update)                     name="$1"; shift; updateRepo; runPlaybooks "$name" "$@";;
+    secrets)                    name="$1"; shift; showSecrets "$name" "$@";;
+    update)                     name="$1"; shift; updateProgram "$name" "$@";;;
     -*)                         die "Unknown option $1";;
     *)                          die "Unknown command $1";;
   esac
@@ -335,6 +344,50 @@ function runPlaybooks() {
       die "$CMD_MSG_FAIL[$name]"
     fi
   done
+
+  ok "$CMD_MSG_END[$name]"
+  quit
+}
+
+# Extract and display resolved secrets.
+#
+# $1 - The command name.
+# $2 - The command option flag (optional).
+function showSecrets() {
+  validateArgCount "$0" $# 1 2
+  local name="$1" check='' secretsFile="$(/usr/bin/mktemp)" failed=0
+
+  case $2 in
+    -h|--help)  showHelp "$name";;
+    -t|--test)  check='--check';;
+    '')         ;;
+    -*)         die "Unknown option $2";;
+    *)          die "Unknown argument $2";;
+  esac
+
+  checkVaultPassword
+
+  info "$CMD_MSG_START[$name]"
+
+  if ansible-playbook --limit "$(hostname)" $check --extra-vars="secrets_tmp_file="$secretsFile"" "$PLAYBOOKS[$name]" &>/dev/null
+  then
+    if [[ -z $check ]]
+    then
+      if ! /usr/bin/less "$secretsFile"
+      then
+        failed=1
+      fi
+    fi
+  else
+    failed=1
+  fi
+
+  rm -f "$secretsFile" &>/dev/null
+
+  if (( $failed == 1 ))
+  then
+    die "$CMD_MSG_FAIL[$name]"
+  fi
 
   ok "$CMD_MSG_END[$name]"
   quit
