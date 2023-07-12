@@ -362,6 +362,7 @@ function updateRepo() {
   if (( $repositoryChanges == 0 ))
   then
     ok "$PROGRAM_NAME is up to date"
+    quit
   fi
 
   if ! git pull &>/dev/null
