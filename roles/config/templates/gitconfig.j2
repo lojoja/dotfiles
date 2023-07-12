@@ -89,13 +89,13 @@
 {%- for git_url in config_git_urls %}
   {%- for git_account in config_git_accounts %}
 
-[url "{{ git_url.host_prefix }}-{{ git_account }}"]
+[url "{{ git_url.host_prefix }}-{{ git_account }}:/{{ git_account }}"]
     {%- for rewrite in git_url.rewrites %}
 
-  insteadOf = {{ rewrite }}:{{ git_account }}
-  pushInsteadOf = {{ rewrite }}:{{ git_account }}
-  insteadOf = git@{{ rewrite }}:{{ git_account }}
-  pushInsteadOf = git@{{ rewrite }}:{{ git_account }}
+  insteadOf = {{ rewrite }}:/{{ git_account }}
+  pushInsteadOf = {{ rewrite }}:/{{ git_account }}
+  insteadOf = git@{{ rewrite }}:/{{ git_account }}
+  pushInsteadOf = git@{{ rewrite }}:/{{ git_account }}
       {%- if git_account == config_git_config_user_name %}
 
   pushInsteadOf = https://{{ rewrite }}
