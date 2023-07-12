@@ -4,9 +4,12 @@
 legacy_repository_path: "{{ ansible_env.HOME }}/.dotfiles"
 
 legacy_files:
+  - "{{ ansible_env.HOME }}/.ansible"
   - "{{ legacy_repository_path }}/shared/shell/local.sh"
   - "{{ legacy_repository_path }}/shared/shell/private.sh"
+  - "{{ ansible_env.HONE }}/.googlecloud"
   - "{{ ansible_env.HOME }}/.hushlogin"
+  - "{{ ansible_env.HOME }}/.subversion"
 
 legacy_symlinks:
   - "{{ ansible_env.HOME }}/.bash_profile"
