@@ -34,7 +34,7 @@ command_timeout = {{ config_starship_command_timeout }}
 add_newline = {{ config_starship_add_newline }}
 
 [aws]
-symbol = "  "
+symbol = " "
 
 [buf]
 symbol = " "
@@ -49,7 +49,7 @@ symbol = " "
 symbol = " "
 
 [directory]
-read_only = " "
+read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
@@ -65,15 +65,15 @@ symbol = " "
 
 [git_status]
 conflicted = ""
-diverged = ""
+diverged = "󰃻"
 untracked = " x${count} "
 stashed = " "
 modified = " x${count} "
 staged = " x${count} "
 renamed = " x${count} "
-deleted = "﫧 x${count} "
-ahead = " "
-behind = "丹 "
+deleted = "󰗨 x${count} "
+ahead = "󰈑 "
+behind = "󰑟 "
 style = "bold blue"
 format = '([\[ $conflicted$untracked$stashed$modified$renamed$deleted$staged$ahead$behind\]]($style) )'
 
@@ -96,10 +96,10 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
@@ -108,13 +108,13 @@ symbol = " "
 symbol = " "
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 
 [python]
 symbol = " "
 
 [rlang]
-symbol = "ﳒ "
+symbol = "󰟔 "
 
 [ruby]
 symbol = " "
@@ -123,7 +123,7 @@ symbol = " "
 symbol = " "
 
 [spack]
-symbol = "🅢 "
+symbol = "󰦻 "
 
 [status]
 disabled = {{ config_starship_status_disabled }}
