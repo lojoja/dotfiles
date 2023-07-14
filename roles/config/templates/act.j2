@@ -1,0 +1,9 @@
+{{ ansible_managed | comment }}
+
+{% for act_secret in config_act_secrets %}
+-s {{ act_secret.var }}="{{ act_secret.value }}"
+{% endfor %}
+
+{% for act_image in config_act_images %}
+-P {{ act_image.tag }}={{ act_image.image }}
+{% endfor %}
