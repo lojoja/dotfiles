@@ -14,7 +14,7 @@ config_act_images:
     image: catthehacker/ubuntu:act-18.04
 config_act_secrets:
   - var: GITHUB_TOKEN
-    value: ${GH_TOKEN:-""}
+    value: "{{ ((env_accounts.github | default) != '') | ternary(env_github[env_accounts.github].token | default, '') }}"
 
 config_dircolors: "{{ config_dir }}/.dircolors"
 config_dircolors_color: tty
