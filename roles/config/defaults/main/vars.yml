@@ -462,7 +462,7 @@ config_pip_freeze_timeout: 10
 config_pip_list_format: columns
 
 config_poetry_dir: "{{ config_dir }}/poetry"
-config_poetry: "{{ config_poetry_dir }}/poetry.toml"
+config_poetry: "{{ config_poetry_dir }}/config.toml"
 config_poetry_experimental_new_installer: "true"
 config_poetry_experimental_system_git_client: "false"
 config_poetry_installer_parallel: "true"
