@@ -11,21 +11,21 @@
       ansible.builtin.file:
         path: "{{ item }}"
         state: absent
-      with_items: "{{ legacy_files }}"
+      loop: "{{ legacy_files }}"
 
     - name: Find legacy symlinks
       ansible.builtin.stat:
         path: "{{ item }}"
         get_checksum: no
-      with_items: "{{ legacy_symlinks }}"
+      loop: "{{ legacy_symlinks }}"
       register: symlink
 
     - name: Remove legacy symlinks
       ansible.builtin.file:
         path: "{{ item.item }}"
         state: absent
-      with_items: "{{ symlink.results }}"
       when: item.stat.islnk is defined and item.stat.islnk and item.stat.lnk_source.startswith(legacy_repository_path)
+      loop: "{{ symlink.results }}"
       loop_control:
         label: "{{ item.item }}"
 
@@ -46,8 +46,8 @@
   ansible.builtin.file:
     path: "{{ item.item }}"
     state: absent
-  loop: "{{ pkg_symlink.results }}"
   when: item.stat.islnk is defined and item.stat.islnk and (item.stat.lnk_source | regex_search(legacy_package_match))
+  loop: "{{ pkg_symlink.results }}"
   loop_control:
     label: "{{ item.item }}"
 
