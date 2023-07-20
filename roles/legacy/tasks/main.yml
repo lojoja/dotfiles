@@ -34,3 +34,25 @@
         path: "{{ legacy_repository_path }}"
         state: absent
   when: repo.stat.isdir is defined and repo.stat.isdir
+
+- name: Find legacy unmanaged package symlinks
+  ansible.builtin.stat:
+    path: "{{ item }}"
+    get_checksum: no
+  loop: "{{ legacy_package_symlinks }}"
+  register: pkg_symlink
+
+- name: Remove legacy unmanaged package symlinks
+  ansible.builtin.file:
+    path: "{{ item.item }}"
+    state: absent
+  loop: "{{ pkg_symlink.results }}"
+  when: item.stat.islnk is defined and item.stat.islnk and (item.stat.lnk_source | regex_search(legacy_package_match))
+  loop_control:
+    label: "{{ item.item }}"
+
+- name: Remove legacy unmanaged package group directories
+  ansible.builtin.file:
+    path: "{{ legacy_package_opt_path }}/{{ item }}"
+    state: absent
+  loop: "{{ legacy_package_groups }}"

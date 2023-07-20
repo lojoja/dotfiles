@@ -28,3 +28,17 @@ legacy_symlinks:
   - "{{ ansible_env.HOME }}/.config/starship.toml"
   - "{{ ansible_env.HOME }}/.config/wake.toml"
   - "{{ ansible_env.HOME }}/.config/yamllint"
+
+legacy_package_bin_path: /usr/local/bin
+legacy_package_opt_path: /usr/local/opt
+legacy_package_groups:
+  - lojoja
+  - snldev
+  - util
+legacy_package_match: "^{{ legacy_package_opt_path }}/({{ legacy_package_groups | join('|') }})/.+"
+
+legacy_package_symlinks:
+  - "{{ legacy_package_bin_path }}/clientfile"
+  - "{{ legacy_package_bin_path }}/service"
+  - "{{ legacy_package_bin_path }}/triex"
+  - "{{ legacy_package_bin_path }}/wake"
