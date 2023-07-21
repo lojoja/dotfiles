@@ -1,0 +1,31 @@
+# roles/util/tasks/install.yml
+---
+- name: Install github3.py
+  ansible.builtin.pip:
+    name: github3.py
+    state: latest
+
+- name: Install public utils
+  ansible.builtin.pip:
+    name: "{{ item.name }}"
+    state: latest
+    virtualenv: "{{ local_opt }}/{{ item.name }}"
+    virtualenv_command: "{{ macports_bin }}/python{{ item.python_version }} -m venv"
+  loop: "{{ util_public }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Install private utils
+  ansible.builtin.include_tasks: private.yml
+  loop: "{{ util_private }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Link utils
+  ansible.builtin.file:
+    src: "{{ local_opt }}/{{ item.name }}/bin/{{ item.cmd }}"
+    dest: "{{ local_bin }}/{{ item.cmd }}"
+    state: link
+  loop: "{{ util_all }}"
+  loop_control:
+    label: "{{ item.name }}"

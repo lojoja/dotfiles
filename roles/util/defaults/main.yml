@@ -1,0 +1,22 @@
+# roles/util/defaults/main.yml
+---
+
+util_all: "{{ util_public + util_private }}"
+
+util_public:
+  - name: py-service
+    cmd: service
+    python_version: 3.11
+  - name: py-triex
+    cmd: triex
+    python_version: 3.11
+  - name: py-wake-cli
+    cmd: wake
+    python_version: 3.11
+
+util_private:
+  - name: clientfile
+    cmd: clientfile
+    python_version: 3.11
+    owner: snldev
+    repo: clientfile

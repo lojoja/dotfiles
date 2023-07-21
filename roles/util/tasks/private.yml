@@ -1,0 +1,16 @@
+# roles/util/tasks/private.yml
+---
+- name: Get latest release tag
+  community.general.github_release:
+    token: "{{ env_github[item.owner].token }}"
+    user: "{{ item.owner }}"
+    repo: "{{ item.repo }}"
+    action: latest_release
+  register: util_release
+
+- name: Install latest release
+  ansible.builtin.pip:
+    name: git+ssh://git@github.com:/{{ item.owner }}/{{ item.repo }}@{{ util_release.tag }}
+    state: latest
+    virtualenv: "{{ local_opt }}/{{ item.name }}"
+    virtualenv_command: "{{ macports_bin }}/python{{ item.python_version }} -m venv"
