@@ -64,14 +64,14 @@ ssh_hosts:
   - name: Version Control
     hosts:
       - hosts:
-          - bitbucket-lojoja
           - bb-lojoja
+          - bitbucket-lojoja
       - hosts:
-          - bitbucket-snldev
           - bb-snldev
+          - bitbucket-snldev
       - hosts:
-          - bitbucket*
           - bb-*
+          - bitbucket*
         hostname: bitbucket.org
         user: "{{ ssh_host_user_bitbucket }}"
       - hosts:
