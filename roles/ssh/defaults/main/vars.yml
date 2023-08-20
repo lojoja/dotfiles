@@ -90,7 +90,7 @@ ssh_hosts:
           - gh-lojoja
           - github-lojoja
       - hosts:
-          - gh-lojoja
+          - gh-snldev
           - github-snldev
       - hosts:
           - gh-*
