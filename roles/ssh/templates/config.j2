@@ -37,13 +37,13 @@ Host {{ ssh_host.hosts | join(' ') }}
   PubKeyAcceptedAlgorithms {{ssh_host.public_key_accepted_algorithms }}
 {% endif -%}
 
-    {%- for host in ssh_host.hosts %}
-      {%- for ssh_key in ssh_keys %}
+    {% for host in ssh_host.hosts -%}
+      {% for ssh_key in ssh_keys -%}
 {% if host in ssh_key.hosts %}
   IdentityFile {{ ssh_dir }}/{{ ssh_key.file }}
 {% endif -%}
 
-      {% endfor %}
-    {% endfor %}
+      {% endfor -%}
+    {% endfor -%}
   {% endfor %}
 {% endfor %}
