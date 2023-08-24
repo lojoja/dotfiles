@@ -80,9 +80,14 @@
 [diff]
   algorithm = {{ config_git_config_diff_algorithm }}
 [credential]
-	helper = {{ config_git_config_credential_helper }}
+  helper = {{ config_git_config_credential_helper }}
 [init]
   defaultBranch = {{ config_git_config_init_default_branch }}
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [user]
   name = {{ config_git_config_user_name }}
   email = {{ config_git_config_user_email }}
