@@ -32,6 +32,7 @@ macports_ports:
   - port: curl
   - port: findutils
   - port: git
+  - port: git-lfs
   - port: gsed
   - port: gnutar
   - port: grep
