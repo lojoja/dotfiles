@@ -45,3 +45,18 @@
     - name: Reset trust-root security permissions
       ansible.builtin.shell: security authorizationdb write com.apple.trust-settings.admin < {{ config_ssl_permissions_default }}
   become: yes
+
+- name: Add ssl client certificates
+  ansible.builtin.copy:
+    src: "{{ item.file }}"
+    dest: "{{ config_ssl_dir }}/{{ item.file }}"
+    mode: 0644
+  loop: "{{ config_ssl_client_certs }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Import ssl client certificates
+  ansible.builtin.command: security import "{{ config_ssl_dir }}/{{ item.file }}" -P {{ item.passphrase }}
+  loop: "{{ config_ssl_client_certs }}"
+  loop_control:
+    label: "{{ item.file }}"

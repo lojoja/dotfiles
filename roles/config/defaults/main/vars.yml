@@ -496,6 +496,7 @@ config_ssl_intermediate_certs:
   - "{{ config_ssl_intermediate_certs_snlsrvr }}"
 config_ssl_permissions_default: "{{ role_path }}/files/AuthTrustSettings_Default.plist"
 config_ssl_permissions_ansible: "{{ role_path }}/files/AuthTrustSettings_Ansible.plist"
+config_ssl_client_certs: "{{ vault_config_ssl_client_certs }}"
 
 config_starship: "{{ config_dir }}/starship.toml"
 config_starship_right_format: ""
