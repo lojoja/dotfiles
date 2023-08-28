@@ -25,6 +25,23 @@
 
 - name: Add ssl certificates
   ansible.builtin.copy:
-    src: lojojaChain.pem
-    dest: "{{ config_ssl_certs_lojoja }}"
+    src: "{{ item }}"
+    dest: "{{ config_ssl_dir }}/{{ item }}"
     mode: 0644
+  loop: "{{ config_ssl_certs + config_ssl_root_certs + config_ssl_intermediate_certs }}"
+
+- block:
+    - name: Change trust-root security permissions
+      ansible.builtin.shell: security authorizationdb write com.apple.trust-settings.admin < {{ config_ssl_permissions_ansible }}
+
+    - name: Install trusted root certificates
+      ansible.builtin.command: security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "{{ config_ssl_dir }}/{{ item }}"
+      loop: "{{ config_ssl_root_certs }}"
+
+    - name: Install trusted intermediate certificates
+      ansible.builtin.command: security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/System.keychain "{{ config_ssl_dir }}/{{ item }}"
+      loop: "{{ config_ssl_intermediate_certs }}"
+  always:
+    - name: Reset trust-root security permissions
+      ansible.builtin.shell: security authorizationdb write com.apple.trust-settings.admin < {{ config_ssl_permissions_default }}
+  become: yes

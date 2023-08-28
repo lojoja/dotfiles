@@ -479,7 +479,23 @@ config_service_reverse_domains:
   - com.snlsrvr
 
 config_ssl_dir: "{{ config_dir }}/ssl"
-config_ssl_certs_lojoja: "{{ config_ssl_dir }}/lojojaChain.pem"
+config_ssl_certs_lojoja: "lojojaChain.pem"
+config_ssl_certs_snlsrvr: "snlsrvrChain.pem"
+config_ssl_certs:
+  - "{{ config_ssl_certs_lojoja }}"
+  - "{{ config_ssl_certs_snlsrvr }}"
+config_ssl_root_certs_lojoja: "lojojaRoot.pem"
+config_ssl_root_certs_snlsrvr: "snlsrvrRoot.pem"
+config_ssl_root_certs:
+  - "{{ config_ssl_root_certs_lojoja }}"
+  - "{{ config_ssl_root_certs_snlsrvr }}"
+config_ssl_intermediate_certs_lojoja: "lojojaIntermediate.pem"
+config_ssl_intermediate_certs_snlsrvr: "snlsrvrIntermediate.pem"
+config_ssl_intermediate_certs:
+  - "{{ config_ssl_intermediate_certs_lojoja }}"
+  - "{{ config_ssl_intermediate_certs_snlsrvr }}"
+config_ssl_permissions_default: "{{ role_path }}/files/AuthTrustSettings_Default.plist"
+config_ssl_permissions_ansible: "{{ role_path }}/files/AuthTrustSettings_Ansible.plist"
 
 config_starship: "{{ config_dir }}/starship.toml"
 config_starship_right_format: ""
