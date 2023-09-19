@@ -75,6 +75,7 @@ macports_ports:
   - port: php82-iconv
   - port: php82-intl
   - port: php82-mbstring
+  - port: php82-mysql
   - port: php82-openssl
   - port: php82-pcov
   - port: php82-posix
