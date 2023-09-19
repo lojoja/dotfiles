@@ -79,6 +79,7 @@ macports_ports:
   - port: php82-openssl
   - port: php82-pcov
   - port: php82-posix
+  - port: php82-postgresql
   - port: php82-sodium
   - port: php82-sqlite
   - port: ruby_select
@@ -100,6 +101,8 @@ macports_ports:
   - port: mysql8-server
   - port: optipng
   - port: poetry
+  - port: postgresql_select
+  - port: postgresql15-server
   - port: pv
   - port: pygments_select
   - port: py38-pygments
@@ -123,6 +126,8 @@ macports_ports_select:
     binary: php82
   - program: pip3
     binary: pip311
+  - program: postgresql
+    binary: postgresql15
   - program: pygments
     binary: py311-pygments
   - program: python3
