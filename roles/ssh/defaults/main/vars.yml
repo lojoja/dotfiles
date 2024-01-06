@@ -21,10 +21,10 @@ ssh_host_user_switch: "{{ vault_ssh_host_user_switch }}"
 ssh_hosts:
   - name: LAN
     hosts:
-      - hosts:
-          - cloudkey
-        hostname: cloudkey.lojoja.com
-        user: "{{ ssh_host_user_cloudkey }}"
+      #- hosts:
+      #    - cloudkey
+      #  hostname: cloudkey.lojoja.com
+      #  user: "{{ ssh_host_user_cloudkey }}"
       - hosts:
           - er1
           - router
