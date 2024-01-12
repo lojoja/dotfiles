@@ -82,6 +82,19 @@ macports_ports:
   - port: php82-postgresql
   - port: php82-sodium
   - port: php82-sqlite
+  - port: php83
+    variant: -libedit +readline
+  - port: php83-curl
+  - port: php83-iconv
+  - port: php83-intl
+  - port: php83-mbstring
+  - port: php83-mysql
+  - port: php83-openssl
+  - port: php83-pcov
+  - port: php83-posix
+  - port: php83-postgresql
+  - port: php83-sodium
+  - port: php83-sqlite
   - port: ruby_select
   - port: ruby
   - port: nodejs19
@@ -123,7 +136,7 @@ macports_ports_select:
   - program: mysql
     binary: mysql8
   - program: php
-    binary: php82
+    binary: php83
   - program: pip3
     binary: pip311
   - program: postgresql
