@@ -473,9 +473,9 @@ config_poetry_venv_path: "{cache-dir}/virtualenvs"
 config_poetry_venv_prefer_active_python: "false"
 config_poetry_venv_prompt: "{project_name}-py{python_version}"
 
-config_prettier: "{{ config_dir }}/.prettierrc.json"
+config_prettier: "{{ dotfiles_install_base_dir }}/.prettierrc.json"
 
-config_prettier_ignore: "{{ config_dir }}/.prettierignore"
+config_prettier_ignore: "{{ dotfiles_install_base_dir }}/.prettierignore"
 config_prettier_ignore_patterns:
   - "**/.git"
   - "**/.hg"
@@ -527,7 +527,7 @@ config_wake_hosts: "{{ vault_config_wake_hosts }}"
 #config_yamllint_line_length_max: 200
 #config_yamllint_new_lines_type: unix
 
-config_yarn: "{{ config_dir }}/.yarnrc.yml"
+config_yarn: "{{ dotfiles_install_base_dir }}/.yarnrc.yml"
 config_yarn_enable_global_cache: "true"
 config_yarn_enable_telemetry: "false"
 
