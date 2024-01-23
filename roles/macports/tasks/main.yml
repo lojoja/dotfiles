@@ -10,9 +10,12 @@
     label: "{{ item.src }}"
 
 - block:
-    - name: Update Macports and upgrade installed ports
+    - name: Update Macports
       community.general.macports:
         selfupdate: true
+
+    - name: Upgrade installed ports
+      community.general.macports:
         upgrade: true
 
     - name: Install ports
