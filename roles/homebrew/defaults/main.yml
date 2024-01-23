@@ -21,6 +21,8 @@ homebrew_formulae_abandoned:
 
 homebrew_taps_abandoned:
   - symfony-cli/tap
+  - homebrew/cask
+  - homebrew/core
 
 homebrew_casks:
   - homebrew/cask/sublercli
