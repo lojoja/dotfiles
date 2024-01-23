@@ -527,6 +527,10 @@ config_wake_hosts: "{{ vault_config_wake_hosts }}"
 #config_yamllint_line_length_max: 200
 #config_yamllint_new_lines_type: unix
 
+config_yarn: "{{ config_dir }}/.yarnrc.yml"
+config_yarn_enable_global_cache: "true"
+config_yarn_enable_telemetry: "false"
+
 config_dirs:
   - "{{ config_dir }}"
   - "{{ config_iterm2_dir }}"
@@ -571,6 +575,8 @@ config_templates:
     file: "{{ config_wake }}"
   #- template: yamllint.j2
   #  file: "{{ config_yamllint }}"
+  - template: yarnrc.j2
+    file: "{{ config_yarn }}"
 
 config_abandoned:
   - "{{ dotfiles_install_base_dir }}/.actrc"
