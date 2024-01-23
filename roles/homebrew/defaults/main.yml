@@ -16,6 +16,7 @@ homebrew_gnuman: "{{ homebrew_opt }}/*/libexec/gnuman"
 homebrew_formulae:
   - composer
   - corepack
+  - prettier
 
 homebrew_formulae_abandoned:
   - symfony-cli/tap/symfony-cli
