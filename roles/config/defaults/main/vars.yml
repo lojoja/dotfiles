@@ -508,13 +508,13 @@ config_starship_status_disabled: "false"
 config_wake: "{{ config_dir }}/wake.toml"
 config_wake_hosts: "{{ vault_config_wake_hosts }}"
 
-config_yamllint_dir: "{{ config_dir }}/yamllint"
-config_yamllint: "{{ config_yamllint_dir }}/config"
-config_yamllint_indentation_spaces: consistent
-config_yamllint_indent_sequences: consistent
-config_yamllint_check_multi_line_strings: "true"
-config_yamllint_line_length_max: 200
-config_yamllint_new_lines_type: unix
+#config_yamllint_dir: "{{ config_dir }}/yamllint"
+#config_yamllint: "{{ config_yamllint_dir }}/config"
+#config_yamllint_indentation_spaces: consistent
+#config_yamllint_indent_sequences: consistent
+#config_yamllint_check_multi_line_strings: "true"
+#config_yamllint_line_length_max: 200
+#config_yamllint_new_lines_type: unix
 
 config_dirs:
   - "{{ config_dir }}"
@@ -522,7 +522,6 @@ config_dirs:
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"
   - "{{ config_ssl_dir }}"
-  - "{{ config_yamllint_dir }}"
 
 config_templates:
   - template: act.j2
@@ -555,5 +554,9 @@ config_templates:
     file: "{{ config_starship }}"
   - template: wake.j2
     file: "{{ config_wake }}"
-  - template: yamllint.j2
-    file: "{{ config_yamllint }}"
+  #- template: yamllint.j2
+  #  file: "{{ config_yamllint }}"
+
+config_abandoned:
+  - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
+  - "{{ dotfiles_install_base_dir }}/.config/yamllint"
