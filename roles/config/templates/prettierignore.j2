@@ -1,0 +1,5 @@
+{{ ansible_managed | comment }}
+
+{% for pattern in config_prettier_ignore_patterns %}
+{{ pattern }}
+{% endfor %}

@@ -473,6 +473,17 @@ config_poetry_venv_path: "{cache-dir}/virtualenvs"
 config_poetry_venv_prefer_active_python: "false"
 config_poetry_venv_prompt: "{project_name}-py{python_version}"
 
+config_prettier: "{{ config_dir }}/.prettierrc.json"
+
+config_prettier_ignore: "{{ config_dir }}/.prettierignore"
+config_prettier_ignore_patterns:
+  - "**/.git"
+  - "**/.hg"
+  - "**/.svn"
+  - "**/.pnp.*"
+  - "**/.yarn"
+  - "**/node_modules"
+
 config_service: "{{ config_dir }}/service.toml"
 config_service_reverse_domains:
   - com.lojoja
@@ -548,6 +559,10 @@ config_templates:
     file: "{{ config_pip }}"
   - template: poetry.j2
     file: "{{ config_poetry }}"
+  - template: prettier.j2
+    file: "{{ config_prettier }}"
+  - template: prettier-ignore.j2
+    file: "{{ config_prettier_ignore }}"
   - template: service.j2
     file: "{{ config_service }}"
   - template: starship.j2
