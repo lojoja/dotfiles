@@ -31,3 +31,7 @@
     name: "{{ item }}"
     state: present
   loop: "{{ homebrew_casks }}"
+
+- name: Execute post-install commands
+  ansible.builtin.command: "{{ item }}"
+  loop: "{{ homebrew_post_install }}"
