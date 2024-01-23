@@ -2,16 +2,16 @@
 ---
 config_dir: "{{ dotfiles_install_base_dir }}/.config"
 
-config_act: "{{ dotfiles_install_base_dir }}/.actrc"
-config_act_images:
-  - tag: ubuntu-latest
-    image: catthehacker/ubuntu:act-latest
-  - tag: ubuntu-22.04
-    image: catthehacker/ubuntu:act-22.04
-  - tag: ubuntu-20.04
-    image: catthehacker/ubuntu:act-20.04
-  - tag: ubuntu-18.04
-    image: catthehacker/ubuntu:act-18.04
+#config_act: "{{ dotfiles_install_base_dir }}/.actrc"
+#config_act_images:
+#  - tag: ubuntu-latest
+#    image: catthehacker/ubuntu:act-latest
+#  - tag: ubuntu-22.04
+#    image: catthehacker/ubuntu:act-22.04
+#  - tag: ubuntu-20.04
+#    image: catthehacker/ubuntu:act-20.04
+#  - tag: ubuntu-18.04
+#    image: catthehacker/ubuntu:act-18.04
 
 config_dircolors: "{{ config_dir }}/.dircolors"
 config_dircolors_color: tty
@@ -524,8 +524,8 @@ config_dirs:
   - "{{ config_ssl_dir }}"
 
 config_templates:
-  - template: act.j2
-    file: "{{ config_act }}"
+  #- template: act.j2
+  #  file: "{{ config_act }}"
   - template: dircolors.j2
     file: "{{ config_dircolors }}"
   - template: eslintrc.j2
@@ -558,6 +558,7 @@ config_templates:
   #  file: "{{ config_yamllint }}"
 
 config_abandoned:
+  - "{{ dotfiles_install_base_dir }}/.actrc"
   - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
   - "{{ dotfiles_install_base_dir }}/.config/yamllint"
   - "{{ dotfiles_install_base_dir }}/.eslintrc"
