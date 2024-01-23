@@ -1,0 +1,4 @@
+*_vault.yml
+roles/env/files/*.json
+vault.yml
+vaultTest.yml
