@@ -562,3 +562,5 @@ config_abandoned:
   - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
   - "{{ dotfiles_install_base_dir }}/.config/yamllint"
   - "{{ dotfiles_install_base_dir }}/.eslintrc"
+  - "{{ dotfiles_install_base_dir }}/.symfony5"
+  - "{{ dotfiles_install_base_dir }}/.yarnrc"
