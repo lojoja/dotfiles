@@ -97,7 +97,7 @@ macports_ports:
   - port: ruby_select
   - port: ruby
   - port: nodejs19
-  - port: npm9
+  - port: npm10
   # Misc.
   - port: ansible_select
   - port: py311-ansible
@@ -131,6 +131,7 @@ macports_ports:
 macports_ports_abandoned:
   - port: act
   - port: yarn
+  - port: npm9
 
 macports_ports_select:
   - program: ansible
