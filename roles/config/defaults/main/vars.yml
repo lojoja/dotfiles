@@ -561,7 +561,7 @@ config_templates:
     file: "{{ config_poetry }}"
   - template: prettier.j2
     file: "{{ config_prettier }}"
-  - template: prettier-ignore.j2
+  - template: prettierignore.j2
     file: "{{ config_prettier_ignore }}"
   - template: service.j2
     file: "{{ config_service }}"
