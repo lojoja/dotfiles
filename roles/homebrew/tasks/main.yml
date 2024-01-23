@@ -1,8 +1,11 @@
 # roles/homebrew/tasks/main.yml
 ---
-- name: Update Homebrew and upgrade installed formulae
+- name: Update Homebrew
   community.general.homebrew:
     update_homebrew: true
+
+- name: Upgrade installed formulae
+  community.general.homebrew:
     upgrade_all: true
 
 - name: Install formulae
