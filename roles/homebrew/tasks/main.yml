@@ -4,6 +4,18 @@
   community.general.homebrew:
     update_homebrew: true
 
+- name: Remove abandoned formulae
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ homebrew_formulae_abandoned }}"
+
+- name: Remove abandoned taps
+  community.general.homebrew_tap:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ homebrew_taps_abandoned }}"
+
 - name: Upgrade installed formulae
   community.general.homebrew:
     upgrade_all: true

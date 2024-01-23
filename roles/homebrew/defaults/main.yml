@@ -15,7 +15,12 @@ homebrew_gnuman: "{{ homebrew_opt }}/*/libexec/gnuman"
 
 homebrew_formulae:
   - composer
+
+homebrew_formulae_abandoned:
   - symfony-cli/tap/symfony-cli
+
+homebrew_taps_abandoned:
+  - symfony-cli/tap
 
 homebrew_casks:
   - homebrew/cask/sublercli
