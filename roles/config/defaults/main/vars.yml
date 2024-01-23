@@ -563,7 +563,7 @@ config_templates:
     file: "{{ config_pip }}"
   - template: poetry.j2
     file: "{{ config_poetry }}"
-  - template: prettier.j2
+  - template: prettierrc.j2
     file: "{{ config_prettier }}"
   - template: prettierignore.j2
     file: "{{ config_prettier_ignore }}"
