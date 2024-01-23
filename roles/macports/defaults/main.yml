@@ -22,7 +22,6 @@ macports_overrides:
 
 macports_ports:
   # Core
-  - port: act
   - port: bash
   - port: bash-completion
   - port: zsh
@@ -129,6 +128,9 @@ macports_ports:
   - port: watch
   - port: youtube-dl
   - port: yt-dlp
+
+macports_ports_abandoned:
+  - port: act
 
 macports_ports_select:
   - program: ansible
