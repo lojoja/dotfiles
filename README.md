@@ -2,7 +2,6 @@
 
 lojoja's dotfiles
 
-
 ## Requirements
 
 - macOS
@@ -11,7 +10,6 @@ lojoja's dotfiles
 - git
 - zsh
 
-
 ## Install
 
 The [dotfiles-install](https://github.com/lojoja/dotfiles-install) repository contains the standalone installation script. This script installs all additional requirements and dependencies from MacPorts and Homebrew. Install dotfiles by running the following command:
@@ -19,7 +17,6 @@ The [dotfiles-install](https://github.com/lojoja/dotfiles-install) repository co
 ```
 $ /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/lojoja/dotfiles-install/main/install.zsh)"
 ```
-
 
 ## Uninstall
 
@@ -30,7 +27,6 @@ $ /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/lojoja/dotfiles-in
 ```
 
 **Note:** The uninstall script removes dotfiles settings and files, but does not remove MacPorts or Homebrew packages installed by the installation script as doing so may fail due to, or break, other package dependencies.
-
 
 ## Usage
 
@@ -55,11 +51,9 @@ Commands:
 
 **Note:** The `install` command should not be used for an initial installation. The `uninstall` command can be used to remove active settings and files, but a full uninstall requires the [dotfiles-install uninstall script](#Uninstall)
 
-
 ### Shell environment variables
 
 Environment variables managed by dotfiles are set in `$HOME/.env`. Local overrides and additional environment variables can be placed in the `$HOME/.env.local` file. Values in this file will not be changed when dotfiles is updated, however this file will be removed if dotfiles is uninstalled.
-
 
 ## License
 
