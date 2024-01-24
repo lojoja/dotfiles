@@ -6,8 +6,10 @@
   ],
   "settings": {},
   "syntax_override": {
-    "(.+)\\.yml$": [
-      "Ansible/Ansible"
-    ],
-  },
+    "(.+_?)vault(Test)?\\.yml$": ["Ansible/Ansible"],
+    "(install|inventory|package_manager|secrets|uninstall|uninstall_legacy|update)\\.yml$": ["Ansible/Ansible"],
+    "roles/(.+)/tasks/(.+)\\.yml$": ["Ansible/Ansible"],
+    "roles/config/files/snlsrvrAdmin.p12": ["Ansible/Ansible"],
+    "roles/env/files/(.+)\\.json": ["Ansible/Ansible"]
+  }
 }
