@@ -1,6 +1,5 @@
 # roles/util/defaults/main.yml
 ---
-
 util_all: "{{ util_public + util_private }}"
 
 util_public:

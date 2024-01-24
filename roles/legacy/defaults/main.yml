@@ -1,6 +1,5 @@
 # roles/legacy/defaults/main.yml
 ---
-
 legacy_repository_path: "{{ ansible_env.HOME }}/.dotfiles"
 
 legacy_files:

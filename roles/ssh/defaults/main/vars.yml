@@ -1,6 +1,5 @@
 # roles/ssh/defaults/main/vars.yml
 ---
-
 ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
 
 ssh_known_hosts: "{{ vault_ssh_known_hosts }}"
