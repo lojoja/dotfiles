@@ -1,3 +1,4 @@
+*.sublime-workspace
 *_vault.yml
 roles/env/files/*.json
 vault.yml
