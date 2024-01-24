@@ -4,7 +4,15 @@
       "path": "."
     }
   ],
-  "settings": {},
+  "settings": {
+    "LSP": {
+      "ltex-ls": {
+        "settings": {
+          "ltex.dictionary": { "en-US": ["dotfiles", "dotfiles-install", "lojoja", "MacPorts", "zsh"] }
+        }
+      }
+    }
+  },
   "syntax_override": {
     "(.+_?)vault(Test)?\\.yml$": ["Ansible/Ansible"],
     "(install|inventory|package_manager|secrets|uninstall|uninstall_legacy|update)\\.yml$": ["Ansible/Ansible"],
