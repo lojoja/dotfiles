@@ -482,6 +482,7 @@ config_prettier_ignore_patterns:
   - "**/.hg"
   - "**/.svn"
   - "**/.pnp.*"
+  - "**/.venv"
   - "**/.yarn"
   - "**/node_modules"
 
