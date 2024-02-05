@@ -7,12 +7,7 @@
     "ecmaVersion": "{{ config_eslint_ecmaVersion }}"
   },
   "extends": ["eslint:recommended"],
-  "ignorePatterns": [
-    "**/.pnp.*",
-    "**/.yarn/",
-    "**/node_modules/",
-    "**/vendor/"
-  ],
+  "ignorePatterns": {{ config_eslint_ignorePatterns | to_json }},
   "overrides": [
     {
       "files": ["*.js", "*.jsx"],
