@@ -101,9 +101,16 @@ macports_ports:
   # Misc.
   - port: ansible_select
   - port: py311-ansible
+  - port: black_select
+  - port: py311-black
+  - port: pycodestyle_select
+  - port: py311-codestyle
   - port: exiftool
   - port: exiv2
   - port: ffmpeg
+  - port: flake8_select
+  - port: py311-flake8
+  - port: py311-flake8-mccabe
   - port: fzf
   - port: guetzli
   - port: ImageMagick
@@ -115,11 +122,15 @@ macports_ports:
   - port: postgresql_select
   - port: postgresql15-server
   - port: pv
+  - port: pyflakes_select
+  - port: py311-pyflakes
   - port: pygments_select
   - port: py38-pygments
   - port: py39-pygments
   - port: py310-pygments
   - port: py311-pygments
+  - port: pylint_select
+  - port: py311-pylint
   - port: ripgrep
   - port: shellcheck
   - port: starship
@@ -137,6 +148,10 @@ macports_ports_abandoned:
 macports_ports_select:
   - program: ansible
     binary: py311-ansible
+  - program: black
+    binary: black311
+  - program: flake8
+    binary: flake8-311
   - program: mysql
     binary: mysql8
   - program: php
@@ -145,8 +160,14 @@ macports_ports_select:
     binary: pip311
   - program: postgresql
     binary: postgresql15
+  - program: pycodestyle
+    binary: pycodestyle-py311
+  - program: pyflakes
+    binary: py311-pyflakes
   - program: pygments
     binary: py311-pygments
+  - program: pylint
+    binary: pylint311
   - program: python3
     binary: python311
   - program: ruby
