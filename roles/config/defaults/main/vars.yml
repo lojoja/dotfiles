@@ -13,6 +13,12 @@ config_dir: "{{ dotfiles_install_base_dir }}/.config"
 #  - tag: ubuntu-18.04
 #    image: catthehacker/ubuntu:act-18.04
 
+config_black: "{{ config_dir }}/black"
+config_black_include: '\.pyi?$'
+config_black_line_length: 120
+config_black_target_version: ["py38", "py39", "py310", "py311"]
+config_black_skip_trailing_comma: "true"
+
 config_dircolors: "{{ config_dir }}/.dircolors"
 config_dircolors_color: tty
 config_dircolors_color_schemes:
@@ -547,6 +553,8 @@ config_dirs:
 config_templates:
   #- template: act.j2
   #  file: "{{ config_act }}"
+  - template: black.j2
+    file: "{{ config_black }}"
   - template: dircolors.j2
     file: "{{ config_dircolors }}"
   - template: eslintrc.j2

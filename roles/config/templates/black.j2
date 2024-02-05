@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+
+[tool.black]
+include = '{{ config_black_include }}'
+line-length = {{ config_black_line_length }}
+skip-magic-trailing-comma = {{ config_black_skip_trailing_comma }}
+target_version = {{ config_black_target_version | to_json }}
