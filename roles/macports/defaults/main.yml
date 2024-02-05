@@ -167,11 +167,19 @@ macports_ports_select:
     binary: py311-pyflakes
   - program: pygments
     binary: py311-pygments
-  - program: pylint
-    binary: pylint311
+  #- program: pylint # pylint_select is broken; expects epylint which isn't installed
+  #  binary: pylint311
   - program: python3
     binary: python311
   - program: ruby
     binary: ruby18
   - program: virtualenv
     binary: virtualenv311
+
+macports_ports_select_manual:
+  - program: "pylint"
+    binary: "pylint-3.11"
+  - program: "pyreverse"
+    binary: "pyreverse-3.11"
+  - program: "symilar"
+    binary: "symilar-3.11"

@@ -48,4 +48,15 @@
       loop: "{{ macports_ports_select }}"
       loop_control:
         label: "{{ item.program }}"
+
+    - name: Manually select default ports
+      ansible.builtin.file:
+        src: "{{ macports_bin }}/{{ item.binary }}"
+        dest: "{{ macports_bin }}/{{ item.program }}"
+        owner: root
+        group: admin
+        state: link
+      loop: "{{ macports_ports_select_manual }}"
+      loop_control:
+        label: "{{ item.program }}"
   become: yes
