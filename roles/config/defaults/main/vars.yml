@@ -488,9 +488,9 @@ config_poetry_venv_path: "{cache-dir}/virtualenvs"
 config_poetry_venv_prefer_active_python: "false"
 config_poetry_venv_prompt: "{project_name}-py{python_version}"
 
-config_prettier: "{{ dotfiles_install_base_dir }}/.prettierrc.json"
+config_prettier: "{{ config_dir }}/.prettierrc.json" # In config_dir because home dir overrides editor settings
 
-config_prettier_ignore: "{{ dotfiles_install_base_dir }}/.prettierignore"
+config_prettier_ignore: "{{ config_dir }}/.prettierignore"
 config_prettier_ignore_patterns:
   - "**/*.sublime-workspace"
   - "**/.git"
