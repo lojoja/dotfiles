@@ -426,6 +426,7 @@ config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
 config_git_config_alt: "{{ config_git_config }}.{{ vault_config_git_config_alt_user_name }}"
 config_git_config_alt_user_name: "{{ vault_config_git_config_alt_user_name }}"
 config_git_config_alt_user_email: "{{ vault_config_git_config_alt_user_email }}"
+config_git_config_alt_user_key: "{{ vault_config_git_config_alt_user_key }}"
 config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ vault_config_git_config_alt_user_name }}"
 config_git_config_core_editor: vi
 config_git_config_diff_algorithm: patience
@@ -446,6 +447,7 @@ config_git_urls:
       - gitea.lojoja.com
 config_git_config_user_name: "{{ vault_config_git_config_user_name }}"
 config_git_config_user_email: "{{ vault_config_git_config_user_email }}"
+config_git_config_user_key: "{{ vault_config_git_config_user_key }}"
 
 config_git_ignore: "{{ dotfiles_install_base_dir }}/.gitignore"
 config_git_ignore_patterns:
@@ -464,6 +466,9 @@ config_git_ignore_patterns:
   - .TemporaryItems
   - .Trashes
   - .VolumeIcon.icns
+
+config_git_signers: "{{ config_dir }}/.gitsigners"
+config_git_signers_ids: "{{ vault_config_git_signers_ids }}"
 
 config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"
 
@@ -579,6 +584,8 @@ config_templates:
     file: "{{ config_git_config_alt }}"
   - template: gitignore.j2
     file: "{{ config_git_ignore }}"
+  - template: gitsigners.j2
+    file: "{{ config_git_signers }}"
   - template: iterm2.j2
     file: "{{ config_iterm2 }}"
   - template: iterm2_theme_lojoja.j2
