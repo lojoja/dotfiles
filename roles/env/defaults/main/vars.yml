@@ -65,6 +65,9 @@ env_copy_extended_attributes_disable: "true"
 # Mailgun
 env_mailgun: "{{ vault_env_mailgun }}"
 
+# Pnpm
+env_pnpm_home: "{{ node_pnpm_home }}"
+
 # PyPi
 env_pypi: "{{ vault_env_pypi }}"
 

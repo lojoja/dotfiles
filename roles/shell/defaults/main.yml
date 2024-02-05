@@ -15,6 +15,7 @@ shell_paths:
   - "{{ macports_bin }}"
   - "{{ macports_sbin }}"
   - "{{ macports_gnubin }}"
+  - "{{ node_pnpm_home }}"
   - "{{ local_bin }}"
 shell_man_paths:
   - "{{ homebrew_man }}"

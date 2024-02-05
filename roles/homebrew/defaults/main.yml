@@ -15,11 +15,11 @@ homebrew_gnuman: "{{ homebrew_opt }}/*/libexec/gnuman"
 
 homebrew_formulae:
   - composer
-  - corepack
-  - prettier
 
 homebrew_formulae_abandoned:
-  - symfony-cli/tap/symfony-cli
+  - corepack
+  - prettier
+  # - symfony-cli/tap/symfony-cli (If already missing this causes task to fail with JSONDecodeError)
 
 homebrew_taps_abandoned:
   - symfony-cli/tap
@@ -34,8 +34,5 @@ homebrew_casks:
   - homebrew/cask-fonts/font-inconsolata
   - homebrew/cask-fonts/font-sauce-code-pro-nerd-font
   - homebrew/cask-fonts/font-source-code-pro
-
-homebrew_post_install:
-  - corepack install --global yarn@stable
 
 homebrew_no_analytics: 1

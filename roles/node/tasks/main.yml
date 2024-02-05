@@ -1,0 +1,50 @@
+# roles/node/tasks/main.yml
+---
+- block:
+    - name: Check if corepack is installed
+      ansible.builtin.command: corepack --version
+  rescue:
+    - name: Install corepack
+      community.general.npm:
+        name: corepack
+        state: present
+        global: true
+  always:
+    - name: Update corepack
+      community.general.npm:
+        name: corepack
+        state: latest
+        global: true
+
+    - name: Enable corepack
+      ansible.builtin.command: corepack enable
+  become: yes
+
+- name: Install/Update package managers
+  ansible.builtin.command: corepack install --global {{ item.name }}@{{ item.version }}
+  loop: "{{ node_package_managers }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- block:
+    - name: Remove abandoned packages
+      community.general.pnpm:
+        name: "{{ item }}"
+        state: absent
+        global: true
+      loop: "{{ node_packages_abandoned }}"
+
+    - name: Upgrade installed packages
+      community.general.pnpm:
+        state: latest
+        global: true
+
+    - name: Install packages
+      community.general.pnpm:
+        name: "{{ item }}"
+        state: present
+        global: true
+      loop: "{{ node_packages }}"
+  environment:
+    PATH: "{{ node_pnpm_home }}:{{ ansible_env.PATH }}"
+    PNPM_HOME: "{{ node_pnpm_home }}"

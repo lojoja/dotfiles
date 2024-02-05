@@ -1,0 +1,19 @@
+# roles/node/defaults/main.yml
+---
+node_package_managers:
+  - name: pnpm
+    version: latest
+  - name: yarn
+    version: latest
+
+node_packages:
+  - eslint
+  - prettier
+  - typescript
+  - eslint-config-prettier
+  - "@typescript-eslint/parser"
+  - "@typescript-eslint/eslint-plugin"
+
+node_packages_abandoned: []
+
+node_pnpm_home: "{{ ansible_env.HOME }}/Library/pnpm"
