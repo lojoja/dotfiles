@@ -407,6 +407,10 @@ config_flake8_select:
 
 config_git_accounts: "{{ vault_config_git_accounts }}"
 config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
+config_git_config_alt: "{{ config_git_config }}.{{ vault_config_git_config_alt_user_name }}"
+config_git_config_alt_user_name: "{{ vault_config_git_config_alt_user_name }}"
+config_git_config_alt_user_email: "{{ vault_config_git_config_alt_user_email }}"
+config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ vault_config_git_config_alt_user_name }}"
 config_git_config_core_editor: vi
 config_git_config_diff_algorithm: patience
 config_git_config_credential_helper: osxkeychain
@@ -553,6 +557,8 @@ config_templates:
     file: "{{ config_flake8 }}"
   - template: gitconfig.j2
     file: "{{ config_git_config }}"
+  - template: gitconfig_alt.j2
+    file: "{{ config_git_config_alt }}"
   - template: gitignore.j2
     file: "{{ config_git_ignore }}"
   - template: iterm2.j2
