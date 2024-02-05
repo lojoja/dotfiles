@@ -467,7 +467,7 @@ config_git_ignore_patterns:
   - .Trashes
   - .VolumeIcon.icns
 
-config_git_signers: "{{ config_dir }}/.gitsigners"
+config_git_signers: "{{ dotfiles_install_base_dir }}/.gitsigners"
 config_git_signers_ids: "{{ vault_config_git_signers_ids }}"
 
 config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"

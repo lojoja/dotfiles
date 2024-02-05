@@ -90,6 +90,8 @@
   process = git-lfs filter-process
 [gpg]
   format = ssh
+[gpg "ssh"]
+  allowedSignersFile = {{ config_git_signers }}
 [commit]
   gpgsign = true
 [tag]
