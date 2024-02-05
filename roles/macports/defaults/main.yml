@@ -33,6 +33,7 @@ macports_ports:
   - port: git
   - port: git-lfs
   - port: gsed
+  - port: gnupg2
   - port: gnutar
   - port: grep
   - port: gzip
