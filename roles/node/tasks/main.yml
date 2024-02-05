@@ -3,6 +3,7 @@
 - block:
     - name: Check if corepack is installed
       ansible.builtin.command: corepack --version
+      changed_when: false
   rescue:
     - name: Install corepack
       community.general.npm:
