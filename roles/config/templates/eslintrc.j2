@@ -2,13 +2,9 @@
 
 {
   "root": true,
-  "env": {
-    "browser": true,
-    "es2024": true,
-    "node": true
-  },
+  "env": {{ config_eslint_env | to_json }},
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "{{ config_eslint_ecmaVersion }}"
   },
   "extends": ["eslint:recommended"],
   "ignorePatterns": [

@@ -375,7 +375,12 @@ config_dircolors_termtypes:
   - xterm-debian
   - xterm-termite
 
-config_eslint: "{{ dotfiles_install_base_dir }}/.eslintrc.json"
+config_eslint: "{{ config_dir }}/.eslintrc.json"
+config_eslint_env:
+  browser: true
+  es2024: true
+  node: true
+config_eslint_ecmaVersion: "latest"
 
 config_exiftool: "{{ config_dir }}/.ExifTool_config"
 config_exiftool_largefilesupport: 1
