@@ -618,5 +618,7 @@ config_abandoned:
   - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
   - "{{ dotfiles_install_base_dir }}/.config/yamllint"
   - "{{ dotfiles_install_base_dir }}/.eslintrc"
+  - "{{ dotfiles_install_base_dir }}/.gitconfig.{{ vault_config_git_config_alt_user_name }}"
+  - "{{ dotfiles_install_base_dir }}/.gitsigners"
   - "{{ dotfiles_install_base_dir }}/.symfony5"
   - "{{ dotfiles_install_base_dir }}/.yarnrc"
