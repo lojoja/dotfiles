@@ -423,7 +423,8 @@ config_flake8_select:
 
 config_git_accounts: "{{ vault_config_git_accounts }}"
 config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
-config_git_config_alt: "{{ config_git_config }}.{{ vault_config_git_config_alt_user_name }}"
+config_git_config_extra: "{{ config_dir }}/git"
+config_git_config_alt: "{{ config_git_config_extra }}/{{ vault_config_git_config_alt_user_name }}"
 config_git_config_alt_user_name: "{{ vault_config_git_config_alt_user_name }}"
 config_git_config_alt_user_email: "{{ vault_config_git_config_alt_user_email }}"
 config_git_config_alt_user_key: "{{ vault_config_git_config_alt_user_key }}"
@@ -467,7 +468,7 @@ config_git_ignore_patterns:
   - .Trashes
   - .VolumeIcon.icns
 
-config_git_signers: "{{ dotfiles_install_base_dir }}/.gitsigners"
+config_git_signers: "{{ config_git_config_extra }}/signers"
 config_git_signers_ids: "{{ vault_config_git_signers_ids }}"
 
 config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"
@@ -560,6 +561,7 @@ config_yarn_enable_telemetry: "false"
 
 config_dirs:
   - "{{ config_dir }}"
+  - "{{ config_git_config_extra }}"
   - "{{ config_iterm2_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"
