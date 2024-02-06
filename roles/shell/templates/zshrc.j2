@@ -1,29 +1,5 @@
 {{ ansible_managed | comment }}
 
-# Set shell $PATH
-for dir in {{ shell_paths | join(' ') }}
-do
-  if [[ -d $dir ]]
-  then
-    path=($dir $path)
-  fi
-done &>/dev/null
-
-typeset -gU path
-
-# Set shell $MANPATH
-for dir in {{ shell_man_paths | join(' ') }}
-do
-  if [[ -d $dir ]]
-  then
-    manpath=($dir $path)
-  fi
-done &>/dev/null
-
-unset dir
-
-typeset -gU manpath
-
 # Add zsh-completions to $FPATH
 if [[ -d {{ shell_zsh_completions_dir }} ]]
 then
@@ -132,29 +108,15 @@ then
   fi
 fi
 
-# Load env files
-for file in "{{ shell_env }}" "{{ shell_env_local }}"
-do
-  if [[ -r $file ]]
-  then
-    source "$file"
-  fi
-done
-
-unset file
-
 # Aliases
 {% for shell_alias in shell_aliases %}
 alias {{ shell_alias.alias }}='{{ shell_alias.command }}'
 {% endfor %}
 
 # Load fzf
-if [[ $- == *i* ]]
+if [[ -r {{ shell_fzf_completions }} ]]
 then
-  if [[ -r {{ shell_fzf_completions }} ]]
-  then
-    source "{{ shell_fzf_completions }}"
-  fi
+  source "{{ shell_fzf_completions }}"
 fi
 
 if [[ -r {{ shell_fzf_bindings }} ]]

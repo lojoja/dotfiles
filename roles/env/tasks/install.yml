@@ -1,5 +1,11 @@
 # roles/env/tasks/install.yml
 ---
+- name: Clean abandoned env
+  ansible.builtin.file:
+    dest: "{{ item }}"
+    state: absent
+  loop: "{{ env_abandoned }}"
+
 - name: Create Google credentials directory
   ansible.builtin.file:
     dest: "{{ env_google_credentials_dir }}"

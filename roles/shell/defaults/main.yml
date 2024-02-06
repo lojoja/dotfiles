@@ -44,8 +44,8 @@ shell_dircolors: "{{ config_dircolors }}"
 shell_env: "{{ env }}"
 shell_env_local: "{{ env_local }}"
 
-shell_fzf_completions: "{{ macports_opt }}/fzf/shell/completion.zsh"
-shell_fzf_bindings: "{{ macports_opt }}/fzf/shell/key-bindings.zsh"
+shell_fzf_completions: "{{ macports_share }}/fzf/shell/completion.zsh"
+shell_fzf_bindings: "{{ macports_share }}/fzf/shell/key-bindings.zsh"
 
 shell_omz_dir: "{{ dotfiles_install_base_dir }}/.oh-my-zsh"
 shell_omz_custom_dir: "{{ shell_omz_dir }}/custom"
@@ -83,5 +83,10 @@ shell_omz_plugins:
 shell_omz_colorize_style: github-dark
 shell_omz_colorize_tool: pygmentize
 
-shell_zsh_completions_dir: "{{ macports_share }}/zsh-completions"
-shell_zsh_auto_suggestions: "{{ macports_opt }}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+shell_zsh_config:
+  - template: zprofile.j2
+    file: "{{ dotfiles_install_base_dir }}/.zprofile"
+  - template: zshrc.j2
+    file: "{{ dotfiles_install_base_dir }}/.zshrc"
+shell_zsh_auto_suggestions: "{{ macports_share }}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+shell_zsh_completions_dir: "{{ macports_share }}/zsh/site-functions"

@@ -1,7 +1,7 @@
 # roles/env/defaults/main/vars.yml
 ---
-env: "{{ dotfiles_install_base_dir }}/.env"
-env_local: "{{ dotfiles_install_base_dir }}/.env.local"
+env: "{{ dotfiles_install_base_dir }}/.zshenv"
+env_local: "{{ dotfiles_install_base_dir }}/.zshenv.local"
 
 env_editor: vi
 env_ignore_eof: 1
@@ -85,3 +85,7 @@ env_xz_opt: -9 --threads={{ ansible_processor_vcpus | int - 1 }}
 
 # Zip
 env_zip_opt: -9 -x "\*.DS_Store" "\*._\*" "__MACOSX" @
+
+env_abandoned:
+  - "{{ dotfiles_install_base_dir }}/.env"
+  - "{{ dotfiles_install_base_dir }}/.env.local"
