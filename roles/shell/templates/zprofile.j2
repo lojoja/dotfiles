@@ -25,7 +25,7 @@ unset dir
 typeset -gU manpath
 
 # Load local env vars
-if [[ -r $shell_env_local ]]
+if [[ -r {{ shell_env_local }} ]]
 then
-  source "$shell_env_local"
+  source "{{ shell_env_local }}"
 fi
