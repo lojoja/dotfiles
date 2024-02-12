@@ -1,5 +1,4 @@
 {{ ansible_managed | comment }}
-
 {% for item in config_git_signers_ids %}
 {{ item.ids | join(',') }} {{ item.key }}
 {% endfor %}
