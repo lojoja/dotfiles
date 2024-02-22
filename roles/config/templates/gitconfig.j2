@@ -100,7 +100,7 @@
   name = {{ config_git_config_user_name }}
   email = {{ config_git_config_user_email }}
   signingkey = {{ config_git_config_user_key }}
-[includeIf "gitdir:{{ config_git_config_alt_user_dir }}"]
+[includeIf "gitdir:{{ config_git_config_alt_user_dir }}/"]
   path = {{ config_git_config_alt }}
 {%- for git_url in config_git_urls %}
   {%- for git_account in config_git_accounts %}
