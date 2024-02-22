@@ -89,4 +89,5 @@ shell_zsh_config:
   - template: zshrc.j2
     file: "{{ dotfiles_install_base_dir }}/.zshrc"
 shell_zsh_auto_suggestions: "{{ macports_share }}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+shell_zsh_auto_suggestions_highlight_style: fg=15
 shell_zsh_completions_dir: "{{ macports_share }}/zsh/site-functions"

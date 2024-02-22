@@ -127,6 +127,7 @@ fi
 # Load zsh-autosuggestions
 if [[ -r {{ shell_zsh_auto_suggestions }} ]]
 then
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="{{ shell_zsh_auto_suggestions_highlight_style }}"
   source "{{ shell_zsh_auto_suggestions }}"
 fi
 
