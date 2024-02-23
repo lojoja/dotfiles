@@ -378,7 +378,7 @@ config_dircolors_termtypes:
 config_eslint: "{{ config_dir }}/eslint.config.js"
 config_eslint_env:
   - browser
-  - es2024
+  - es2021
   - node
 config_eslint_ecmaVersion: "latest"
 config_eslint_ignorePatterns:
