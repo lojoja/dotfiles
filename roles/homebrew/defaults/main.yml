@@ -15,6 +15,7 @@ homebrew_gnuman: "{{ homebrew_opt }}/*/libexec/gnuman"
 
 homebrew_formulae:
   - composer
+  - sass/sass/sass
 
 homebrew_formulae_abandoned:
   - corepack
