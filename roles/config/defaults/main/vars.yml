@@ -510,7 +510,11 @@ config_prettier_ignore_patterns:
   - "**/.pnp.*"
   - "**/.venv"
   - "**/.yarn"
+  - "**/dist"
+  - "**/Library"
   - "**/node_modules"
+  - "**/public"
+  - "**/vendor"
 
 config_service: "{{ config_dir }}/service.toml"
 config_service_reverse_domains:
