@@ -10,10 +10,11 @@ node_packages:
   - eslint
   - prettier
   - typescript
+  - typescript-eslint
   - eslint-config-prettier
+
+node_packages_abandoned:
   - "@typescript-eslint/parser"
   - "@typescript-eslint/eslint-plugin"
-
-node_packages_abandoned: []
 
 node_pnpm_home: "{{ ansible_env.HOME }}/Library/pnpm"

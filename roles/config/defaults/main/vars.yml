@@ -375,17 +375,17 @@ config_dircolors_termtypes:
   - xterm-debian
   - xterm-termite
 
-config_eslint: "{{ dotfiles_install_base_dir }}/.eslintrc.json"
+config_eslint: "{{ config_dir }}/eslint.config.js"
 config_eslint_env:
-  browser: true
-  es2024: true
-  node: true
+  - browser
+  - es2024
+  - node
 config_eslint_ecmaVersion: "latest"
 config_eslint_ignorePatterns:
   - "**/.pnp.*"
-  - "**/.yarn/"
-  - "**/node_modules/"
-  - "**/vendor/"
+  - "**/.yarn/*"
+  - "**/node_modules/*"
+  - "**/vendor/*"
 
 config_exiftool: "{{ config_dir }}/.ExifTool_config"
 config_exiftool_largefilesupport: 1
@@ -578,7 +578,7 @@ config_templates:
     file: "{{ config_black }}"
   - template: dircolors.j2
     file: "{{ config_dircolors }}"
-  - template: eslintrc.j2
+  - template: eslint.j2
     file: "{{ config_eslint }}"
   - template: exiftool.j2
     file: "{{ config_exiftool }}"
@@ -622,6 +622,7 @@ config_abandoned:
   - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
   - "{{ dotfiles_install_base_dir }}/.config/yamllint"
   - "{{ dotfiles_install_base_dir }}/.eslintrc"
+  - "{{ dotfiles_install_base_dir }}/.eslintrc.json"
   - "{{ dotfiles_install_base_dir }}/.gitconfig.{{ vault_config_git_config_alt_user_name }}"
   - "{{ dotfiles_install_base_dir }}/.gitsigners"
   - "{{ dotfiles_install_base_dir }}/.symfony5"
