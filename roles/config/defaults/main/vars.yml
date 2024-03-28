@@ -503,6 +503,7 @@ config_prettier: "{{ config_dir }}/.prettierrc.json" # In config_dir because hom
 
 config_prettier_ignore: "{{ config_dir }}/.prettierignore"
 config_prettier_ignore_patterns:
+  - "**/*.lock"
   - "**/*.sublime-workspace"
   - "**/.git"
   - "**/.hg"
@@ -513,6 +514,7 @@ config_prettier_ignore_patterns:
   - "**/dist"
   - "**/Library"
   - "**/node_modules"
+  - "**/pnpm-lock.yaml"
   - "**/public"
   - "**/vendor"
 
