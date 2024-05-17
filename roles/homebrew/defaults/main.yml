@@ -28,12 +28,12 @@ homebrew_taps_abandoned:
   - homebrew/core
 
 homebrew_casks:
+  - homebrew/cask/font-andale-mono
+  - homebrew/cask/font-dejavu
+  - homebrew/cask/font-fira-code-nerd-font
+  - homebrew/cask/font-inconsolata
+  - homebrew/cask/font-sauce-code-pro-nerd-font
+  - homebrew/cask/font-source-code-pro
   - homebrew/cask/sublercli
-  - homebrew/cask-fonts/font-andale-mono
-  - homebrew/cask-fonts/font-dejavu
-  - homebrew/cask-fonts/font-fira-code-nerd-font
-  - homebrew/cask-fonts/font-inconsolata
-  - homebrew/cask-fonts/font-sauce-code-pro-nerd-font
-  - homebrew/cask-fonts/font-source-code-pro
 
 homebrew_no_analytics: 1
