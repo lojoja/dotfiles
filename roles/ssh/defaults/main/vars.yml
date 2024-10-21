@@ -49,6 +49,10 @@ ssh_hosts:
           - nas
         hostname: nas.lojoja.com
         user: "{{ ssh_host_user_nas }}"
+      - hosts:
+          - pve
+        hostname: pve.lojoja.com
+        user: "{{ ssh_host_user_pve }}"
   - name: Servers
     hosts:
       - hosts:
