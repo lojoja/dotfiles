@@ -12,6 +12,7 @@ ssh_host_user_cloudkey: "{{ vault_ssh_host_user_cloudkey }}"
 ssh_host_user_gitea: "{{ vault_ssh_host_user_gitea }}"
 ssh_host_user_github: "{{ vault_ssh_host_user_github }}"
 ssh_host_user_nas: "{{ vault_ssh_host_user_nas }}"
+ssh_host_user_pve: "{{ vault_ssh_host_user_pve }}"
 ssh_host_user_router: "{{ vault_ssh_host_user_router }}"
 ssh_host_user_ssp: "{{ vault_ssh_host_user_ssp }}"
 ssh_host_user_sspr: "{{ vault_ssh_host_user_sspr }}"
@@ -46,7 +47,7 @@ ssh_hosts:
         preferred_authentications: password
       - hosts:
           - nas
-        hostname: nas1.lojoja.com
+        hostname: nas.lojoja.com
         user: "{{ ssh_host_user_nas }}"
   - name: Servers
     hosts:
