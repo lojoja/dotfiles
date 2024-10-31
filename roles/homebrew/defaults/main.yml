@@ -34,6 +34,7 @@ homebrew_casks:
   - name: homebrew/cask/font-inconsolata
   - name: homebrew/cask/font-sauce-code-pro-nerd-font
   - name: homebrew/cask/font-source-code-pro
+  - name: homebrew/cask/qlvideo
   - name: homebrew/cask/sublercli
 
 homebrew_no_analytics: 1
