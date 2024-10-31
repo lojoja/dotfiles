@@ -36,5 +36,7 @@ homebrew_casks:
   - name: homebrew/cask/font-source-code-pro
   - name: homebrew/cask/qlvideo
   - name: homebrew/cask/sublercli
+  - name: homebrew/cask/syntax-highlight
+    options: no-quarantine
 
 homebrew_no_analytics: 1
