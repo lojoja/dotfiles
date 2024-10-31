@@ -28,6 +28,7 @@
 
 - name: Install casks
   community.general.homebrew_cask:
-    name: "{{ item }}"
+    name: "{{ item.name }}"
     state: present
+    options: "{{ item.options | default }}"
   loop: "{{ homebrew_casks }}"
