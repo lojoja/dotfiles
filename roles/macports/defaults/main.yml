@@ -117,8 +117,8 @@ macports_ports:
   - port: hugo
   - port: ImageMagick
   - port: lame
-  #- port: mysql_select
-  #- port: mysql8-server
+  #- port: mysql_select # 11/2024 mysql8 port fails to build
+  #- port: mysql8-server # 11/2024 mysql8 port fails to build
   - port: optipng
   - port: poetry
   - port: postgresql_select
@@ -154,7 +154,7 @@ macports_ports_select:
     binary: black311
   - program: flake8
     binary: flake8-311
-  #- program: mysql
+  #- program: mysql # 11/2024 mysql8 port fails to build
   #  binary: mysql8
   - program: php
     binary: php83
