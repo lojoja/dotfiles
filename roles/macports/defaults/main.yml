@@ -117,8 +117,8 @@ macports_ports:
   - port: hugo
   - port: ImageMagick
   - port: lame
-  - port: mysql_select
-  - port: mysql8-server
+  #- port: mysql_select
+  #- port: mysql8-server
   - port: optipng
   - port: poetry
   - port: postgresql_select
