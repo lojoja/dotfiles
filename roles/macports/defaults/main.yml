@@ -154,8 +154,8 @@ macports_ports_select:
     binary: black311
   - program: flake8
     binary: flake8-311
-  - program: mysql
-    binary: mysql8
+  #- program: mysql
+  #  binary: mysql8
   - program: php
     binary: php83
   - program: pip3
