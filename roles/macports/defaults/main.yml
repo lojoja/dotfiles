@@ -53,20 +53,28 @@ macports_ports:
   - port: python39
   - port: python310
   - port: python311
+  - port: python312
+  - port: python313
   - port: pip_select
   - port: py38-pip
   - port: py39-pip
   - port: py310-pip
   - port: py311-pip
+  - port: py312-pip
+  - port: py313-pip
   - port: py38-setuptools
   - port: py39-setuptools
   - port: py310-setuptools
   - port: py311-setuptools
+  - port: py312-setuptools
+  - port: py313-setuptools
   - port: virtualenv_select
   - port: py38-virtualenv
   - port: py39-virtualenv
   - port: py310-virtualenv
   - port: py311-virtualenv
+  - port: py312-virtualenv
+  - port: py313-virtualenv
   - port: go
   - port: php_select
   - port: php82
@@ -101,17 +109,17 @@ macports_ports:
   - port: npm10
   # Misc.
   - port: ansible_select
-  - port: py311-ansible
+  - port: py312-ansible
   - port: black_select
-  - port: py311-black
+  - port: py312-black
   - port: pycodestyle_select
-  - port: py311-codestyle
+  - port: py313-codestyle
   - port: exiftool
   - port: exiv2
   - port: ffmpeg
   - port: flake8_select
-  - port: py311-flake8
-  - port: py311-flake8-mccabe
+  - port: py313-flake8
+  - port: py313-flake8-mccabe
   - port: fzf
   - port: guetzli
   - port: hugo
@@ -125,14 +133,11 @@ macports_ports:
   - port: postgresql15-server
   - port: pv
   - port: pyflakes_select
-  - port: py311-pyflakes
+  - port: py313-pyflakes
   - port: pygments_select
-  - port: py38-pygments
-  - port: py39-pygments
-  - port: py310-pygments
-  - port: py311-pygments
+  - port: py313-pygments
   - port: pylint_select
-  - port: py311-pylint
+  - port: py313-pylint
   - port: ripgrep
   - port: shellcheck
   - port: starship
@@ -149,38 +154,32 @@ macports_ports_abandoned:
 
 macports_ports_select:
   - program: ansible
-    binary: py311-ansible
+    binary: py312-ansible
   - program: black
-    binary: black311
+    binary: black313
   - program: flake8
-    binary: flake8-311
+    binary: flake8-313
   #- program: mysql # 11/2024 mysql8 port fails to build
   #  binary: mysql8
   - program: php
     binary: php83
   - program: pip3
-    binary: pip311
+    binary: pip313
   - program: postgresql
     binary: postgresql15
   - program: pycodestyle
-    binary: pycodestyle-py311
+    binary: pycodestyle-py313
   - program: pyflakes
-    binary: py311-pyflakes
+    binary: py313-pyflakes
   - program: pygments
-    binary: py311-pygments
-  #- program: pylint # pylint_select is broken; expects epylint which isn't installed
-  #  binary: pylint311
+    binary: py313-pygments
+  - program: pylint
+    binary: pylint313
   - program: python3
-    binary: python311
+    binary: python313
   - program: ruby
     binary: ruby18
   - program: virtualenv
-    binary: virtualenv311
+    binary: virtualenv313
 
-macports_ports_select_manual:
-  - program: "pylint"
-    binary: "pylint-3.11"
-  - program: "pyreverse"
-    binary: "pyreverse-3.11"
-  - program: "symilar"
-    binary: "symilar-3.11"
+macports_ports_select_manual: []
