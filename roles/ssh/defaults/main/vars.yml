@@ -9,7 +9,6 @@ ssh_keys_remove: []
 
 ssh_host_user_bitbucket: "{{ vault_ssh_host_user_bitbucket }}"
 ssh_host_user_cloudkey: "{{ vault_ssh_host_user_cloudkey }}"
-ssh_host_user_gitea: "{{ vault_ssh_host_user_gitea }}"
 ssh_host_user_github: "{{ vault_ssh_host_user_github }}"
 ssh_host_user_nas: "{{ vault_ssh_host_user_nas }}"
 ssh_host_user_pve: "{{ vault_ssh_host_user_pve }}"
@@ -79,18 +78,6 @@ ssh_hosts:
         hostname: bitbucket.org
         user: "{{ ssh_host_user_bitbucket }}"
       - hosts:
-          - gitea-lojoja
-          - gt-lojoja
-      - hosts:
-          - gitea-snldev
-          - gt-snldev
-      - hosts:
-          - gitea*
-          - gt-*
-        hostname: gitea.lojoja.com
-        port: 2222
-        user: "{{ ssh_host_user_gitea }}"
-      - hosts:
           - gh-lojoja
           - github-lojoja
       - hosts:
@@ -107,9 +94,7 @@ ssh_hosts:
           - "!bb-*"
           - "!bitbucket*"
           - "!gh-*"
-          - "!gitea*"
           - "!github*"
-          - "!gt-*"
       - hosts:
           - "*"
         add_keys_to_agent: "yes"

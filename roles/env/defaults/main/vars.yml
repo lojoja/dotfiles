@@ -41,9 +41,6 @@ env_exiftool_home: "{{ config_dir }}"
 # Git
 env_git_editor: "{{ env_editor }}"
 
-# Gitea
-env_gitea: "{{ vault_env_gitea }}"
-
 # Github
 env_github: "{{ vault_env_github }}"
 

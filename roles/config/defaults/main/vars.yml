@@ -442,10 +442,6 @@ config_git_urls:
     rewrites:
       - gh
       - github.com
-  - host_prefix: gitea
-    rewrites:
-      - gt
-      - gitea.lojoja.com
 config_git_config_user_name: "{{ vault_config_git_config_user_name }}"
 config_git_config_user_email: "{{ vault_config_git_config_user_email }}"
 config_git_config_user_key: "{{ vault_config_git_config_user_key }}"
