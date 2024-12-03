@@ -1,6 +1,6 @@
 # roles/homebrew/defaults/main.yml
 ---
-homebrew_prefix: "{{ (ansible_platform == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+homebrew_prefix: "{{ (ansible_architecture == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
 
 homebrew_bin: "{{ homebrew_prefix }}/bin"
 homebrew_etc: "{{ homebrew_prefix }}/etc"
