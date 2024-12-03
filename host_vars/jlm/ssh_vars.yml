@@ -1,0 +1,11 @@
+# host_vars/jlm/ssh_vars.yml
+---
+ssh_key_id_rsa: "{{ vault_ssh_key_id_rsa }}"
+ssh_key_id_ed25519: "{{ vault_ssh_key_id_ed25519 }}"
+ssh_key_snldev_ed25519: "{{ vault_ssh_key_snldev_ed25519 }}"
+
+ssh_keys:
+  - "{{ ssh_key_id_ed25519 }}"
+  - "{{ ssh_key_id_rsa }}"
+  - "{{ ssh_key_snldev_ed25519 }}"
+ssh_keys_remove: "{{ vault_ssh_keys_remove }}"
