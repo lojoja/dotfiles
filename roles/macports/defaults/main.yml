@@ -156,7 +156,7 @@ macports_ports_select:
   - program: ansible
     binary: py312-ansible
   - program: black
-    binary: black313
+    binary: black312
   - program: flake8
     binary: flake8-313
   #- program: mysql # 11/2024 mysql8 port fails to build
