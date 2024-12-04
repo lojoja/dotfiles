@@ -167,8 +167,8 @@ macports_ports_select:
     binary: pip313
   - program: postgresql
     binary: postgresql15
-  - program: pycodestyle
-    binary: pycodestyle-py313
+  #- program: pycodestyle # 12/2024 pycodestyle-py313 has incorrect binary name
+  #  binary: pycodestyle-py313
   - program: pyflakes
     binary: py313-pyflakes
   - program: pygments
@@ -182,4 +182,6 @@ macports_ports_select:
   - program: virtualenv
     binary: virtualenv313
 
-macports_ports_select_manual: []
+macports_ports_select_manual:
+  - program: "pycodestyle"
+    binary: "pycodestyle-3.13"
