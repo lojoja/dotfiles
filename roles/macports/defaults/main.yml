@@ -105,7 +105,7 @@ macports_ports:
   - port: php83-sqlite
   - port: ruby_select
   - port: ruby
-  - port: nodejs20
+  - port: nodejs22
   - port: npm10
   # Misc.
   - port: ansible_select
@@ -151,6 +151,7 @@ macports_ports_abandoned:
   - port: yarn
   - port: npm9
   - port: nodejs19
+  - port: nodejs20
 
 macports_ports_select:
   - program: ansible
