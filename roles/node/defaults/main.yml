@@ -1,6 +1,8 @@
 # roles/node/defaults/main.yml
 ---
 node_package_managers:
+  - name: npm
+    version: latest
   - name: pnpm
     version: latest
   - name: yarn
