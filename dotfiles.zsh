@@ -338,7 +338,7 @@ function runPlaybooks() {
 
   for playbook in ${(@s/::/)PLAYBOOKS[$name]}
   do
-    if ! ansible-playbook --limit "$(hostname)" $check "$playbook"
+    if ! ansible-playbook --limit "${$(hostname)/.local/}" $check "$playbook"
     then
       die "$CMD_MSG_FAIL[$name]"
     fi
