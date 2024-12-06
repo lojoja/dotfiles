@@ -2,17 +2,6 @@
 ---
 config_dir: "{{ dotfiles_install_base_dir }}/.config"
 
-#config_act: "{{ dotfiles_install_base_dir }}/.actrc"
-#config_act_images:
-#  - tag: ubuntu-latest
-#    image: catthehacker/ubuntu:act-latest
-#  - tag: ubuntu-22.04
-#    image: catthehacker/ubuntu:act-22.04
-#  - tag: ubuntu-20.04
-#    image: catthehacker/ubuntu:act-20.04
-#  - tag: ubuntu-18.04
-#    image: catthehacker/ubuntu:act-18.04
-
 config_black: "{{ config_dir }}/black"
 config_black_include: '\.pyi?$'
 config_black_line_length: 120
@@ -546,14 +535,6 @@ config_starship_status_disabled: "false"
 config_wake: "{{ config_dir }}/wake.toml"
 config_wake_hosts: "{{ vault_config_wake_hosts }}"
 
-#config_yamllint_dir: "{{ config_dir }}/yamllint"
-#config_yamllint: "{{ config_yamllint_dir }}/config"
-#config_yamllint_indentation_spaces: consistent
-#config_yamllint_indent_sequences: consistent
-#config_yamllint_check_multi_line_strings: "true"
-#config_yamllint_line_length_max: 200
-#config_yamllint_new_lines_type: unix
-
 config_yarn: "{{ dotfiles_install_base_dir }}/.yarnrc.yml"
 config_yarn_enable_global_cache: "true"
 config_yarn_enable_telemetry: "false"
@@ -567,8 +548,6 @@ config_dirs:
   - "{{ config_ssl_dir }}"
 
 config_templates:
-  #- template: act.j2
-  #  file: "{{ config_act }}"
   - template: black.j2
     file: "{{ config_black }}"
   - template: dircolors.j2
@@ -607,8 +586,6 @@ config_templates:
     file: "{{ config_starship }}"
   - template: wake.j2
     file: "{{ config_wake }}"
-  #- template: yamllint.j2
-  #  file: "{{ config_yamllint }}"
   - template: yarnrc.j2
     file: "{{ config_yarn }}"
 
