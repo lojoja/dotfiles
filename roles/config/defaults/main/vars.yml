@@ -520,24 +520,21 @@ config_service_reverse_domains:
   - com.snlsrvr
 
 config_ssl_dir: "{{ config_dir }}/ssl"
-config_ssl_certs_lojoja: "lojojaChain.pem"
-config_ssl_certs_snlsrvr: "snlsrvrChain.pem"
-config_ssl_certs:
-  - "{{ config_ssl_certs_lojoja }}"
-  - "{{ config_ssl_certs_snlsrvr }}"
-config_ssl_root_certs_lojoja: "lojojaRoot.pem"
-config_ssl_root_certs_snlsrvr: "snlsrvrRoot.pem"
-config_ssl_root_certs:
-  - "{{ config_ssl_root_certs_lojoja }}"
-  - "{{ config_ssl_root_certs_snlsrvr }}"
-config_ssl_intermediate_certs_lojoja: "lojojaIntermediate.pem"
-config_ssl_intermediate_certs_snlsrvr: "snlsrvrIntermediate.pem"
-config_ssl_intermediate_certs:
-  - "{{ config_ssl_intermediate_certs_lojoja }}"
-  - "{{ config_ssl_intermediate_certs_snlsrvr }}"
+config_ssl_ca_certs:
+  - file: lojojaRoot.pem
+    hash: 7EF5F17B721E4F263679E25B5C24C89CC2DDC6235E876DF7C2E98C601CA809A7
+  - file: lojojaIntermediate.pem
+    hash: 2E806CB0922CEEE388EA25DB6BB293D0ECA01FE6A289F338602895B3445E0724
+  - file: snlsrvrRoot.pem
+    hash: C0B0AA60FA3B9DDEB09F158BA877489F245FA76F564C998ED2341738E0D97FB4
+  - file: snlsrvrIntermediate.pem
+    hash: 41D51A6EC14BC1462FFDC43495B9791132724C6DCA041BFD1604C19A98E7DAD7
+config_ssl_ca_chain_certs:
+  - file: lojojaChain.pem
+  - file: snlsrvrChain.pem
+config_ssl_identity_certs: "{{ vault_config_ssl_identity_certs }}"
 config_ssl_permissions_default: "{{ role_path }}/files/AuthTrustSettings_Default.plist"
 config_ssl_permissions_ansible: "{{ role_path }}/files/AuthTrustSettings_Ansible.plist"
-config_ssl_client_certs: "{{ vault_config_ssl_client_certs }}"
 
 config_starship: "{{ config_dir }}/starship.toml"
 config_starship_right_format: ""

@@ -1,9 +1,29 @@
 # roles/config/tasks/uninstall.yml
 ---
-- name: Remove ssl certificates
+- name: Remove ssl identities
+  ansible.builtin.command: security delete-identity -Z {{ item.hash }}
+  register: remove_identity_cmd
+  failed_when: remove_identity_cmd.rc > 1
+  loop: "{{ config_ssl_identity_certs }}"
+  loop_control:
+    label: "{{ item.file }}"
+
+- name: Remove CA certificates
+  ansible.builtin.command: security delete-certificate -Z {{ item.hash }}
+  register: remove_ca_cert_cmd
+  failed_when: remove_ca_cert_cmd.rc > 1
+  loop: "{{ config_ssl_ca_certs }}"
+  loop_control:
+    label: "{{ item.file }}"
+  become: yes
+
+- name: Remove ssl certificate files
   ansible.builtin.file:
-    dest: "{{ config_ssl_certs_lojoja }}"
+    dest: "{{ config_ssl_dir }}/{{ item.file }}"
     state: absent
+  loop: "{{ config_ssl_ca_certs + config_ssl_ca_chain_certs + config_ssl_identity_certs }}"
+  loop_control:
+    label: "{{ item.file }}"
 
 - name: Remove config files
   ansible.builtin.file:
