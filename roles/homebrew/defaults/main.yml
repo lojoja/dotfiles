@@ -17,15 +17,9 @@ homebrew_formulae:
   - composer
   - sass/sass/sass
 
-homebrew_formulae_abandoned:
-  - corepack
-  - prettier
-  # - symfony-cli/tap/symfony-cli (If already missing this causes task to fail with JSONDecodeError)
+homebrew_formulae_abandoned: []
 
-homebrew_taps_abandoned:
-  - symfony-cli/tap
-  - homebrew/cask
-  - homebrew/core
+homebrew_taps_abandoned: []
 
 homebrew_casks:
   - name: homebrew/cask/font-andale-mono
