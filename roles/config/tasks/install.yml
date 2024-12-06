@@ -32,7 +32,7 @@
 - name: Add ssl certificates
   ansible.builtin.copy:
     src: "{{ item }}"
-    dest: "{{ config_ssl_dir }}/{{ item }}"
+    dest: "{{ config_ssl_dir }}/{{ item.file }}"
     mode: 0644
   loop: "{{ config_ssl_ca_certs + config_ssl_ca_chain_certs }}"
   loop_control:
