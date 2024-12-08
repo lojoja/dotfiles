@@ -97,26 +97,18 @@
 [tag]
   gpgsign = true
 [user]
-  name = {{ config_git_config_user_name }}
-  email = {{ config_git_config_user_email }}
-  signingkey = {{ config_git_config_user_key }}
+  name = {{ config_git_account.user_name }}
+  email = {{ config_git_account.user_email }}
+  signingkey = {{ ssh_dir }}/{{ config_git_account.user_key.file }}.pub
+{% if config_git_account_alt.user_name %}
 [includeIf "gitdir:{{ config_git_config_alt_user_dir }}/"]
   path = {{ config_git_config_alt }}
-{%- for git_url in config_git_urls %}
-  {%- for git_account in config_git_accounts %}
+  {%- for git_url in config_git_config_urls %}
 
-[url "{{ git_url.host_prefix }}-{{ git_account }}:/{{ git_account }}"]
-    {%- for rewrite in git_url.rewrites %}
-
-  insteadOf = {{ rewrite }}:/{{ git_account }}
-  pushInsteadOf = {{ rewrite }}:/{{ git_account }}
-  insteadOf = git@{{ rewrite }}:/{{ git_account }}
-  pushInsteadOf = git@{{ rewrite }}:/{{ git_account }}
-      {%- if git_account == config_git_config_user_name %}
-
-  pushInsteadOf = https://{{ rewrite }}
-  pushInsteadOf = git://{{ rewrite }}
-      {%- endif %}
-    {% endfor %}
-  {% endfor %}
-{% endfor %}
+[url "{{ git_url.dest }}"]
+  insteadOf = {{ git_url.src }}
+  pushInsteadOf = {{ git_url.src }}
+  insteadOf = git@{{ git_url.src }}
+  pushInsteadOf = git@{{ git_url.src }}
+  {%- endfor -%}
+{% endif %}

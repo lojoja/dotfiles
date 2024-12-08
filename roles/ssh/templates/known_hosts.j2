@@ -1,11 +1,13 @@
 {{ ansible_managed | comment }}
-{% for section in ssh_known_hosts %}
+{% for section in ssh_hosts %}
 
 {{ section.name | comment }}
   {% for item in section.hosts %}
+    {% for public_key in item.public_keys | default([]) %}
 
-{{ item.host }} {{ item.key }}
-  {% endfor -%}
+{{ [item.hostname | default(''), item.ip | default('')] | reject('equalto', '') | join(',') }} {{ public_key }}
+    {% endfor -%}
+  {% endfor %}
 {% endfor %}
 
 {{ 'Manual Additions' | comment }}

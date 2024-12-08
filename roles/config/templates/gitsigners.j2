@@ -1,4 +1,7 @@
 {{ ansible_managed | comment }}
-{% for item in config_git_signers_ids %}
-{{ item.ids | join(',') }} {{ item.key }}
+{% for git_account in config_git_accounts %}
+  {%- for signing_key in git_account.signing_keys %}
+
+{{ git_account.signing_ids | join(',') }} {{ signing_key.public_key }}
+  {%- endfor -%}
 {% endfor %}

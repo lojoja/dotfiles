@@ -1,0 +1,40 @@
+# group_vars/devbox/ssh_vars.yml
+---
+ssh_host_bitbucket_alt_suffix: "{{ config_git_account_alt.user_name }}"
+ssh_host_github_alt_suffix: "{{ config_git_account_alt.user_name }}"
+
+ssh_key_lojoja_ed25519:
+  file: id_ed25519
+  passphrase: "{{ vault_ssh_key_lojoja_ed25519_passphrase }}"
+  private_key: "{{ vault_ssh_key_lojoja_ed25519_private_key }}"
+  public_key: "{{ vault_ssh_key_lojoja_ed25519_public_key }}"
+
+ssh_key_lojoja_rsa:
+  file: id_rsa
+  passphrase: "{{ vault_ssh_key_lojoja_rsa_passphrase }}"
+  private_key: "{{ vault_ssh_key_lojoja_rsa_private_key }}"
+  public_key: "{{ vault_ssh_key_lojoja_rsa_public_key }}"
+
+ssh_key_lojoja_remote:
+  file: lojoja_ed25519
+  passphrase: "{{ vault_ssh_key_lojoja_remote_passphrase }}"
+  private_key: "{{ vault_ssh_key_lojoja_remote_private_key }}"
+  public_key: "{{ vault_ssh_key_lojoja_remote_public_key }}"
+
+ssh_key_snldev_ed25519:
+  file: id_ed25519
+  passphrase: "{{ vault_ssh_key_snldev_ed25519_passphrase }}"
+  private_key: "{{ vault_ssh_key_snldev_ed25519_private_key }}"
+  public_key: "{{ vault_ssh_key_snldev_ed25519_public_key }}"
+
+ssh_key_snldev_rsa:
+  file: id_rsa
+  passphrase: "{{ vault_ssh_key_snldev_rsa_passphrase }}"
+  private_key: "{{ vault_ssh_key_snldev_rsa_private_key }}"
+  public_key: "{{ vault_ssh_key_snldev_rsa_public_key }}"
+
+ssh_key_snldev_remote:
+  file: snldev_ed25519
+  passphrase: "{{ vault_ssh_key_snldev_remote_passphrase }}"
+  private_key: "{{ vault_ssh_key_snldev_remote_private_key }}"
+  public_key: "{{ vault_ssh_key_snldev_remote_public_key }}"

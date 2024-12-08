@@ -1,0 +1,4 @@
+# host_vars/jll3/config_vars.yml
+---
+config_git_account: "{{ config_git_account_lojoja }}"
+config_git_account_alt: "{{ config_git_account_snldev }}"

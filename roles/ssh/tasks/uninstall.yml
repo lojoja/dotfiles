@@ -7,15 +7,15 @@
   failed_when: remove_keys_cmd.rc == 2
   loop: "{{ ssh_keys | map(attribute='file') }}"
 
-- name: Remove public keys
-  ansible.builtin.file:
-    dest: "{{ ssh_dir }}/{{ item }}.pub"
-    state: absent
-  loop: "{{ ssh_keys | map(attribute='file') }}"
-
 - name: Remove private keys
   ansible.builtin.file:
     dest: "{{ ssh_dir }}/{{ item }}"
+    state: absent
+  loop: "{{ ssh_keys | map(attribute='file') }}"
+
+- name: Remove public keys
+  ansible.builtin.file:
+    dest: "{{ ssh_dir }}/{{ item }}.pub"
     state: absent
   loop: "{{ ssh_keys | map(attribute='file') }}"
 

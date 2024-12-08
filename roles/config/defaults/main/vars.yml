@@ -410,31 +410,34 @@ config_flake8_select:
   - F
   - W
 
-config_git_accounts: "{{ vault_config_git_accounts }}"
+config_git_account:
+  signing_ids: []
+  signing_keys: []
+  user_email: null
+  user_name: null
+  user_key: null
+config_git_account_alt:
+  signing_ids: []
+  signing_keys: []
+  user_email: null
+  user_name: null
+  user_key: null
+config_git_accounts:
+  - "{{ config_git_account }}"
+  - "{{ config_git_account_alt }}"
 config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
 config_git_config_extra: "{{ config_dir }}/git"
-config_git_config_alt: "{{ config_git_config_extra }}/{{ vault_config_git_config_alt_user_name }}"
-config_git_config_alt_user_name: "{{ vault_config_git_config_alt_user_name }}"
-config_git_config_alt_user_email: "{{ vault_config_git_config_alt_user_email }}"
-config_git_config_alt_user_key: "{{ vault_config_git_config_alt_user_key }}"
-config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ vault_config_git_config_alt_user_name }}"
+config_git_config_alt: "{{ config_git_config_extra }}/{{ config_git_account_alt.user_name }}"
+config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ config_git_account_alt.user_name }}"
 config_git_config_core_editor: vi
-config_git_config_diff_algorithm: patience
 config_git_config_credential_helper: osxkeychain
+config_git_config_diff_algorithm: patience
 config_git_config_init_default_branch: main
-config_git_urls:
-  - host_prefix: bitbucket
-    rewrites:
-      - bb
-      - bitbucket.com
-  - host_prefix: github
-    rewrites:
-      - gh
-      - github.com
-config_git_config_user_name: "{{ vault_config_git_config_user_name }}"
-config_git_config_user_email: "{{ vault_config_git_config_user_email }}"
-config_git_config_user_key: "{{ vault_config_git_config_user_key }}"
-
+config_git_config_urls:
+  - src: "bitbucket.com:/{{ config_git_account_alt.user_name }}"
+    dest: "bitbucket-{{ config_git_account_alt.user_name }}:/{{ config_git_account_alt.user_name }}"
+  - src: "github.com:/{{ config_git_account_alt.user_name }}"
+    dest: "github-{{ config_git_account_alt.user_name }}:/{{ config_git_account_alt.user_name }}"
 config_git_ignore: "{{ dotfiles_install_base_dir }}/.gitignore"
 config_git_ignore_patterns:
   - "*.DS_Store"
@@ -452,9 +455,7 @@ config_git_ignore_patterns:
   - .TemporaryItems
   - .Trashes
   - .VolumeIcon.icns
-
 config_git_signers: "{{ config_git_config_extra }}/signers"
-config_git_signers_ids: "{{ vault_config_git_signers_ids }}"
 
 config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"
 
@@ -595,7 +596,7 @@ config_abandoned:
   - "{{ dotfiles_install_base_dir }}/.config/yamllint"
   - "{{ dotfiles_install_base_dir }}/.eslintrc"
   - "{{ dotfiles_install_base_dir }}/.eslintrc.json"
-  - "{{ dotfiles_install_base_dir }}/.gitconfig.{{ vault_config_git_config_alt_user_name }}"
+  - "{{ dotfiles_install_base_dir }}/.gitconfig.{{ config_git_account_alt.user_name }}"
   - "{{ dotfiles_install_base_dir }}/.gitsigners"
   - "{{ dotfiles_install_base_dir }}/.symfony5"
   - "{{ dotfiles_install_base_dir }}/.yarnrc"

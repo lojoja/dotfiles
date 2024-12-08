@@ -1,0 +1,4 @@
+# host_vars/snm/config_vars.yml
+---
+config_git_account: "{{ config_git_account_snldev }}"
+config_git_account_alt: "{{ config_git_account_lojoja }}"

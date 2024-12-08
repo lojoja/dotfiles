@@ -2,99 +2,122 @@
 ---
 ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
 
-ssh_known_hosts: "{{ vault_ssh_known_hosts }}"
+ssh_host_bitbucket_alt_identities: []
+ssh_host_bitbucket_alt_suffix: alt
+ssh_host_bitbucket_public_keys: "{{ vault_ssh_host_bitbucket_public_keys }}"
+ssh_host_bitbucket_user: "{{ vault_ssh_host_bitbucket_user }}"
 
-ssh_keys: []
-ssh_keys_remove: []
+ssh_host_chi_hostname: "{{ vault_ssh_host_chi_hostname }}"
+ssh_host_chi_hosts: "{{ vault_ssh_host_chi_hosts }}"
+ssh_host_chi_ip: "{{ vault_ssh_host_chi_ip }}"
+ssh_host_chi_public_keys: "{{ vault_ssh_host_chi_public_keys }}"
+ssh_host_chi_user: "{{ vault_ssh_host_chi_user }}"
 
-ssh_host_user_bitbucket: "{{ vault_ssh_host_user_bitbucket }}"
-ssh_host_user_cloudkey: "{{ vault_ssh_host_user_cloudkey }}"
-ssh_host_user_github: "{{ vault_ssh_host_user_github }}"
-ssh_host_user_nas: "{{ vault_ssh_host_user_nas }}"
-ssh_host_user_pve: "{{ vault_ssh_host_user_pve }}"
-ssh_host_user_router: "{{ vault_ssh_host_user_router }}"
-ssh_host_user_ssp: "{{ vault_ssh_host_user_ssp }}"
-ssh_host_user_sspr: "{{ vault_ssh_host_user_sspr }}"
-ssh_host_user_switch: "{{ vault_ssh_host_user_switch }}"
+ssh_host_chi_cpanel_hostname: "{{ vault_ssh_host_chi_cpanel_hostname }}"
+ssh_host_chi_cpanel_hosts: "{{ vault_ssh_host_chi_cpanel_hosts }}"
+ssh_host_chi_cpanel_user: "{{ vault_ssh_host_chi_cpanel_user }}"
+
+ssh_host_default_identities: []
+
+ssh_host_er1_public_keys: "{{ vault_ssh_host_er1_public_keys }}"
+ssh_host_er1_user: "{{ vault_ssh_host_er1_user }}"
+
+ssh_host_es1_public_keys: "{{ vault_ssh_host_es1_public_keys }}"
+ssh_host_es1_user: "{{ vault_ssh_host_es1_user }}"
+
+ssh_host_es2_public_keys: "{{ vault_ssh_host_es2_public_keys }}"
+ssh_host_es2_user: "{{ vault_ssh_host_es2_user }}"
+
+ssh_host_github_alt_identities: []
+ssh_host_github_alt_suffix: alt
+ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
+ssh_host_github_user: "{{ vault_ssh_host_github_user }}"
+
+ssh_host_nas_public_keys: "{{ vault_ssh_host_nas_public_keys }}"
+ssh_host_nas_user: "{{ vault_ssh_host_nas_user }}"
+
+ssh_host_pve_public_keys: "{{ vault_ssh_host_pve_public_keys }}"
+ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 
 ssh_hosts:
   - name: LAN
     hosts:
-      #- hosts:
-      #    - cloudkey
-      #  hostname: cloudkey.lojoja.com
-      #  user: "{{ ssh_host_user_cloudkey }}"
-      - hosts:
+      - hostname: er1.lojoja.com
+        hosts:
           - er1
-          - router
-        hostname: er1.lojoja.com
-        user: "{{ ssh_host_user_router }}"
-      - hosts:
+          - er1.lojoja.com
+        ip: 10.1.0.1
+        public_keys: "{{ ssh_host_er1_public_keys }}"
+        user: "{{ ssh_host_er1_user }}"
+      - hostname: es1.lojoja.com
+        hosts:
           - es1
-          - switch1
-        hostname: es1.lojoja.com
-      - hosts:
-          - es2
-          - switch2
-        hostname: es2.lojoja.com
-      - hosts:
-          - es1
-          - es2
-          - switch1
-          - switch2
-        user: "{{ ssh_host_user_switch }}"
+          - es1.lojoja.com
+        ip: 10.1.0.10
         preferred_authentications: password
-      - hosts:
+        public_keys: "{{ ssh_host_es1_public_keys }}"
+        user: "{{ ssh_host_es1_user }}"
+      - hostname: es2.lojoja.com
+        hosts:
+          - es2
+          - es2.lojoja.com
+        ip: 10.1.0.11
+        preferred_authentications: password
+        public_keys: "{{ ssh_host_es2_public_keys }}"
+        user: "{{ ssh_host_es2_user }}"
+      - hostname: nas.lojoja.com
+        hosts:
           - nas
-        hostname: nas.lojoja.com
-        user: "{{ ssh_host_user_nas }}"
-      - hosts:
+          - nas.lojoja.com
+        ip: 10.3.0.90
+        public_keys: "{{ ssh_host_nas_public_keys }}"
+        user: "{{ ssh_host_nas_user }}"
+      - hostname: pve.lojoja.com
+        hosts:
           - pve
-        hostname: pve.lojoja.com
-        user: "{{ ssh_host_user_pve }}"
+          - pve.lojoja.com
+        ip: 10.3.0.10
+        public_keys: "{{ ssh_host_pve_public_keys }}"
+        user: "{{ ssh_host_pve_user }}"
   - name: Servers
     hosts:
-      - hosts:
-          - ssp
-        user: "{{ ssh_host_user_ssp }}"
-      - hosts:
-          - sspr
-        user: "{{ ssh_host_user_sspr }}"
-      - hosts:
-          - ssp
-          - sspr
-        hostname: chi.snlsrvr.com
+      - hostname: "{{ ssh_host_chi_cpanel_hostname }}"
+        hosts: "{{ ssh_host_chi_cpanel_hosts }}"
+        user: "{{ ssh_host_chi_cpanel_user }}"
+      - hostname: "{{ ssh_host_chi_hostname }}"
+        hosts: "{{ ssh_host_chi_hosts }}"
+        ip: "{{ ssh_host_chi_ip }}"
+        public_keys: "{{ ssh_host_chi_public_keys }}"
+        user: "{{ ssh_host_chi_user }}"
   - name: Version Control
     hosts:
-      - hosts:
-          - bb-lojoja
-          - bitbucket-lojoja
-      - hosts:
-          - bb-snldev
-          - bitbucket-snldev
-      - hosts:
-          - bb-*
-          - bitbucket*
-        hostname: bitbucket.org
-        user: "{{ ssh_host_user_bitbucket }}"
-      - hosts:
-          - gh-lojoja
-          - github-lojoja
-      - hosts:
-          - gh-snldev
-          - github-snldev
-      - hosts:
-          - gh-*
-          - github*
-        hostname: github.com
-        user: "{{ ssh_host_user_github }}"
+      - hostname: bitbucket.org
+        hosts:
+          - bitbucket-{{ ssh_host_bitbucket_alt_suffix }}
+        identities: "{{ ssh_host_bitbucket_alt_identities }}"
+        user: "{{ ssh_host_bitbucket_user }}"
+      - hostname: bitbucket.org
+        hosts:
+          - bitbucket.org
+        public_keys: "{{ ssh_host_bitbucket_public_keys }}"
+        user: "{{ ssh_host_bitbucket_user }}"
+      - hostname: github.com
+        hosts:
+          - github-{{ ssh_host_github_alt_suffix }}
+        identities: "{{ ssh_host_github_alt_identities }}"
+        user: "{{ ssh_host_github_user }}"
+      - hostname: github.com
+        hosts:
+          - github.com
+        public_keys: "{{ ssh_host_github_public_keys }}"
+        user: "{{ ssh_host_github_user }}"
+
   - name: Default
     hosts:
       - hosts:
-          - "!bb-*"
-          - "!bitbucket*"
-          - "!gh-*"
-          - "!github*"
+          - "!bitbucket-*" # bitbucket alt host pattern
+          - "!github-*" # github alt host pattern
+        identities: "{{ ssh_host_default_identities }}"
       - hosts:
           - "*"
         add_keys_to_agent: "yes"
@@ -102,3 +125,6 @@ ssh_hosts:
         preferred_authentications: publickey
         identities_only: "yes"
         public_key_accepted_algorithms: +ssh-rsa
+
+ssh_keys: []
+ssh_keys_remove: []
