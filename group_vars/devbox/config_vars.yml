@@ -8,7 +8,7 @@ config_git_account_lojoja:
   user_email: "{{ vault_config_git_account_lojoja_user_email }}"
   user_name: "{{ vault_config_git_account_lojoja_user_name }}"
   user_key: "{{ ssh_key_lojoja_ed25519 }}"
-  user_remote_key: "{{ ssh_key_lojoja_remote }}"
+  user_key_remote: "{{ ssh_key_lojoja_remote }}"
 
 config_git_account_snldev:
   signing_ids: "{{ vault_config_git_account_snldev_signing_ids }}"
