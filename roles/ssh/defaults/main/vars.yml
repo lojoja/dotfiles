@@ -19,14 +19,14 @@ ssh_host_chi_cpanel_user: "{{ vault_ssh_host_chi_cpanel_user }}"
 
 ssh_host_default_identities: []
 
-ssh_host_er1_public_keys: "{{ vault_ssh_host_er1_public_keys }}"
-ssh_host_er1_user: "{{ vault_ssh_host_er1_user }}"
+ssh_host_router_public_keys: "{{ vault_ssh_host_router_public_keys }}"
+ssh_host_router_user: "{{ vault_ssh_host_router_user }}"
 
-ssh_host_es1_public_keys: "{{ vault_ssh_host_es1_public_keys }}"
-ssh_host_es1_user: "{{ vault_ssh_host_es1_user }}"
+ssh_host_switch1_public_keys: "{{ vault_ssh_host_switch1_public_keys }}"
+ssh_host_switch1_user: "{{ vault_ssh_host_switch1_user }}"
 
-ssh_host_es2_public_keys: "{{ vault_ssh_host_es2_public_keys }}"
-ssh_host_es2_user: "{{ vault_ssh_host_es2_user }}"
+ssh_host_switch2_public_keys: "{{ vault_ssh_host_switch2_public_keys }}"
+ssh_host_switch2_user: "{{ vault_ssh_host_switch2_user }}"
 
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
@@ -42,29 +42,29 @@ ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 ssh_hosts:
   - name: LAN
     hosts:
-      - hostname: er1.lojoja.com
+      - hostname: router.lojoja.com
         hosts:
-          - er1
-          - er1.lojoja.com
+          - router
+          - router.lojoja.com
         ip: 10.1.0.1
-        public_keys: "{{ ssh_host_er1_public_keys }}"
-        user: "{{ ssh_host_er1_user }}"
-      - hostname: es1.lojoja.com
+        public_keys: "{{ ssh_host_router_public_keys }}"
+        user: "{{ ssh_host_router_user }}"
+      - hostname: switch1.lojoja.com
         hosts:
-          - es1
-          - es1.lojoja.com
+          - switch1
+          - switch1.lojoja.com
         ip: 10.1.0.10
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es1_public_keys }}"
-        user: "{{ ssh_host_es1_user }}"
-      - hostname: es2.lojoja.com
+        public_keys: "{{ ssh_host_switch1_public_keys }}"
+        user: "{{ ssh_host_switch1_user }}"
+      - hostname: switch2.lojoja.com
         hosts:
-          - es2
-          - es2.lojoja.com
+          - switch2
+          - switch2.lojoja.com
         ip: 10.1.0.11
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es2_public_keys }}"
-        user: "{{ ssh_host_es2_user }}"
+        public_keys: "{{ ssh_host_switch2_public_keys }}"
+        user: "{{ ssh_host_switch2_user }}"
       - hostname: nas.lojoja.com
         hosts:
           - nas
