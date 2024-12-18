@@ -69,7 +69,7 @@ ssh_hosts:
         hosts:
           - nas
           - nas.lojoja.com
-        ip: 10.3.0.90
+        ip: 10.3.0.11
         public_keys: "{{ ssh_host_nas_public_keys }}"
         user: "{{ ssh_host_nas_user }}"
       - hostname: pve.lojoja.com
