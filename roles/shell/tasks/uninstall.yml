@@ -22,4 +22,4 @@
         state: absent
         line: "{{ item }}"
       loop: "{{ shell_approved_shells }}"
-  become: yes
+  become: true

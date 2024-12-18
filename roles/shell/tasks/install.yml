@@ -12,7 +12,7 @@
       user:
         name: "{{ ansible_env.USER }}"
         shell: "{{ shell_login_shell }}"
-  become: yes
+  become: true
 
 - name: Install oh-my-zsh
   ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

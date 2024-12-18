@@ -53,7 +53,7 @@
   loop: "{{ new_ca_cert_cmd.results }}"
   loop_control:
     label: "{{ item.item.file }}"
-  become: yes
+  become: true
 
 - name: Add ssl identity certificates
   ansible.builtin.copy:

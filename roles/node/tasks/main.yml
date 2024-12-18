@@ -19,7 +19,7 @@
 
     - name: Enable corepack
       ansible.builtin.command: corepack enable
-  become: yes
+  become: true
 
 - name: Install/Update package managers
   ansible.builtin.command: corepack install --global {{ item.name }}@{{ item.version }}

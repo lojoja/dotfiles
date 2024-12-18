@@ -59,4 +59,4 @@
       loop: "{{ macports_ports_select_manual }}"
       loop_control:
         label: "{{ item.program }}"
-  become: yes
+  become: true

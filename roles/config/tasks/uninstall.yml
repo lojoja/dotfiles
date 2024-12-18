@@ -15,7 +15,7 @@
   loop: "{{ config_ssl_ca_certs }}"
   loop_control:
     label: "{{ item.file }}"
-  become: yes
+  become: true
 
 - name: Remove ssl certificate files
   ansible.builtin.file:
