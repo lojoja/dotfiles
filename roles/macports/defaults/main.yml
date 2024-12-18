@@ -107,6 +107,7 @@ macports_ports:
   - port: ruby
   - port: nodejs22
   - port: npm10
+  - port: openjdk21-temurin
   # Misc.
   - port: ansible_select
   - port: py312-ansible
