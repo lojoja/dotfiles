@@ -59,7 +59,8 @@
   ansible.builtin.expect:
     command: /usr/bin/ssh-add --apple-use-keychain "{{ ssh_dir }}/{{ item.file }}"
     responses:
-      Enter passphrase for(.+): "{{ item.passphrase }}"
+      passphrase: "{{ item.passphrase }}"
   loop: "{{ ssh_keys }}"
   loop_control:
     label: "{{ item.file }}"
+    pause: 3
