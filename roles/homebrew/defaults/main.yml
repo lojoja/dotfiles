@@ -19,6 +19,9 @@ homebrew_formulae:
 
 homebrew_formulae_abandoned: []
 
+homebrew_taps: # 2024-12: Homebrew module fails to install when tap is not present
+  - sass/sass
+
 homebrew_taps_abandoned: []
 
 homebrew_casks:

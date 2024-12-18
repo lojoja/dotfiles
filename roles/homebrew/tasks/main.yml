@@ -20,6 +20,12 @@
   community.general.homebrew:
     upgrade_all: true
 
+- name: Install taps
+  community.general.homebrew_tap:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew_taps }}"
+
 - name: Install formulae
   community.general.homebrew:
     name: "{{ item }}"
