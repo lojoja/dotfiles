@@ -513,12 +513,16 @@ config_ssl_dir: "{{ config_dir }}/ssl"
 config_ssl_ca_certs:
   - file: lojojaRoot.pem
     hash: 7EF5F17B721E4F263679E25B5C24C89CC2DDC6235E876DF7C2E98C601CA809A7
+    root: true
   - file: lojojaIntermediate.pem
     hash: 2E806CB0922CEEE388EA25DB6BB293D0ECA01FE6A289F338602895B3445E0724
+    root: false
   - file: snlsrvrRoot.pem
     hash: C0B0AA60FA3B9DDEB09F158BA877489F245FA76F564C998ED2341738E0D97FB4
+    root: true
   - file: snlsrvrIntermediate.pem
     hash: 41D51A6EC14BC1462FFDC43495B9791132724C6DCA041BFD1604C19A98E7DAD7
+    root: false
 config_ssl_ca_chain_certs:
   - file: lojojaChain.pem
   - file: snlsrvrChain.pem

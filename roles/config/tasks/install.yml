@@ -38,19 +38,21 @@
   loop_control:
     label: "{{ item.file }}"
 
-- block:
-    - name: Change trust-root security permissions
-      ansible.builtin.shell: security authorizationdb write com.apple.trust-settings.admin < {{ config_ssl_permissions_ansible }}
+- name: Identify new trusted CA certificates
+  ansible.builtin.command: security verify-cert -c "{{ config_ssl_dir }}/{{ item.file }}"
+  register: new_ca_cert_cmd
+  changed_when: false
+  failed_when: new_ca_cert_cmd.rc > 1
+  loop: "{{ config_ssl_ca_certs }}"
+  loop_control:
+    label: "{{ item.file }}"
 
-    - name: Install trusted CA certificates
-      ansible.builtin.command: security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "{{ config_ssl_dir }}/{{ item.file }}"
-      loop: "{{ config_ssl_ca_certs }}"
-      loop_control:
-        label: "{{ item.file }}"
-
-  always:
-    - name: Reset trust-root security permissions
-      ansible.builtin.shell: security authorizationdb write com.apple.trust-settings.admin < {{ config_ssl_permissions_default }}
+- name: Install trusted CA certificates
+  ansible.builtin.command: security add-trusted-cert -d -r {{ item.item.root | ternary("trustRoot", "trustAsRoot") }} -k /Library/Keychains/System.keychain "{{ config_ssl_dir }}/{{ item.item.file }}"
+  when: item.rc == 1
+  loop: "{{ new_ca_cert_cmd.results }}"
+  loop_control:
+    label: "{{ item.item.file }}"
   become: yes
 
 - name: Add ssl identity certificates
