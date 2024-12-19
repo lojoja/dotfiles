@@ -29,6 +29,15 @@
   loop_control:
     label: "{{ item.file }}"
 
+- name: Add iterm2 profiles
+  ansible.builtin.template:
+    src: iterm2_theme.j2
+    dest: "{{ config_iterm2_dir }}/{{ item.name }}.json"
+    mode: 0644
+  loop: "{{ config_iterm2_profiles }}"
+  loop_control:
+    label: "{{ item.name }}"
+
 - name: Add ssl certificates
   ansible.builtin.copy:
     src: "{{ item.file }}"
