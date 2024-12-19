@@ -4,6 +4,5 @@ all:
   children:
     devbox:
       hosts:
-        jll3:
         jlm:
         snm:
