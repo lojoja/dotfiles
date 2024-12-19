@@ -12,12 +12,5 @@
         }
       }
     }
-  },
-  "syntax_override": {
-    "(.+_?)vault(Test)?\\.yml$": ["Ansible/Ansible"],
-    "(install|inventory|package_manager|secrets|uninstall|uninstall_legacy|update)\\.yml$": ["Ansible/Ansible"],
-    "roles/(.+)/tasks/(.+)\\.yml$": ["Ansible/Ansible"],
-    "roles/config/files/snlsrvrAdmin.p12": ["Ansible/Ansible"],
-    "roles/env/files/(.+)\\.json": ["Ansible/Ansible"]
   }
 }
