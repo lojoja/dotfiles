@@ -1,8 +1,9 @@
 {{ ansible_managed | comment }}
 
+system-git-client = {{ config_poetry_system_git_client }}
+
 [experimental]
 new-installer = {{ config_poetry_experimental_new_installer }}
-system-git-client = {{ config_poetry_experimental_system_git_client }}
 
 [installer]
 parallel = {{ config_poetry_installer_parallel }}
@@ -10,10 +11,12 @@ parallel = {{ config_poetry_installer_parallel }}
 [virtualenvs]
 create = {{ config_poetry_venv_create }}
 in-project = {{ config_poetry_venv_in_project }}
-options.always-copy = {{ config_poetry_venv_options_always_copy }}
-options.no-pip = {{ config_poetry_venv_options_no_pip }}
-options.no-setuptools = {{ config_poetry_venv_options_no_setup_tools }}
-options.system-site-packages = {{ config_poetry_venv_options_no_system_site_packages }}
 path = "{{ config_poetry_venv_path }}"
-prefer-active-python = {{ config_poetry_venv_prefer_active_python }}
 prompt = "{{ config_poetry_venv_prompt }}"
+use-poetry-python = {{ config_poetry_venv_use_poetry_python }}
+
+[virtualenvs.options]
+always-copy = {{ config_poetry_venv_options_always_copy }}
+no-pip = {{ config_poetry_venv_options_no_pip }}
+no-setuptools = {{ config_poetry_venv_options_no_setup_tools }}
+system-site-packages = {{ config_poetry_venv_options_no_system_site_packages }}

@@ -491,8 +491,8 @@ config_pip_list_format: columns
 config_poetry_dir: "{{ config_dir }}/poetry"
 config_poetry: "{{ config_poetry_dir }}/config.toml"
 config_poetry_experimental_new_installer: "true"
-config_poetry_experimental_system_git_client: "false"
 config_poetry_installer_parallel: "true"
+config_poetry_system_git_client: "false"
 config_poetry_venv_create: "true"
 config_poetry_venv_in_project: "true"
 config_poetry_venv_options_always_copy: "false"
@@ -500,8 +500,8 @@ config_poetry_venv_options_no_pip: "false"
 config_poetry_venv_options_no_setup_tools: "false"
 config_poetry_venv_options_no_system_site_packages: "false"
 config_poetry_venv_path: "{cache-dir}/virtualenvs"
-config_poetry_venv_prefer_active_python: "false"
 config_poetry_venv_prompt: "{project_name}-py{python_version}"
+config_poetry_venv_use_poetry_python: "true"
 
 config_prettier: "{{ config_dir }}/.prettierrc.json" # In config_dir because home dir overrides editor settings
 
