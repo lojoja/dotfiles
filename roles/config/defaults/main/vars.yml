@@ -426,8 +426,8 @@ config_git_accounts:
   - "{{ config_git_account }}"
   - "{{ config_git_account_alt }}"
 config_git_config: "{{ dotfiles_install_base_dir }}/.gitconfig"
-config_git_config_extra: "{{ config_dir }}/git"
-config_git_config_alt: "{{ config_git_config_extra }}/{{ config_git_account_alt.user_name }}"
+config_git_config_extra_dir: "{{ config_dir }}/git"
+config_git_config_alt: "{{ config_git_config_extra_dir }}/{{ config_git_account_alt.user_name }}"
 config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ config_git_account_alt.user_name }}"
 config_git_config_core_editor: vi
 config_git_config_credential_helper: osxkeychain
@@ -455,7 +455,7 @@ config_git_ignore_patterns:
   - .TemporaryItems
   - .Trashes
   - .VolumeIcon.icns
-config_git_signers: "{{ config_git_config_extra }}/signers"
+config_git_signers: "{{ config_git_config_extra_dir }}/signers"
 
 config_google_dir: "{{ config_dir }}/google"
 config_google_credentials:
@@ -570,7 +570,7 @@ config_yarn_enable_telemetry: "false"
 
 config_dirs:
   - "{{ config_dir }}"
-  - "{{ config_git_config_extra }}"
+  - "{{ config_git_config_extra_dir }}"
   - "{{ config_google_dir }}"
   - "{{ config_iterm2_dir }}"
   - "{{ config_pip_dir }}"
