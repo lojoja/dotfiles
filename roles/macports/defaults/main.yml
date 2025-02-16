@@ -77,19 +77,6 @@ macports_ports:
   - port: py313-virtualenv
   - port: go
   - port: php_select
-  - port: php82
-    variant: -libedit +readline
-  - port: php82-curl
-  - port: php82-iconv
-  - port: php82-intl
-  - port: php82-mbstring
-  - port: php82-mysql
-  - port: php82-openssl
-  - port: php82-pcov
-  - port: php82-posix
-  - port: php82-postgresql
-  - port: php82-sodium
-  - port: php82-sqlite
   - port: php83
     variant: -libedit +readline
   - port: php83-curl
@@ -149,6 +136,18 @@ macports_ports:
 
 macports_ports_abandoned:
   - port: nodejs20
+  - port: php82-curl
+  - port: php82-iconv
+  - port: php82-intl
+  - port: php82-mbstring
+  - port: php82-mysql
+  - port: php82-openssl
+  - port: php82-pcov
+  - port: php82-posix
+  - port: php82-postgresql
+  - port: php82-sodium
+  - port: php82-sqlite
+  - port: php82
 
 macports_ports_select:
   - program: ansible
