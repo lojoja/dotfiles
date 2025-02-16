@@ -1,5 +1,5 @@
 *.sublime-workspace
 *_vault.yml
-roles/env/files/*.json
+roles/config/files/*.json
 vault.yml
 vaultTest.yml
