@@ -107,6 +107,7 @@ macports_ports:
   - port: exiv2
   - port: ffmpeg
   - port: flake8_select
+  - port: google-cloud-sdk
   - port: py313-flake8
   - port: py313-flake8-mccabe
   - port: fzf
