@@ -44,10 +44,6 @@ env_git_editor: "{{ env_editor }}"
 # Github
 env_github: "{{ vault_env_github }}"
 
-# Google
-env_google_credentials_dir: "{{ local_etc }}/google"
-env_google: "{{ vault_env_google }}"
-
 # Homebrew
 env_homebrew_no_analytics: "{{ homebrew_no_analytics }}"
 
@@ -86,3 +82,6 @@ env_zip_opt: -9 -x "\*.DS_Store" "\*._\*" "__MACOSX" @
 env_abandoned:
   - "{{ dotfiles_install_base_dir }}/.env"
   - "{{ dotfiles_install_base_dir }}/.env.local"
+  - "{{ dotfiles_install_base_dir }}/.local/etc/google/arcticOceanFilemanager.json"
+  - "{{ dotfiles_install_base_dir }}/.local/etc/google/firebaseAdminSdkSSPWEB.json"
+  - "{{ dotfiles_install_base_dir }}/.local/etc/google"

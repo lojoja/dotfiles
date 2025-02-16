@@ -6,21 +6,6 @@
     state: absent
   loop: "{{ env_abandoned }}"
 
-- name: Create Google credentials directory
-  ansible.builtin.file:
-    dest: "{{ env_google_credentials_dir }}"
-    mode: 0755
-    state: directory
-
-- name: Add Google credentials
-  ansible.builtin.copy:
-    src: "{{ item.value }}"
-    dest: "{{ env_google_credentials_dir }}/{{ item.value }}"
-    mode: 0644
-  loop: "{{ env_google | dict2items }}"
-  loop_control:
-    label: "{{ item.value }}"
-
 - name: Add .env
   ansible.builtin.template:
     src: env.j2

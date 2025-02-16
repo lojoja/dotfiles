@@ -457,6 +457,12 @@ config_git_ignore_patterns:
   - .VolumeIcon.icns
 config_git_signers: "{{ config_git_config_extra }}/signers"
 
+config_google_dir: "{{ config_dir }}/google"
+config_google_credentials:
+  - arcticOceanFilemanager.json
+  - sspwebProduction.json
+  - sspwebStaging.json
+
 config_hushlogin: "{{ dotfiles_install_base_dir }}/.hushlogin"
 
 config_iterm2_dir: "{{ config_dir }}/iterm2"
@@ -565,6 +571,7 @@ config_yarn_enable_telemetry: "false"
 config_dirs:
   - "{{ config_dir }}"
   - "{{ config_git_config_extra }}"
+  - "{{ config_google_dir }}"
   - "{{ config_iterm2_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"

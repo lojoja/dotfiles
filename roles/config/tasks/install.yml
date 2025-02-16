@@ -29,6 +29,15 @@
   loop_control:
     label: "{{ item.file }}"
 
+- name: Add Google credentials
+  ansible.builtin.copy:
+    src: "{{ item.value }}"
+    dest: "{{ config_google_dir }}/{{ item }}"
+    mode: 0644
+  loop: "{{ config_google_credentials }}"
+  loop_control:
+    label: "{{ item }}"
+
 - name: Add iterm2 profiles
   ansible.builtin.template:
     src: iterm2_theme.j2
