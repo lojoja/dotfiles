@@ -98,6 +98,7 @@ macports_ports:
   # Misc.
   - port: ansible_select
   - port: py312-ansible
+  - port: py313-ansible
   - port: black_select
   - port: py312-black
   - port: pycodestyle_select
@@ -151,7 +152,7 @@ macports_ports_abandoned:
 
 macports_ports_select:
   - program: ansible
-    binary: py312-ansible
+    binary: py313-ansible
   - program: black
     binary: black312
   - program: flake8
