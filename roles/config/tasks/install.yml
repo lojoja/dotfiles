@@ -31,7 +31,7 @@
 
 - name: Add Google credentials
   ansible.builtin.copy:
-    src: "{{ item.value }}"
+    src: "{{ item }}"
     dest: "{{ config_google_dir }}/{{ item }}"
     mode: 0644
   loop: "{{ config_google_credentials }}"
