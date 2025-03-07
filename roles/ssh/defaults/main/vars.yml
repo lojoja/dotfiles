@@ -84,11 +84,13 @@ ssh_hosts:
       - hostname: "{{ ssh_host_chi_cpanel_hostname }}"
         hosts: "{{ ssh_host_chi_cpanel_hosts }}"
         user: "{{ ssh_host_chi_cpanel_user }}"
+        host_key_algorithms: +ssh-rsa
       - hostname: "{{ ssh_host_chi_hostname }}"
         hosts: "{{ ssh_host_chi_hosts }}"
         ip: "{{ ssh_host_chi_ip }}"
         public_keys: "{{ ssh_host_chi_public_keys }}"
         user: "{{ ssh_host_chi_user }}"
+        host_key_algorithms: +ssh-rsa
   - name: Version Control
     hosts:
       - hostname: bitbucket.org

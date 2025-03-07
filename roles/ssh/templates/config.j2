@@ -33,6 +33,10 @@ Host {{ ssh_host.hosts | join(' ') }}
   IdentitiesOnly {{ ssh_host.identities_only }}
 {% endif -%}
 
+{% if ssh_host.host_key_algorithms | default %}
+  HostKeyAlgorithms {{ssh_host.host_key_algorithms }}
+{% endif -%}
+
 {% if ssh_host.public_key_accepted_algorithms | default %}
   PubKeyAcceptedAlgorithms {{ssh_host.public_key_accepted_algorithms }}
 {% endif -%}
