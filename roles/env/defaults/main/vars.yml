@@ -29,9 +29,6 @@ env_cloudflare: "{{ vault_env_cloudflare }}"
 # Clientfile
 env_clientfile: "{{ vault_env_clientfile }}"
 
-# Digital Ocean
-env_digital_ocean: "{{ vault_env_digital_ocean }}"
-
 # Docker
 env_docker: "{{ vault_env_docker }}"
 
