@@ -7,16 +7,6 @@ ssh_host_bitbucket_alt_suffix: alt
 ssh_host_bitbucket_public_keys: "{{ vault_ssh_host_bitbucket_public_keys }}"
 ssh_host_bitbucket_user: "{{ vault_ssh_host_bitbucket_user }}"
 
-ssh_host_chi_hostname: "{{ vault_ssh_host_chi_hostname }}"
-ssh_host_chi_hosts: "{{ vault_ssh_host_chi_hosts }}"
-ssh_host_chi_ip: "{{ vault_ssh_host_chi_ip }}"
-ssh_host_chi_public_keys: "{{ vault_ssh_host_chi_public_keys }}"
-ssh_host_chi_user: "{{ vault_ssh_host_chi_user }}"
-
-ssh_host_chi_cpanel_hostname: "{{ vault_ssh_host_chi_cpanel_hostname }}"
-ssh_host_chi_cpanel_hosts: "{{ vault_ssh_host_chi_cpanel_hosts }}"
-ssh_host_chi_cpanel_user: "{{ vault_ssh_host_chi_cpanel_user }}"
-
 ssh_host_default_identities: []
 
 ssh_host_router_public_keys: "{{ vault_ssh_host_router_public_keys }}"
@@ -80,17 +70,7 @@ ssh_hosts:
         public_keys: "{{ ssh_host_pve_public_keys }}"
         user: "{{ ssh_host_pve_user }}"
   - name: Servers
-    hosts:
-      - hostname: "{{ ssh_host_chi_cpanel_hostname }}"
-        hosts: "{{ ssh_host_chi_cpanel_hosts }}"
-        user: "{{ ssh_host_chi_cpanel_user }}"
-        host_key_algorithms: +ssh-rsa
-      - hostname: "{{ ssh_host_chi_hostname }}"
-        hosts: "{{ ssh_host_chi_hosts }}"
-        ip: "{{ ssh_host_chi_ip }}"
-        public_keys: "{{ ssh_host_chi_public_keys }}"
-        user: "{{ ssh_host_chi_user }}"
-        host_key_algorithms: +ssh-rsa
+    hosts: []
   - name: Version Control
     hosts:
       - hostname: bitbucket.org
