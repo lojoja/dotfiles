@@ -1,0 +1,25 @@
+name: Format
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  pretter:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Setup node environment
+        uses: lojoja/action-setup-node-env@main
+        with:
+          node-version: 22
+
+      - name: Run prettier
+        run: pnpm prettier -c .
