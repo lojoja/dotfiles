@@ -3,3 +3,4 @@
 *.sublime-workspace
 ._*
 .ansible-vault
+node_modules/

@@ -1,5 +1,6 @@
 *.sublime-workspace
 *_vault.yml
+pnpm-lock.yaml
 roles/config/files/*.json
 vault.yml
 vaultTest.yml
