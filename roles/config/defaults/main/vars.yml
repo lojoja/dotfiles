@@ -434,8 +434,6 @@ config_git_config_credential_helper: osxkeychain
 config_git_config_diff_algorithm: patience
 config_git_config_init_default_branch: main
 config_git_config_urls:
-  - src: "bitbucket.com:/{{ config_git_account_alt.user_name }}"
-    dest: "bitbucket-{{ config_git_account_alt.user_name }}:/{{ config_git_account_alt.user_name }}"
   - src: "github.com:/{{ config_git_account_alt.user_name }}"
     dest: "github-{{ config_git_account_alt.user_name }}:/{{ config_git_account_alt.user_name }}"
 config_git_ignore: "{{ dotfiles_install_base_dir }}/.gitignore"

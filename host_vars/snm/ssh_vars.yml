@@ -1,8 +1,5 @@
 # host_vars/snm/ssh_vars.yml
 ---
-ssh_host_bitbucket_alt_identities:
-  - "{{ ssh_key_lojoja_remote }}"
-
 ssh_host_default_identities:
   - "{{ ssh_key_snldev_ed25519 }}"
   - "{{ ssh_key_snldev_rsa }}"

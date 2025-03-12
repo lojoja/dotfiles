@@ -2,11 +2,6 @@
 ---
 ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
 
-ssh_host_bitbucket_alt_identities: []
-ssh_host_bitbucket_alt_suffix: alt
-ssh_host_bitbucket_public_keys: "{{ vault_ssh_host_bitbucket_public_keys }}"
-ssh_host_bitbucket_user: "{{ vault_ssh_host_bitbucket_user }}"
-
 ssh_host_default_identities: []
 
 ssh_host_router_public_keys: "{{ vault_ssh_host_router_public_keys }}"
@@ -73,16 +68,6 @@ ssh_hosts:
     hosts: []
   - name: Version Control
     hosts:
-      - hostname: bitbucket.org
-        hosts:
-          - bitbucket-{{ ssh_host_bitbucket_alt_suffix }}
-        identities: "{{ ssh_host_bitbucket_alt_identities }}"
-        user: "{{ ssh_host_bitbucket_user }}"
-      - hostname: bitbucket.org
-        hosts:
-          - bitbucket.org
-        public_keys: "{{ ssh_host_bitbucket_public_keys }}"
-        user: "{{ ssh_host_bitbucket_user }}"
       - hostname: github.com
         hosts:
           - github-{{ ssh_host_github_alt_suffix }}
@@ -97,7 +82,6 @@ ssh_hosts:
   - name: Default
     hosts:
       - hosts:
-          - "!bitbucket-*" # bitbucket alt host pattern
           - "!github-*" # github alt host pattern
         identities: "{{ ssh_host_default_identities }}"
       - hosts:

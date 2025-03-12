@@ -20,9 +20,6 @@ env_ansible_ssh_pipelining: 1
 # AWS
 env_aws: "{{ vault_env_aws }}"
 
-# Bitbucket
-env_bitbucket: "{{ vault_env_bitbucket }}"
-
 # Cloudflare
 env_cloudflare: "{{ vault_env_cloudflare }}"
 
