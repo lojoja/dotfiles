@@ -19,6 +19,11 @@
     state: absent
   loop: "{{ ssh_keys | map(attribute='file') }}"
 
+- name: Remove ssh keychain loader agent
+  ansible.builtin.file:
+    dest: "{{ ssh_keychain_loader_agent }}"
+    state: absent
+
 - name: Remove ssh settings
   ansible.builtin.file:
     dest: "{{ ssh_dir }}/{{ item }}"

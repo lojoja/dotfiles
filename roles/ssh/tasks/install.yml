@@ -18,6 +18,12 @@
     dest: "{{ ssh_dir }}/config"
     mode: 0644
 
+- name: Add ssh keychain loader agent
+  ansible.builtin.copy:
+    src: "{{ ssh_keychain_loader_agent_file }}"
+    dest: "{{ ssh_keychain_loader_agent }}"
+    mode: 0644
+
 - name: Remove keys from ssh-agent
   ansible.builtin.command: ssh-add -d --apple-use-keychain "{{ ssh_dir }}/{{ item }}"
   register: remove_keys_cmd

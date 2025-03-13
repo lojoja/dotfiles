@@ -92,5 +92,7 @@ ssh_hosts:
         identities_only: "yes"
         public_key_accepted_algorithms: +ssh-rsa
 
+ssh_keychain_loader_agent_file: com.lojoja.dotfiles.sshLoadKeychain.plist
+ssh_keychain_loader_agent: "{{ dotfiles_install_base_dir }}/Library/LaunchAgents/{{ ssh_keychain_loader_agent_file }}"
 ssh_keys: []
 ssh_keys_remove: []
