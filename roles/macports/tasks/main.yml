@@ -15,9 +15,7 @@
         selfupdate: true
 
     - name: Remove abandoned ports
-      community.general.macports:
-        name: "{{ item.port }}"
-        state: absent
+      ansible.builtin.command: port uninstall installed and {{ item.port }}
       loop: "{{ macports_ports_abandoned }}"
       loop_control:
         label: "{{ item.port }}"
