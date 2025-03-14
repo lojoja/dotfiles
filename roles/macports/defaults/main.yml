@@ -124,34 +124,7 @@ macports_ports:
   - port: youtube-dl
   - port: yt-dlp
 
-macports_ports_abandoned:
-  - port: google-cloud-sdk
-  - port: php83-mysql
-  - port: php83-postgresql
-  - port: postgresql15-server
-  - port: postgresql_select
-  - port: py38-virtualenv
-  - port: py38-pip
-  - port: py38-setuptools
-  - port: py39-virtualenv
-  - port: py39-pip
-  - port: py39-setuptools
-  - port: python39
-  - port: py310-virtualenv
-  - port: py310-pip
-  - port: py310-setuptools
-  - port: python310
-  - port: py311-virtualenv
-  - port: py311-setuptools
-  - port: py312-ansible
-  - port: py312-black
-  - port: py312-virtualenv
-  - port: py312-pip
-  - port: py312-setuptools
-  - port: python312
-  - port: py313-virtualenv
-  - port: py313-setuptools
-  - port: virtualenv_select
+macports_ports_abandoned: []
 
 macports_ports_select:
   - program: ansible
