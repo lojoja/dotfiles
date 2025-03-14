@@ -27,6 +27,7 @@ macports_ports:
   - port: zsh
   - port: zsh-autosuggestions
   - port: zsh-completions
+  - port: autoconf
   - port: automake
   - port: cctools
   - port: coreutils
