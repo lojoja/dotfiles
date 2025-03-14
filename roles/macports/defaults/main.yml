@@ -56,11 +56,9 @@ macports_ports:
   - port: php83-iconv
   - port: php83-intl
   - port: php83-mbstring
-  - port: php83-mysql
   - port: php83-openssl
   - port: php83-pcov
   - port: php83-posix
-  - port: php83-postgresql
   - port: php83-sodium
   - port: php83-sqlite
   - port: python3_select
@@ -106,12 +104,8 @@ macports_ports:
   - port: hugo
   - port: ImageMagick
   - port: lame
-  #- port: mysql_select # 11/2024 mysql8 port fails to build
-  #- port: mysql8-server # 11/2024 mysql8 port fails to build
   - port: optipng
   - port: poetry
-  - port: postgresql_select
-  - port: postgresql15-server
   - port: pv
   - port: ripgrep
   - port: shellcheck
@@ -122,6 +116,10 @@ macports_ports:
   - port: yt-dlp
 
 macports_ports_abandoned:
+  - port: php83-mysql
+  - port: php83-postgresql
+  - port: postgresql15-server
+  - port: postgresql_select
   - port: py38-virtualenv
   - port: py38-pip
   - port: py38-setuptools
@@ -152,14 +150,10 @@ macports_ports_select:
     binary: black313
   - program: flake8
     binary: flake8-313
-  #- program: mysql # 11/2024 mysql8 port fails to build
-  #  binary: mysql8
   - program: php
     binary: php83
   - program: pip3
     binary: pip313
-  - program: postgresql
-    binary: postgresql15
   - program: pycodestyle
     binary: pycodestyle-py313
   - program: pyflakes
