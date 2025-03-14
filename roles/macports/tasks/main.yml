@@ -34,7 +34,7 @@
         label: "{{ item.port }}"
 
     - name: Mark installed ports requested
-      ansible.builtin.command: port set requested {{ item.port }}
+      ansible.builtin.command: port setrequested {{ item.port }}
       loop: "{{ macports_ports }}"
       loop_control:
         label: "{{ item.port }}"
