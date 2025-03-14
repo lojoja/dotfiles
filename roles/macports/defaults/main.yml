@@ -98,7 +98,6 @@ macports_ports:
   - port: exiftool
   - port: exiv2
   - port: ffmpeg
-  - port: google-cloud-sdk
   - port: fzf
   - port: guetzli
   - port: hugo
@@ -116,6 +115,7 @@ macports_ports:
   - port: yt-dlp
 
 macports_ports_abandoned:
+  - port: google-cloud-sdk
   - port: php83-mysql
   - port: php83-postgresql
   - port: postgresql15-server
