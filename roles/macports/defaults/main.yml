@@ -27,26 +27,36 @@ macports_ports:
   - port: zsh
   - port: zsh-autosuggestions
   - port: zsh-completions
+  - port: automake
+  - port: cctools
   - port: coreutils
   - port: curl
   - port: findutils
   - port: git
   - port: git-lfs
+  - port: gmake
+  - port: gperf
   - port: gsed
   - port: gnupg2
   - port: gnutar
   - port: grep
   - port: gzip
   - port: less
+  - port: libedit
   - port: libpng
   - port: libsass
+  - port: libtool
   - port: libxml2
   - port: libyaml
+  - port: ncurses
   - port: openssl
   - port: p7zip
+  - port: pkgconfig
   - port: sqlite3
+  - port: texinfo
   - port: wget
   - port: xz
+  - port: zlib
   # Languages
   - port: go
   - port: php_select
