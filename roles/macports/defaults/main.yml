@@ -48,33 +48,6 @@ macports_ports:
   - port: wget
   - port: xz
   # Languages
-  - port: python3_select
-  - port: python38
-  - port: python39
-  - port: python310
-  - port: python311
-  - port: python312
-  - port: python313
-  - port: pip_select
-  - port: py38-pip
-  - port: py39-pip
-  - port: py310-pip
-  - port: py311-pip
-  - port: py312-pip
-  - port: py313-pip
-  - port: py38-setuptools
-  - port: py39-setuptools
-  - port: py310-setuptools
-  - port: py311-setuptools
-  - port: py312-setuptools
-  - port: py313-setuptools
-  - port: virtualenv_select
-  - port: py38-virtualenv
-  - port: py39-virtualenv
-  - port: py310-virtualenv
-  - port: py311-virtualenv
-  - port: py312-virtualenv
-  - port: py313-virtualenv
   - port: go
   - port: php_select
   - port: php83
@@ -90,26 +63,44 @@ macports_ports:
   - port: php83-postgresql
   - port: php83-sodium
   - port: php83-sqlite
-  - port: ruby_select
-  - port: ruby
+  - port: python3_select
+  - port: ansible_select
+  - port: black_select
+  - port: flake8_select
+  - port: pip_select
+  - port: pycodestyle_select
+  - port: pyflakes_select
+  - port: pygments_select
+  - port: pylint_select
+  - port: python38
+  - port: python311
+  - port: py311-build
+  - port: py311-installer
+  - port: py311-pip
+  - port: py311-wheel
+  - port: python313
+  - port: py313-build
+  - port: py313-installer
+  - port: py313-pip
+  - port: py313-wheel
+  - port: py313-ansible
+  - port: py313-black
+  - port: py313-codestyle
+  - port: py313-flake8
+  - port: py313-flake8-mccabe
+  - port: py313-pyflakes
+  - port: py313-pygments
+  - port: py313-pylint
   - port: nodejs22
   - port: npm10
   - port: openjdk21-temurin
+  - port: ruby_select
+  - port: ruby
   # Misc.
-  - port: ansible_select
-  - port: py312-ansible
-  - port: py313-ansible
-  - port: black_select
-  - port: py312-black
-  - port: pycodestyle_select
-  - port: py313-codestyle
   - port: exiftool
   - port: exiv2
   - port: ffmpeg
-  - port: flake8_select
   - port: google-cloud-sdk
-  - port: py313-flake8
-  - port: py313-flake8-mccabe
   - port: fzf
   - port: guetzli
   - port: hugo
@@ -122,12 +113,6 @@ macports_ports:
   - port: postgresql_select
   - port: postgresql15-server
   - port: pv
-  - port: pyflakes_select
-  - port: py313-pyflakes
-  - port: pygments_select
-  - port: py313-pygments
-  - port: pylint_select
-  - port: py313-pylint
   - port: ripgrep
   - port: shellcheck
   - port: starship
@@ -137,25 +122,34 @@ macports_ports:
   - port: yt-dlp
 
 macports_ports_abandoned:
-  - port: nodejs20
-  - port: php82-curl
-  - port: php82-iconv
-  - port: php82-intl
-  - port: php82-mbstring
-  - port: php82-mysql
-  - port: php82-openssl
-  - port: php82-pcov
-  - port: php82-posix
-  - port: php82-postgresql
-  - port: php82-sodium
-  - port: php82-sqlite
-  - port: php82
+  - port: py38-virtualenv
+  - port: py38-pip
+  - port: py38-setuptools
+  - port: py39-virtualenv
+  - port: py39-pip
+  - port: py39-setuptools
+  - port: python39
+  - port: py310-virtualenv
+  - port: py310-pip
+  - port: py310-setuptools
+  - port: python310
+  - port: py311-virtualenv
+  - port: py311-setuptools
+  - port: py312-ansible
+  - port: py312-black
+  - port: py312-virtualenv
+  - port: py312-pip
+  - port: py312-setuptools
+  - port: python312
+  - port: py313-virtualenv
+  - port: py313-setuptools
+  - port: virtualenv_select
 
 macports_ports_select:
   - program: ansible
     binary: py313-ansible
   - program: black
-    binary: black312
+    binary: black313
   - program: flake8
     binary: flake8-313
   #- program: mysql # 11/2024 mysql8 port fails to build
@@ -166,8 +160,8 @@ macports_ports_select:
     binary: pip313
   - program: postgresql
     binary: postgresql15
-  #- program: pycodestyle # 12/2024 pycodestyle-py313 has incorrect binary name
-  #  binary: pycodestyle-py313
+  - program: pycodestyle
+    binary: pycodestyle-py313
   - program: pyflakes
     binary: py313-pyflakes
   - program: pygments
@@ -178,9 +172,5 @@ macports_ports_select:
     binary: python313
   - program: ruby
     binary: ruby18
-  - program: virtualenv
-    binary: virtualenv313
 
-macports_ports_select_manual:
-  - program: "pycodestyle"
-    binary: "pycodestyle-3.13"
+macports_ports_select_manual: []
