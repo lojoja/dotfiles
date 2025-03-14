@@ -33,6 +33,12 @@
       loop_control:
         label: "{{ item.port }}"
 
+    - name: Mark installed ports requested
+      ansible.builtin.command: port set requested {{ item.port }}
+      loop: "{{ macports_ports }}"
+      loop_control:
+        label: "{{ item.port }}"
+
     - name: Activate ports
       community.general.macports:
         name: "{{ item.port }}"
