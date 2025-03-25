@@ -106,6 +106,7 @@ macports_ports:
   - port: ruby_select
   - port: ruby
   # Misc.
+  - port: age
   - port: exiftool
   - port: exiv2
   - port: ffmpeg
