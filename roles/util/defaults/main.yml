@@ -1,8 +1,12 @@
 # roles/util/defaults/main.yml
 ---
-util_all: "{{ util_public + util_private }}"
+util_shell_scripts:
+  - file: git-sops
+    template: git-sops.j2
 
-util_public:
+util_python_all: "{{ util_python_public + util_python_private }}"
+
+util_python_public:
   - name: py-service
     cmd: service
     python_version: 3.11
@@ -13,7 +17,7 @@ util_public:
     cmd: wake
     python_version: 3.11
 
-util_private:
+util_python_private:
   - name: clientfile
     cmd: clientfile
     python_version: 3.11

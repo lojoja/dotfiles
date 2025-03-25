@@ -1,20 +1,28 @@
 # roles/util/tasks/uninstall.yml
 ---
-- name: Unlink utils
+- name: Unlink python utils
   ansible.builtin.file:
     dest: "{{ local_bin }}/{{ item.cmd }}"
     state: absent
-  loop: "{{ util_all }}"
+  loop: "{{ util_python_all }}"
   loop_control:
     label: "{{ item.name }}"
 
-- name: Uninstall utils
+- name: Uninstall python utils
   ansible.builtin.file:
     dest: "{{ local_opt }}/{{ item.name }}"
     state: absent
-  loop: "{{ util_all }}"
+  loop: "{{ util_python_all }}"
   loop_control:
     label: "{{ item.name }}"
+
+- name: Uninstall shell script utils
+  ansible.builtin.file:
+    dest: "{{ local_bin }}/{{ item.file }}"
+    state: absent
+  loop: "{{ util_shell_scripts }}"
+  loop_control:
+    label: "{{ item.file }}"
 
 - name: Uninstall github3.py
   ansible.builtin.pip:

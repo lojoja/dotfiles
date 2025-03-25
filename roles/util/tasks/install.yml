@@ -1,31 +1,40 @@
 # roles/util/tasks/install.yml
 ---
+- name: Install shell script utils
+  ansible.builtin.template:
+    src: "{{ item.template }}"
+    dest: "{{ local_bin }}/{{ item.file }}"
+    mode: 0755
+  loop: "{{ util_shell_scripts }}"
+  loop_control:
+    label: "{{ item.file }}"
+
 - name: Install github3.py
   ansible.builtin.pip:
     name: github3.py
     state: latest
 
-- name: Install public utils
+- name: Install public python utils
   ansible.builtin.pip:
     name: "{{ item.name }}"
     state: latest
     virtualenv: "{{ local_opt }}/{{ item.name }}"
     virtualenv_command: "{{ macports_bin }}/python{{ item.python_version }} -m venv"
-  loop: "{{ util_public }}"
+  loop: "{{ util_python_public }}"
   loop_control:
     label: "{{ item.name }}"
 
-- name: Install private utils
+- name: Install private python utils
   ansible.builtin.include_tasks: private.yml
-  loop: "{{ util_private }}"
+  loop: "{{ util_python_private }}"
   loop_control:
     label: "{{ item.name }}"
 
-- name: Link utils
+- name: Link python utils
   ansible.builtin.file:
     src: "{{ local_opt }}/{{ item.name }}/bin/{{ item.cmd }}"
     dest: "{{ local_bin }}/{{ item.cmd }}"
     state: link
-  loop: "{{ util_all }}"
+  loop: "{{ util_python_all }}"
   loop_control:
     label: "{{ item.name }}"

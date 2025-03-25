@@ -1,0 +1,62 @@
+#!/usr/bin/env zsh
+
+PS4='${LINENO}: '
+
+set -euo pipefail
+
+test $# -eq 2
+test -t 0 && exit 1
+
+OP="${1}"
+FILE_NAME="${2}"
+
+decrypt() {
+  SOPS_AGE_KEY_FILE="${PWD}/.age-key" sops --decrypt --filename-override "${FILE_NAME}" /dev/stdin
+}
+
+encrypt() {
+  sops --encrypt --filename-override "${FILE_NAME}" /dev/stdin
+}
+
+show() {
+  printf "%s\n" "${@}"
+}
+
+INPUT=$(cat; echo x)
+INPUT=${INPUT%x}
+
+if [[ "${OP}" == "smudge" ]]
+then
+  TMP=$(mktemp)
+  : "${DECRYPTED=$(decrypt <<< "${INPUT}" 2> "$TMP" )}"
+  err=$(cat "$TMP")
+  rm "$TMP"
+  wrong_key_error_message="age: no identity matched any of the recipients"
+  if [[ $err == *"${wrong_key_error_message}"* ]]; then
+    :
+  else
+    show "${DECRYPTED}"
+  fi
+
+  exit 0
+fi
+
+if [[ "${OP}" != "clean" ]]
+then
+  exit 1
+fi
+
+# OP is "clen"
+: "${NEW_ENCRYPTED_INPUT:=$(encrypt <<< "${INPUT}" 2>/dev/null )}"
+
+: "${ENCRYPTED_HEAD_CONTENTS:=$(git cat-file -p "HEAD:${FILE_NAME}" 2>/dev/null)}"
+
+: "${DECRYPTED_HEAD_CONTENTS=$(decrypt <<< "${ENCRYPTED_HEAD_CONTENTS}" 2>/dev/null; echo x )}"
+DECRYPTED_HEAD_CONTENTS=${DECRYPTED_HEAD_CONTENTS%x}
+
+if [[ -z "${ENCRYPTED_HEAD_CONTENTS}" || "${DECRYPTED_HEAD_CONTENTS}" != "${INPUT}" ]]
+then
+  show "${NEW_ENCRYPTED_INPUT}"
+else
+  show "${ENCRYPTED_HEAD_CONTENTS}"
+fi
