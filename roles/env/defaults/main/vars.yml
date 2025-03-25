@@ -73,9 +73,4 @@ env_xz_opt: -9 --threads={{ ansible_processor_vcpus | int - 1 }}
 # Zip
 env_zip_opt: -9 -x "\*.DS_Store" "\*._\*" "__MACOSX" @
 
-env_abandoned:
-  - "{{ dotfiles_install_base_dir }}/.env"
-  - "{{ dotfiles_install_base_dir }}/.env.local"
-  - "{{ dotfiles_install_base_dir }}/.local/etc/google/arcticOceanFilemanager.json"
-  - "{{ dotfiles_install_base_dir }}/.local/etc/google/firebaseAdminSdkSSPWEB.json"
-  - "{{ dotfiles_install_base_dir }}/.local/etc/google"
+env_abandoned: []

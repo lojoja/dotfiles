@@ -612,16 +612,4 @@ config_templates:
   - template: yarnrc.j2
     file: "{{ config_yarn }}"
 
-config_abandoned:
-  - "{{ dotfiles_install_base_dir }}/.actrc"
-  - "{{ dotfiles_install_base_dir }}/.config/iterm2/iterm2.plist"
-  - "{{ dotfiles_install_base_dir }}/.config/iterm2/themelojoja.json"
-  - "{{ dotfiles_install_base_dir }}/.config/iterm2/themelojojaGithubDimmed.json"
-  - "{{ dotfiles_install_base_dir }}/.config/yamllint/config"
-  - "{{ dotfiles_install_base_dir }}/.config/yamllint"
-  - "{{ dotfiles_install_base_dir }}/.eslintrc"
-  - "{{ dotfiles_install_base_dir }}/.eslintrc.json"
-  - "{{ dotfiles_install_base_dir }}/.gitconfig.{{ config_git_account_alt.user_name }}"
-  - "{{ dotfiles_install_base_dir }}/.gitsigners"
-  - "{{ dotfiles_install_base_dir }}/.symfony5"
-  - "{{ dotfiles_install_base_dir }}/.yarnrc"
+config_abandoned: []
