@@ -432,6 +432,7 @@ config_git_config_alt_user_dir: "{{ dotfiles_install_base_dir }}/Projects/{{ con
 config_git_config_core_editor: vi
 config_git_config_credential_helper: osxkeychain
 config_git_config_diff_algorithm: patience
+config_git_config_filter_sops_age_key_file: ${PWD}/.age-key
 config_git_config_init_default_branch: main
 config_git_config_urls:
   - src: "github.com:/{{ config_git_account_alt.user_name }}"

@@ -88,6 +88,10 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+[filter "sops"]
+  required = true
+  clean = sops -e --filename-override %f /dev/stdin
+  smudge = SOPS_AGE_KEY_FILE="{{ config_git_config_filter_sops_age_key_file }}" sops -d --filename-override %f /dev/stdin
 [gpg]
   format = ssh
 [gpg "ssh"]
