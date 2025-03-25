@@ -120,6 +120,7 @@ macports_ports:
   - port: pv
   - port: ripgrep
   - port: shellcheck
+  - port: sops
   - port: starship
   - port: thefuck
   - port: watch
