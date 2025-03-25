@@ -79,6 +79,8 @@
   rebase=true
 [diff]
   algorithm = {{ config_git_config_diff_algorithm }}
+[diff "sops"]
+  textconv = cat
 [credential]
   helper = {{ config_git_config_credential_helper }}
 [init]
