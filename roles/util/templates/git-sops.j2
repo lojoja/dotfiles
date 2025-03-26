@@ -46,7 +46,6 @@ then
   exit 1
 fi
 
-# OP is "clen"
 : "${NEW_ENCRYPTED_INPUT:=$(encrypt <<< "${INPUT}" 2>/dev/null )}"
 
 : "${ENCRYPTED_HEAD_CONTENTS:=$(git cat-file -p "HEAD:${FILE_NAME}" 2>/dev/null)}"
