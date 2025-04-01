@@ -116,5 +116,7 @@
   pushInsteadOf = {{ git_url.src }}
   insteadOf = git@{{ git_url.src }}
   pushInsteadOf = git@{{ git_url.src }}
+  insteadOf = ssh://git@{{ git_url.src }}
+  pushInsteadOf = ssh://git@{{ git_url.src }}
   {%- endfor -%}
 {% endif %}
