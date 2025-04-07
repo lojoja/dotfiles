@@ -121,14 +121,7 @@ macports_ports:
   - port: youtube-dl
   - port: yt-dlp
 
-macports_ports_abandoned:
-  - port: pyflakes_select
-  - port: flake8_select
-  - port: pycodestyle_select
-  - port: py313-pyflakes
-  - port: py313-flake8-mccabe
-  - port: py313-flake8
-  - port: py313-codestyle
+macports_ports_abandoned: []
 
 macports_ports_select:
   - program: ansible
