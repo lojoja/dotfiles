@@ -96,6 +96,7 @@ macports_ports:
   - port: nodejs22
   - port: npm10
   - port: openjdk21-temurin
+  - port: ruff
   - port: ruby_select
   - port: ruby
   # Misc.
