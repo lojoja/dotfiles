@@ -121,6 +121,7 @@ macports_ports:
   - port: thefuck
   - port: watch
   - port: youtube-dl
+  - port: yq
   - port: yt-dlp
 
 macports_ports_abandoned: []
