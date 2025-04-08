@@ -109,6 +109,7 @@ macports_ports:
   - port: guetzli
   - port: hugo
   - port: ImageMagick
+  - port: jq
   - port: lame
   - port: optipng
   - port: poetry
