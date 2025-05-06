@@ -119,6 +119,7 @@ macports_ports:
   - port: sops
   - port: starship
   - port: thefuck
+  - port: uv
   - port: watch
   - port: youtube-dl
   - port: yq
