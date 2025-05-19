@@ -24,8 +24,8 @@ ssh_host_nas_user: "{{ vault_ssh_host_nas_user }}"
 ssh_host_pve_public_keys: "{{ vault_ssh_host_pve_public_keys }}"
 ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 
-ssh_host_haos_public_keys: "{{ vault_ssh_host_haos_public_keys }}"
-ssh_host_haos_user: "{{ vault_ssh_host_haos_user }}"
+ssh_host_hass_public_keys: "{{ vault_ssh_host_hass_public_keys }}"
+ssh_host_hass_user: "{{ vault_ssh_host_hass_user }}"
 
 ssh_hosts:
   - name: LAN
@@ -67,13 +67,13 @@ ssh_hosts:
         ip: 10.3.0.10
         public_keys: "{{ ssh_host_pve_public_keys }}"
         user: "{{ ssh_host_pve_user }}"
-      - hostname: haos.lojoja.com
+      - hostname: hass.lojoja.com
         hosts:
-          - haos
-          - haos.lojoja.com
+          - hass
+          - hass.lojoja.com
         ip: 10.3.0.13
-        public_keys: "{{ ssh_host_haos_public_keys }}"
-        user: "{{ ssh_host_haos_user }}"
+        public_keys: "{{ ssh_host_hass_public_keys }}"
+        user: "{{ ssh_host_hass_user }}"
   - name: Servers
     hosts: []
   - name: Version Control
