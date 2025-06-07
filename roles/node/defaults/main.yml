@@ -14,6 +14,7 @@ node_packages:
   - typescript-eslint
   - eslint-config-prettier
   - "@eslint/js"
+  - "@prettier/plugin-xml"
 
 node_packages_abandoned: []
 
