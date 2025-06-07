@@ -13,6 +13,7 @@ node_packages:
   - typescript
   - typescript-eslint
   - eslint-config-prettier
+  - "@eslint/js"
 
 node_packages_abandoned: []
 
