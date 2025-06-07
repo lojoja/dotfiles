@@ -27,6 +27,12 @@ ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 ssh_host_hass_public_keys: "{{ vault_ssh_host_hass_public_keys }}"
 ssh_host_hass_user: "{{ vault_ssh_host_hass_user }}"
 
+ssh_host_maria_public_keys: "{{ vault_ssh_host_maria_public_keys }}"
+ssh_host_maria_user: "{{ vault_ssh_host_maria_user }}"
+
+ssh_host_victoria_public_keys: "{{ vault_ssh_host_victoria_public_keys }}"
+ssh_host_victoria_user: "{{ vault_ssh_host_victoria_user }}"
+
 ssh_host_wireguard_public_keys: "{{ vault_ssh_host_wireguard_public_keys }}"
 ssh_host_wireguard_user: "{{ vault_ssh_host_wireguard_user }}"
 
@@ -77,6 +83,20 @@ ssh_hosts:
         ip: 10.3.0.13
         public_keys: "{{ ssh_host_hass_public_keys }}"
         user: "{{ ssh_host_hass_user }}"
+      - hostname: maria.lojoja.com
+        hosts:
+          - maria
+          - maria.lojoja.com
+        ip: 10.3.0.14
+        public_keys: "{{ ssh_host_maria_public_keys }}"
+        user: "{{ ssh_host_maria_user }}"
+      - hostname: victoria.lojoja.com
+        hosts:
+          - victoria
+          - victoria.lojoja.com
+        ip: 10.3.0.15
+        public_keys: "{{ ssh_host_victoria_public_keys }}"
+        user: "{{ ssh_host_victoria_user }}"
       - hostname: wireguard.lojoja.com
         hosts:
           - wireguard
