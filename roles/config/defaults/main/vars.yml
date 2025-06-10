@@ -487,6 +487,9 @@ config_iterm2_profiles:
     custom_command: "No"
     load_shell_compat: "true"
 
+config_nano_dir: "{{ config_dir }}/nano"
+config_nano: "{{ config_nano_dir }}/nanorc"
+
 config_pip_dir: "{{ config_dir }}/pip"
 config_pip: "{{ config_pip_dir }}/pip.conf"
 config_pip_global_timeout: 60
@@ -572,6 +575,7 @@ config_dirs:
   - "{{ config_git_config_extra_dir }}"
   - "{{ config_google_dir }}"
   - "{{ config_iterm2_dir }}"
+  - "{{ config_nano_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"
   - "{{ config_ssl_dir }}"
@@ -595,6 +599,8 @@ config_templates:
     file: "{{ config_git_ignore }}"
   - template: gitsigners.j2
     file: "{{ config_git_signers }}"
+  - template: nanorc.j2
+    file: "{{ config_nano }}"
   - template: pip.j2
     file: "{{ config_pip }}"
   - template: poetry.j2

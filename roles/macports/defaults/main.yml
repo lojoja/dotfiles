@@ -111,6 +111,8 @@ macports_ports:
   - port: ImageMagick
   - port: jq
   - port: lame
+  - port: nano
+  - port: nanorc
   - port: nmap
   - port: nmap-formatter
   - port: optipng
