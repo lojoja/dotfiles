@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: "22"
+
+jobs:
+  changes:
+    name: Changes
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.dedupe.outputs.should_skip }}
+      named: ${{ steps.dedupe.outputs.named }}
+    steps:
+      - name: Dedupe
+        id: dedupe
+        uses: lojoja/action-dedupe@main
+        with:
+          github_token: ${{ github.token }}
+          paths: |
+            - .github/workflows/CI.yml
+          paths_named: |
+            prettier:
+              paths_ignore:
+                - "*_vault.yml"
+                - .gitignore
+                - LICENSE
+                - roles/config/files/*.json
+                - vault.yml
+                - vaultTest.yml
+
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.should_skip == 'false' || ! fromJSON(needs.changes.outputs.named).prettier.should_skip
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Run prettier
+        uses: lojoja/action-prettier@main
+        with:
+          install: "true"
+          node_version: ${{ env.NODE_VERSION }}
+
+  ci-result:
+    name: CI Result
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - prettier
+    steps:
+      - name: CI failed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+      - name: CI passed
+        run: exit 0
