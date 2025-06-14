@@ -39,6 +39,21 @@ ssh_host_wireguard_user: "{{ vault_ssh_host_wireguard_user }}"
 ssh_host_qbit_public_keys: "{{ vault_ssh_host_qbit_public_keys }}"
 ssh_host_qbit_user: "{{ vault_ssh_host_qbit_user }}"
 
+ssh_host_postgres_public_keys: "{{ vault_ssh_host_postgres_public_keys }}"
+ssh_host_postgres_user: "{{ vault_ssh_host_postgres_user }}"
+
+ssh_host_jellyfin_public_keys: "{{ vault_ssh_host_jellyfin_public_keys }}"
+ssh_host_jellyfin_user: "{{ vault_ssh_host_jellyfin_user }}"
+
+ssh_host_radarr_public_keys: "{{ vault_ssh_host_radarr_public_keys }}"
+ssh_host_radarr_user: "{{ vault_ssh_host_radarr_user }}"
+
+ssh_host_sonarr_public_keys: "{{ vault_ssh_host_sonarr_public_keys }}"
+ssh_host_sonarr_user: "{{ vault_ssh_host_sonarr_user }}"
+
+ssh_host_whisparr_public_keys: "{{ vault_ssh_host_whisparr_public_keys }}"
+ssh_host_whisparr_user: "{{ vault_ssh_host_whisparr_user }}"
+
 ssh_hosts:
   - name: LAN
     hosts:
@@ -114,6 +129,41 @@ ssh_hosts:
         ip: 10.3.0.17
         public_keys: "{{ ssh_host_qbit_public_keys }}"
         user: "{{ ssh_host_qbit_user }}"
+      - hostname: postgres.lojoja.com
+        hosts:
+          - postgres
+          - postgres.lojoja.com
+        ip: 10.3.0.18
+        public_keys: "{{ ssh_host_postgres_public_keys }}"
+        user: "{{ ssh_host_postgres_user }}"
+      - hostname: jellyfin.lojoja.com
+        hosts:
+          - jellyfin
+          - jellyfin.lojoja.com
+        ip: 10.3.0.19
+        public_keys: "{{ ssh_host_jellyfin_public_keys }}"
+        user: "{{ ssh_host_jellyfin_user }}"
+      - hostname: radarr.lojoja.com
+        hosts:
+          - radarr
+          - radarr.lojoja.com
+        ip: 10.3.0.200
+        public_keys: "{{ ssh_host_radarr_public_keys }}"
+        user: "{{ ssh_host_radarr_user }}"
+      - hostname: sonarr.lojoja.com
+        hosts:
+          - sonarr
+          - sonarr.lojoja.com
+        ip: 10.3.0.201
+        public_keys: "{{ ssh_host_sonarr_public_keys }}"
+        user: "{{ ssh_host_sonarr_user }}"
+      - hostname: whisparr.lojoja.com
+        hosts:
+          - whisparr
+          - whisparr.lojoja.com
+        ip: 10.3.0.202
+        public_keys: "{{ ssh_host_whisparr_public_keys }}"
+        user: "{{ ssh_host_whisparr_user }}"
   - name: Servers
     hosts: []
   - name: Version Control
