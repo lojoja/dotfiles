@@ -66,6 +66,9 @@ ssh_host_configarr_user: "{{ vault_ssh_host_configarr_user }}"
 ssh_host_stash_public_keys: "{{ vault_ssh_host_stash_public_keys }}"
 ssh_host_stash_user: "{{ vault_ssh_host_stash_user }}"
 
+ssh_host_sabnzbd_public_keys: "{{ vault_ssh_host_sabnzbd_public_keys }}"
+ssh_host_sabnzbd_user: "{{ vault_ssh_host_sabnzbd_user }}"
+
 ssh_hosts:
   - name: LAN
     hosts:
@@ -204,6 +207,13 @@ ssh_hosts:
         ip: 10.3.0.206
         public_keys: "{{ ssh_host_stash_public_keys }}"
         user: "{{ ssh_host_stash_user }}"
+      - hostname: sabnzbd.lojoja.com
+        hosts:
+          - sabnzbd
+          - sabnzbd.lojoja.com
+        ip: 10.3.0.207
+        public_keys: "{{ ssh_host_sabnzbd_public_keys }}"
+        user: "{{ ssh_host_sabnzbd_user }}"
   - name: Servers
     hosts: []
   - name: Version Control
