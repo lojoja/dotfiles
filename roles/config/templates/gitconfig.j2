@@ -88,8 +88,8 @@
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+  smudge = git-lfs smudge --skip -- %f
+  process = git-lfs filter-process --skip
 [filter "sops"]
   required = true
   clean = {{ config_git_config_filter_sops }} clean %f
