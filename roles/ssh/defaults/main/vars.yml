@@ -4,20 +4,20 @@ ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
 
 ssh_host_default_identities: []
 
-ssh_host_er-6p_public_keys: "{{ vault_ssh_host_er-6p_public_keys }}"
-ssh_host_er-6p_user: "{{ vault_ssh_host_er-6p_user }}"
+ssh_host_er_6p_public_keys: "{{ vault_ssh_host_er_6p_public_keys }}"
+ssh_host_er_6p_user: "{{ vault_ssh_host_er_6p_user }}"
 
-ssh_host_es48-500w-1_public_keys: "{{ vault_ssh_host_es48-500w-1_public_keys }}"
-ssh_host_es48-500w-1_user: "{{ vault_ssh_host_es48-500w-1_user }}"
+ssh_host_es48_500w_1_public_keys: "{{ vault_ssh_host_es48_500w_1_public_keys }}"
+ssh_host_es48_500w_1_user: "{{ vault_ssh_host_es48_500w_1_user }}"
 
-ssh_host_es48-500w-2_public_keys: "{{ vault_ssh_host_es48-500w-2_public_keys }}"
-ssh_host_es48-500w-2_user: "{{ vault_ssh_host_es48-500w-2_user }}"
+ssh_host_es48_500w_2_public_keys: "{{ vault_ssh_host_es48_500w_2_public_keys }}"
+ssh_host_es48_500w_2_user: "{{ vault_ssh_host_es48_500w_2_user }}"
 
-ssh_host_es48-lite_public_keys: "{{ vault_ssh_host_es48-lite_public_keys }}"
-ssh_host_es48-lite_user: "{{ vault_ssh_host_es48-lite_user }}"
+ssh_host_es48_lite_public_keys: "{{ vault_ssh_host_es48_lite_public_keys }}"
+ssh_host_es48_lite_user: "{{ vault_ssh_host_es48_lite_user }}"
 
-ssh_host_es24-250w_public_keys: "{{ vault_ssh_host_es24-250w_public_keys }}"
-ssh_host_es24-250w_user: "{{ vault_ssh_host_es24-250w_user }}"
+ssh_host_es24_250w_public_keys: "{{ vault_ssh_host_es24_250w_public_keys }}"
+ssh_host_es24_250w_user: "{{ vault_ssh_host_es24_250w_user }}"
 
 ssh_host_unbound_public_keys: "{{ vault_ssh_host_unbound_public_keys }}"
 ssh_host_unbound_user: "{{ vault_ssh_host_unbound_user }}"
@@ -94,8 +94,8 @@ ssh_hosts:
           - router
           - router.internal
         ip: 192.168.1.1
-        public_keys: "{{ ssh_host_er-6p_public_keys }}"
-        user: "{{ ssh_host_er-6p_user }}"
+        public_keys: "{{ ssh_host_er_6p_public_keys }}"
+        user: "{{ ssh_host_er_6p_user }}"
       - hostname: es48-500w-1.internal
         hosts:
           - es48-500w-1
@@ -104,8 +104,8 @@ ssh_hosts:
           - switch1.internal
         ip: 192.168.1.11
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es48-500w-1_public_keys }}"
-        user: "{{ ssh_host_es48-500w-1_user }}"
+        public_keys: "{{ ssh_host_es48_500w_1_public_keys }}"
+        user: "{{ ssh_host_es48_500w_1_user }}"
       - hostname: es48-500w-2.internal
         hosts:
           - es48-500w-2
@@ -114,8 +114,8 @@ ssh_hosts:
           - switch2.internal
         ip: 192.168.1.12
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es48-500w-2_public_keys }}"
-        user: "{{ ssh_host_es48-500w-2_user }}"
+        public_keys: "{{ ssh_host_es48_500w_2_public_keys }}"
+        user: "{{ ssh_host_es48_500w_2_user }}"
       - hostname: es48-lite.internal
         hosts:
           - es48-lite
@@ -124,8 +124,8 @@ ssh_hosts:
           - switch3.internal
         ip: 192.168.1.13
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es48-lite_public_keys }}"
-        user: "{{ ssh_host_es48-lite_user }}"
+        public_keys: "{{ ssh_host_es48_lite_public_keys }}"
+        user: "{{ ssh_host_es48_lite_user }}"
       - hostname: es24-250w.internal
         hosts:
           - es24-250w
@@ -134,8 +134,8 @@ ssh_hosts:
           - switch4.internal
         ip: 192.168.1.14
         preferred_authentications: password
-        public_keys: "{{ ssh_host_es24-250w_public_keys }}"
-        user: "{{ ssh_host_es24-250w_user }}"
+        public_keys: "{{ ssh_host_es24_250w_public_keys }}"
+        user: "{{ ssh_host_es24_250w_user }}"
       - hostname: unbound.internal
         hosts:
           - unbound
