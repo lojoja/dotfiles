@@ -4,46 +4,62 @@ ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
 
 ssh_host_default_identities: []
 
-ssh_host_router_public_keys: "{{ vault_ssh_host_router_public_keys }}"
-ssh_host_router_user: "{{ vault_ssh_host_router_user }}"
+ssh_host_er-6p_public_keys: "{{ vault_ssh_host_er-6p_public_keys }}"
+ssh_host_er-6p_user: "{{ vault_ssh_host_er-6p_user }}"
 
-ssh_host_switch1_public_keys: "{{ vault_ssh_host_switch1_public_keys }}"
-ssh_host_switch1_user: "{{ vault_ssh_host_switch1_user }}"
+ssh_host_es48-500w-1_public_keys: "{{ vault_ssh_host_es48-500w-1_public_keys }}"
+ssh_host_es48-500w-1_user: "{{ vault_ssh_host_es48-500w-1_user }}"
 
-ssh_host_switch2_public_keys: "{{ vault_ssh_host_switch2_public_keys }}"
-ssh_host_switch2_user: "{{ vault_ssh_host_switch2_user }}"
+ssh_host_es48-500w-2_public_keys: "{{ vault_ssh_host_es48-500w-2_public_keys }}"
+ssh_host_es48-500w-2_user: "{{ vault_ssh_host_es48-500w-2_user }}"
 
-ssh_host_github_alt_identities: []
-ssh_host_github_alt_suffix: alt
-ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
-ssh_host_github_user: "{{ vault_ssh_host_github_user }}"
+ssh_host_es48-lite_public_keys: "{{ vault_ssh_host_es48-lite_public_keys }}"
+ssh_host_es48-lite_user: "{{ vault_ssh_host_es48-lite_user }}"
 
-ssh_host_nas_public_keys: "{{ vault_ssh_host_nas_public_keys }}"
-ssh_host_nas_user: "{{ vault_ssh_host_nas_user }}"
+ssh_host_es24-250w_public_keys: "{{ vault_ssh_host_es24-250w_public_keys }}"
+ssh_host_es24-250w_user: "{{ vault_ssh_host_es24-250w_user }}"
+
+ssh_host_unbound_public_keys: "{{ vault_ssh_host_unbound_public_keys }}"
+ssh_host_unbound_user: "{{ vault_ssh_host_unbound_user }}"
+
+ssh_host_pihole_public_keys: "{{ vault_ssh_host_pihole_public_keys }}"
+ssh_host_pihole_user: "{{ vault_ssh_host_pihole_user }}"
 
 ssh_host_pve_public_keys: "{{ vault_ssh_host_pve_public_keys }}"
 ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 
-ssh_host_hass_public_keys: "{{ vault_ssh_host_hass_public_keys }}"
-ssh_host_hass_user: "{{ vault_ssh_host_hass_user }}"
+ssh_host_ds923p_public_keys: "{{ vault_ssh_host_ds923p_public_keys }}"
+ssh_host_ds923p_user: "{{ vault_ssh_host_ds923p_user }}"
 
-ssh_host_maria_public_keys: "{{ vault_ssh_host_maria_public_keys }}"
-ssh_host_maria_user: "{{ vault_ssh_host_maria_user }}"
+ssh_host_ds220j_public_keys: "{{ vault_ssh_host_ds220j_public_keys }}"
+ssh_host_ds220j_user: "{{ vault_ssh_host_ds220j_user }}"
+
+ssh_host_caddy_public_keys: "{{ vault_ssh_host_caddy_public_keys }}"
+ssh_host_caddy_user: "{{ vault_ssh_host_caddy_user }}"
+
+ssh_host_postgres_public_keys: "{{ vault_ssh_host_postgres_public_keys }}"
+ssh_host_postgres_user: "{{ vault_ssh_host_postgres_user }}"
 
 ssh_host_victoria_public_keys: "{{ vault_ssh_host_victoria_public_keys }}"
 ssh_host_victoria_user: "{{ vault_ssh_host_victoria_user }}"
+
+ssh_host_hass_public_keys: "{{ vault_ssh_host_hass_public_keys }}"
+ssh_host_hass_user: "{{ vault_ssh_host_hass_user }}"
+
+ssh_host_jellyfin_public_keys: "{{ vault_ssh_host_jellyfin_public_keys }}"
+ssh_host_jellyfin_user: "{{ vault_ssh_host_jellyfin_user }}"
+
+ssh_host_stash_public_keys: "{{ vault_ssh_host_stash_public_keys }}"
+ssh_host_stash_user: "{{ vault_ssh_host_stash_user }}"
+
+ssh_host_sabnzbd_public_keys: "{{ vault_ssh_host_sabnzbd_public_keys }}"
+ssh_host_sabnzbd_user: "{{ vault_ssh_host_sabnzbd_user }}"
 
 ssh_host_wireguard_public_keys: "{{ vault_ssh_host_wireguard_public_keys }}"
 ssh_host_wireguard_user: "{{ vault_ssh_host_wireguard_user }}"
 
 ssh_host_qbit_public_keys: "{{ vault_ssh_host_qbit_public_keys }}"
 ssh_host_qbit_user: "{{ vault_ssh_host_qbit_user }}"
-
-ssh_host_postgres_public_keys: "{{ vault_ssh_host_postgres_public_keys }}"
-ssh_host_postgres_user: "{{ vault_ssh_host_postgres_user }}"
-
-ssh_host_jellyfin_public_keys: "{{ vault_ssh_host_jellyfin_public_keys }}"
-ssh_host_jellyfin_user: "{{ vault_ssh_host_jellyfin_user }}"
 
 ssh_host_radarr_public_keys: "{{ vault_ssh_host_radarr_public_keys }}"
 ssh_host_radarr_user: "{{ vault_ssh_host_radarr_user }}"
@@ -57,163 +73,214 @@ ssh_host_whisparr_user: "{{ vault_ssh_host_whisparr_user }}"
 ssh_host_prowlarr_public_keys: "{{ vault_ssh_host_prowlarr_public_keys }}"
 ssh_host_prowlarr_user: "{{ vault_ssh_host_prowlarr_user }}"
 
-ssh_host_flamesolverr_public_keys: "{{ vault_ssh_host_flamesolverr_public_keys }}"
-ssh_host_flamesolverr_user: "{{ vault_ssh_host_flamesolverr_user }}"
-
 ssh_host_configarr_public_keys: "{{ vault_ssh_host_configarr_public_keys }}"
 ssh_host_configarr_user: "{{ vault_ssh_host_configarr_user }}"
 
-ssh_host_stash_public_keys: "{{ vault_ssh_host_stash_public_keys }}"
-ssh_host_stash_user: "{{ vault_ssh_host_stash_user }}"
+ssh_host_flaresolverr_public_keys: "{{ vault_ssh_host_flaresolverr_public_keys }}"
+ssh_host_flaresolverr_user: "{{ vault_ssh_host_flaresolverr_user }}"
 
-ssh_host_sabnzbd_public_keys: "{{ vault_ssh_host_sabnzbd_public_keys }}"
-ssh_host_sabnzbd_user: "{{ vault_ssh_host_sabnzbd_user }}"
+ssh_host_github_alt_identities: []
+ssh_host_github_alt_suffix: alt
+ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
+ssh_host_github_user: "{{ vault_ssh_host_github_user }}"
 
 ssh_hosts:
   - name: LAN
     hosts:
-      - hostname: router.lojoja.com
+      - hostname: er-6p.internal
         hosts:
+          - er-6p
+          - er-6p.internal
           - router
-          - router.lojoja.com
-        ip: 10.1.0.1
-        public_keys: "{{ ssh_host_router_public_keys }}"
-        user: "{{ ssh_host_router_user }}"
-      - hostname: switch1.lojoja.com
+          - router.internal
+        ip: 192.168.1.1
+        public_keys: "{{ ssh_host_er-6p_public_keys }}"
+        user: "{{ ssh_host_er-6p_user }}"
+      - hostname: es48-500w-1.internal
         hosts:
+          - es48-500w-1
+          - es48-500w-1.internal
           - switch1
-          - switch1.lojoja.com
-        ip: 10.1.0.10
+          - switch1.internal
+        ip: 192.168.1.11
         preferred_authentications: password
-        public_keys: "{{ ssh_host_switch1_public_keys }}"
-        user: "{{ ssh_host_switch1_user }}"
-      - hostname: switch2.lojoja.com
+        public_keys: "{{ ssh_host_es48-500w-1_public_keys }}"
+        user: "{{ ssh_host_es48-500w-1_user }}"
+      - hostname: es48-500w-2.internal
         hosts:
+          - es48-500w-2
+          - es48-500w-2.internal
           - switch2
-          - switch2.lojoja.com
-        ip: 10.1.0.11
+          - switch2.internal
+        ip: 192.168.1.12
         preferred_authentications: password
-        public_keys: "{{ ssh_host_switch2_public_keys }}"
-        user: "{{ ssh_host_switch2_user }}"
-      - hostname: nas.lojoja.com
+        public_keys: "{{ ssh_host_es48-500w-2_public_keys }}"
+        user: "{{ ssh_host_es48-500w-2_user }}"
+      - hostname: es48-lite.internal
         hosts:
-          - nas
-          - nas.lojoja.com
-        ip: 10.3.0.11
-        public_keys: "{{ ssh_host_nas_public_keys }}"
-        user: "{{ ssh_host_nas_user }}"
-      - hostname: pve.lojoja.com
+          - es48-lite
+          - es48-lite.internal
+          - switch3
+          - switch3.internal
+        ip: 192.168.1.13
+        preferred_authentications: password
+        public_keys: "{{ ssh_host_es48-lite_public_keys }}"
+        user: "{{ ssh_host_es48-lite_user }}"
+      - hostname: es24-250w.internal
+        hosts:
+          - es24-250w
+          - es24-250w.internal
+          - switch4
+          - switch4.internal
+        ip: 192.168.1.14
+        preferred_authentications: password
+        public_keys: "{{ ssh_host_es24-250w_public_keys }}"
+        user: "{{ ssh_host_es24-250w_user }}"
+      - hostname: unbound.internal
+        hosts:
+          - unbound
+          - unbound.internal
+        ip: 192.168.20.11
+        public_keys: "{{ ssh_host_unbound_public_keys }}"
+        user: "{{ ssh_host_unbound_user }}"
+      - hostname: pihole.internal
+        hosts:
+          - pihole
+          - pihole.internal
+        ip: 192.168.50.12
+        public_keys: "{{ ssh_host_pihole_public_keys }}"
+        user: "{{ ssh_host_pihole_user }}"
+      - hostname: pve.internal
         hosts:
           - pve
-          - pve.lojoja.com
-        ip: 10.3.0.10
+          - pve.internal
+        ip: 192.168.20.20
         public_keys: "{{ ssh_host_pve_public_keys }}"
         user: "{{ ssh_host_pve_user }}"
-      - hostname: hass.lojoja.com
+      - hostname: ds923p.internal
         hosts:
-          - hass
-          - hass.lojoja.com
-        ip: 10.3.0.13
-        public_keys: "{{ ssh_host_hass_public_keys }}"
-        user: "{{ ssh_host_hass_user }}"
-      - hostname: maria.lojoja.com
+          - ds923p
+          - ds923p.internal
+          - nas1
+          - nas1.internal
+        ip: 192.168.50.21
+        public_keys: "{{ ssh_host_ds923p_public_keys }}"
+        user: "{{ ssh_host_ds923p_user }}"
+      - hostname: ds220j.internal
         hosts:
-          - maria
-          - maria.lojoja.com
-        ip: 10.3.0.14
-        public_keys: "{{ ssh_host_maria_public_keys }}"
-        user: "{{ ssh_host_maria_user }}"
-      - hostname: victoria.lojoja.com
+          - ds220j
+          - ds220j.internal
+          - nas2
+          - nas2.internal
+        ip: 192.168.50.22
+        public_keys: "{{ ssh_host_ds220j_public_keys }}"
+        user: "{{ ssh_host_ds220j_user }}"
+      - hostname: caddy.internal
         hosts:
-          - victoria
-          - victoria.lojoja.com
-        ip: 10.3.0.15
-        public_keys: "{{ ssh_host_victoria_public_keys }}"
-        user: "{{ ssh_host_victoria_user }}"
-      - hostname: wireguard.lojoja.com
-        hosts:
-          - wireguard
-          - wireguard.lojoja.com
-        ip: 10.3.0.16
-        public_keys: "{{ ssh_host_wireguard_public_keys }}"
-        user: "{{ ssh_host_wireguard_user }}"
-      - hostname: qbit.lojoja.com
-        hosts:
-          - qbit
-          - qbit.lojoja.com
-        ip: 10.3.0.17
-        public_keys: "{{ ssh_host_qbit_public_keys }}"
-        user: "{{ ssh_host_qbit_user }}"
-      - hostname: postgres.lojoja.com
+          - caddy
+          - caddy.internal
+        ip: 192.168.50.50
+        public_keys: "{{ ssh_host_caddy_public_keys }}"
+        user: "{{ ssh_host_caddy_user }}"
+      - hostname: postgres.internal
         hosts:
           - postgres
-          - postgres.lojoja.com
-        ip: 10.3.0.18
+          - postgres.internal
+        ip: 192.168.20.52
         public_keys: "{{ ssh_host_postgres_public_keys }}"
         user: "{{ ssh_host_postgres_user }}"
-      - hostname: jellyfin.lojoja.com
+      - hostname: victoria.internal
+        hosts:
+          - victoria
+          - victoria.internal
+        ip: 192.168.20.53
+        public_keys: "{{ ssh_host_victoria_public_keys }}"
+        user: "{{ ssh_host_victoria_user }}"
+      - hostname: hass.internal
+        hosts:
+          - hass
+          - hass.internal
+        ip: 192.168.20.54
+        public_keys: "{{ ssh_host_hass_public_keys }}"
+        user: "{{ ssh_host_hass_user }}"
+      - hostname: jellyfin.internal
         hosts:
           - jellyfin
-          - jellyfin.lojoja.com
-        ip: 10.3.0.19
+          - jellyfin.internal
+        ip: 192.168.20.56
         public_keys: "{{ ssh_host_jellyfin_public_keys }}"
         user: "{{ ssh_host_jellyfin_user }}"
-      - hostname: radarr.lojoja.com
-        hosts:
-          - radarr
-          - radarr.lojoja.com
-        ip: 10.3.0.200
-        public_keys: "{{ ssh_host_radarr_public_keys }}"
-        user: "{{ ssh_host_radarr_user }}"
-      - hostname: sonarr.lojoja.com
-        hosts:
-          - sonarr
-          - sonarr.lojoja.com
-        ip: 10.3.0.201
-        public_keys: "{{ ssh_host_sonarr_public_keys }}"
-        user: "{{ ssh_host_sonarr_user }}"
-      - hostname: whisparr.lojoja.com
-        hosts:
-          - whisparr
-          - whisparr.lojoja.com
-        ip: 10.3.0.202
-        public_keys: "{{ ssh_host_whisparr_public_keys }}"
-        user: "{{ ssh_host_whisparr_user }}"
-      - hostname: prowlarr.lojoja.com
-        hosts:
-          - prowlarr
-          - prowlarr.lojoja.com
-        ip: 10.3.0.203
-        public_keys: "{{ ssh_host_prowlarr_public_keys }}"
-        user: "{{ ssh_host_prowlarr_user }}"
-      - hostname: flamesolverr.lojoja.com
-        hosts:
-          - flamesolverr
-          - flamesolverr.lojoja.com
-        ip: 10.3.0.204
-        public_keys: "{{ ssh_host_flamesolverr_public_keys }}"
-        user: "{{ ssh_host_flamesolverr_user }}"
-      - hostname: configarr.lojoja.com
-        hosts:
-          - configarr
-          - configarr.lojoja.com
-        ip: 10.3.0.205
-        public_keys: "{{ ssh_host_configarr_public_keys }}"
-        user: "{{ ssh_host_configarr_user }}"
-      - hostname: stash.lojoja.com
+      - hostname: stash.internal
         hosts:
           - stash
-          - stash.lojoja.com
-        ip: 10.3.0.206
+          - stash.internal
+        ip: 192.168.20.58
         public_keys: "{{ ssh_host_stash_public_keys }}"
         user: "{{ ssh_host_stash_user }}"
-      - hostname: sabnzbd.lojoja.com
+      - hostname: sabnzbd.internal
         hosts:
           - sabnzbd
-          - sabnzbd.lojoja.com
-        ip: 10.3.0.207
+          - sabnzbd.internal
+        ip: 192.168.20.59
         public_keys: "{{ ssh_host_sabnzbd_public_keys }}"
         user: "{{ ssh_host_sabnzbd_user }}"
+      - hostname: wireguard.internal
+        hosts:
+          - wireguard
+          - wireguard.internal
+        ip: 192.168.20.60
+        public_keys: "{{ ssh_host_wireguard_public_keys }}"
+        user: "{{ ssh_host_wireguard_user }}"
+      - hostname: qbit.internal
+        hosts:
+          - qbit
+          - qbit.internal
+        ip: 192.168.20.61
+        public_keys: "{{ ssh_host_qbit_public_keys }}"
+        user: "{{ ssh_host_qbit_user }}"
+      - hostname: radarr.internal
+        hosts:
+          - radarr
+          - radarr.internal
+        ip: 192.168.20.62
+        public_keys: "{{ ssh_host_radarr_public_keys }}"
+        user: "{{ ssh_host_radarr_user }}"
+      - hostname: sonarr.internal
+        hosts:
+          - sonarr
+          - sonarr.internal
+        ip: 192.168.20.63
+        public_keys: "{{ ssh_host_sonarr_public_keys }}"
+        user: "{{ ssh_host_sonarr_user }}"
+      - hostname: whisparr.internal
+        hosts:
+          - whisparr
+          - whisparr.internal
+        ip: 192.168.20.64
+        public_keys: "{{ ssh_host_whisparr_public_keys }}"
+        user: "{{ ssh_host_whisparr_user }}"
+      - hostname: prowlarr.internal
+        hosts:
+          - prowlarr
+          - prowlarr.internal
+        ip: 192.168.20.65
+        public_keys: "{{ ssh_host_prowlarr_public_keys }}"
+        user: "{{ ssh_host_prowlarr_user }}"
+      - hostname: configarr.internal
+        hosts:
+          - configarr
+          - configarr.internal
+        ip: 192.168.20.66
+        public_keys: "{{ ssh_host_configarr_public_keys }}"
+        user: "{{ ssh_host_configarr_user }}"
+      - hostname: flaresolverr.internal
+        hosts:
+          - flaresolverr
+          - flaresolverr.internal
+        ip: 192.168.20.67
+        public_keys: "{{ ssh_host_flaresolverr_public_keys }}"
+        user: "{{ ssh_host_flaresolverr_user }}"
+
   - name: Servers
     hosts: []
   - name: Version Control
