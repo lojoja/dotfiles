@@ -111,6 +111,7 @@ macports_ports:
   - port: ImageMagick
   - port: jq
   - port: lame
+  - port: mkvtoolnix
   - port: nano
   - port: nanorc
   - port: nmap
