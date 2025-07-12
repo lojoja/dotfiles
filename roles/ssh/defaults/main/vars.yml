@@ -231,10 +231,12 @@ ssh_hosts:
         ip: 192.168.20.60
         public_keys: "{{ ssh_host_wireguard_public_keys }}"
         user: "{{ ssh_host_wireguard_user }}"
-      - hostname: qbit.internal
+      - hostname: qbittorrent.internal
         hosts:
           - qbit
           - qbit.internal
+          - qbittorrent
+          - qbittorrent.internal
         ip: 192.168.20.61
         public_keys: "{{ ssh_host_qbit_public_keys }}"
         user: "{{ ssh_host_qbit_user }}"
