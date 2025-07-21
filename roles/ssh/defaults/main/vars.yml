@@ -79,6 +79,12 @@ ssh_host_configarr_user: "{{ vault_ssh_host_configarr_user }}"
 ssh_host_flaresolverr_public_keys: "{{ vault_ssh_host_flaresolverr_public_keys }}"
 ssh_host_flaresolverr_user: "{{ vault_ssh_host_flaresolverr_user }}"
 
+ssh_host_byparr_public_keys: "{{ vault_ssh_host_byparr_public_keys }}"
+ssh_host_byparr_user: "{{ vault_ssh_host_byparr_user }}"
+
+ssh_host_bazarr_public_keys: "{{ vault_ssh_host_bazarr_public_keys }}"
+ssh_host_bazarr_user: "{{ vault_ssh_host_bazarr_user }}"
+
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
 ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
@@ -282,6 +288,20 @@ ssh_hosts:
         ip: 192.168.20.67
         public_keys: "{{ ssh_host_flaresolverr_public_keys }}"
         user: "{{ ssh_host_flaresolverr_user }}"
+      - hostname: byparr.internal
+        hosts:
+          - byparr
+          - byparr.internal
+        ip: 192.168.20.68
+        public_keys: "{{ ssh_host_byparr_public_keys }}"
+        user: "{{ ssh_host_byparr_user }}"
+      - hostname: bazarr.internal
+        hosts:
+          - bazarr
+          - bazarr.internal
+        ip: 192.168.20.69
+        public_keys: "{{ ssh_host_bazarr_public_keys }}"
+        user: "{{ ssh_host_bazarr_user }}"
 
   - name: Servers
     hosts: []
