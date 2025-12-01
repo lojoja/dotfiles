@@ -47,5 +47,5 @@
         global: true
       loop: "{{ node_packages }}"
   environment:
-    PATH: "{{ node_pnpm_home }}:{{ ansible_env.PATH }}"
+    PATH: "{{ node_pnpm_home }}:{{ ansible_facts['env']['PATH'] }}"
     PNPM_HOME: "{{ node_pnpm_home }}"

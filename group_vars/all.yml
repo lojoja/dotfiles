@@ -7,7 +7,7 @@ ansible_managed: "*** WARNING: This file is part of `dotfiles` and managed by An
 dotfiles_repository: https://github.com/lojoja/dotfiles
 dotfiles_dir: "{{ local_opt }}/dotfiles"
 dotfiles_install: true
-dotfiles_install_base_dir: "{{ ansible_env.HOME }}"
+dotfiles_install_base_dir: "{{ ansible_facts['env']['HOME'] }}"
 
 local_prefix: "{{ dotfiles_install_base_dir }}/.local"
 local_bin: "{{ local_prefix }}/bin"

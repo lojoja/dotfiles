@@ -13,7 +13,7 @@
 - block:
     - name: Reset login shell
       user:
-        name: "{{ ansible_env.USER }}"
+        name: "{{ ansible_facts['env']['USER'] }}"
         shell: /bin/zsh
 
     - name: Reset approved shells

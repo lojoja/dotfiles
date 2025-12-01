@@ -13,7 +13,7 @@
   "Command": "{{ item.command | replace('/', '\/') }}",
   "Load Shell Integration Automatically": {{ item.load_shell_compat }},
   "Custom Directory": "No",
-  "Working Directory": "{{ ansible_env.HOME | replace('/', '\/') }}",
+  "Working Directory": "{{ ansible_facts['env']['HOME'] | replace('/', '\/') }}",
   "Use Bright Bold": true,
   "Use Tab Color": true,
   "Brighten Bold Text": true,

@@ -1,32 +1,32 @@
 # roles/legacy/defaults/main.yml
 ---
-legacy_repository_path: "{{ ansible_env.HOME }}/.dotfiles"
+legacy_repository_path: "{{ ansible_facts['env']['HOME'] }}/.dotfiles"
 
 legacy_files:
-  - "{{ ansible_env.HOME }}/.ansible"
+  - "{{ ansible_facts['env']['HOME'] }}/.ansible"
   - "{{ legacy_repository_path }}/shared/shell/local.sh"
   - "{{ legacy_repository_path }}/shared/shell/private.sh"
-  - "{{ ansible_env.HOME }}/.googlecloud"
-  - "{{ ansible_env.HOME }}/.hushlogin"
-  - "{{ ansible_env.HOME }}/.subversion"
+  - "{{ ansible_facts['env']['HOME'] }}/.googlecloud"
+  - "{{ ansible_facts['env']['HOME'] }}/.hushlogin"
+  - "{{ ansible_facts['env']['HOME'] }}/.subversion"
 
 legacy_symlinks:
-  - "{{ ansible_env.HOME }}/.bash_profile"
-  - "{{ ansible_env.HOME }}/.bashrc"
-  - "{{ ansible_env.HOME }}/.eslintrc"
-  - "{{ ansible_env.HOME }}/.eslintignore"
-  - "{{ ansible_env.HOME }}/.gitconfig"
-  - "{{ ansible_env.HOME }}/.gitconfig-local"
-  - "{{ ansible_env.HOME }}/.gitignore"
-  - "{{ ansible_env.HOME }}/.zshrc"
-  - "{{ ansible_env.HOME }}/.config/.ExifTool_config"
-  - "{{ ansible_env.HOME }}/.config/flake8"
-  - "{{ ansible_env.HOME }}/.config/pip.conf"
-  - "{{ ansible_env.HOME }}/.config/poetry"
-  - "{{ ansible_env.HOME }}/.config/service.toml"
-  - "{{ ansible_env.HOME }}/.config/starship.toml"
-  - "{{ ansible_env.HOME }}/.config/wake.toml"
-  - "{{ ansible_env.HOME }}/.config/yamllint"
+  - "{{ ansible_facts['env']['HOME'] }}/.bash_profile"
+  - "{{ ansible_facts['env']['HOME'] }}/.bashrc"
+  - "{{ ansible_facts['env']['HOME'] }}/.eslintrc"
+  - "{{ ansible_facts['env']['HOME'] }}/.eslintignore"
+  - "{{ ansible_facts['env']['HOME'] }}/.gitconfig"
+  - "{{ ansible_facts['env']['HOME'] }}/.gitconfig-local"
+  - "{{ ansible_facts['env']['HOME'] }}/.gitignore"
+  - "{{ ansible_facts['env']['HOME'] }}/.zshrc"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/.ExifTool_config"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/flake8"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/pip.conf"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/poetry"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/service.toml"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/starship.toml"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/wake.toml"
+  - "{{ ansible_facts['env']['HOME'] }}/.config/yamllint"
 
 legacy_package_bin_path: /usr/local/bin
 legacy_package_opt_path: /usr/local/opt

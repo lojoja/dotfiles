@@ -18,4 +18,4 @@ node_packages:
 
 node_packages_abandoned: []
 
-node_pnpm_home: "{{ ansible_env.HOME }}/Library/pnpm"
+node_pnpm_home: "{{ ansible_facts['env']['HOME'] }}/Library/pnpm"

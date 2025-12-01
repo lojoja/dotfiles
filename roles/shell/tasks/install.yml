@@ -10,7 +10,7 @@
 
     - name: Set login shell
       user:
-        name: "{{ ansible_env.USER }}"
+        name: "{{ ansible_facts['env']['USER'] }}"
         shell: "{{ shell_login_shell }}"
   become: true
 
