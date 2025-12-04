@@ -112,6 +112,7 @@ macports_ports:
   - port: ImageMagick
   - port: jq
   - port: lame
+  - port: mediainfo
   - port: mkvtoolnix
   - port: nano
   - port: nanorc
