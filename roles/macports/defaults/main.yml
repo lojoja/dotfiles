@@ -114,6 +114,7 @@ macports_ports:
   - port: lame
   - port: mediainfo
   - port: mkvtoolnix
+  - port: mpv
   - port: nano
   - port: nanorc
   - port: nmap
