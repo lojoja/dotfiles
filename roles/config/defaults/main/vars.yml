@@ -487,6 +487,16 @@ config_iterm2_profiles:
     custom_command: "No"
     load_shell_compat: "true"
 
+config_mpv_dir: "{{ config_dir }}/mpv"
+config_mpv: "{{ config_mpv_dir }}/mpv.conf"
+config_mpv_vo: libmpv
+config_mpv_ao: coreaudio
+config_mpv_sub_scale: 1
+config_mpv_af: scaletempo
+config_mpv_volume_max: 800
+config_mpv_framedrop: vo
+config_mpv_hwdec: videotoolbox
+
 config_nano_dir: "{{ config_dir }}/nano"
 config_nano: "{{ config_nano_dir }}/nanorc"
 
@@ -599,6 +609,8 @@ config_templates:
     file: "{{ config_git_ignore }}"
   - template: gitsigners.j2
     file: "{{ config_git_signers }}"
+  - template: mpv.j2
+    file: "{{ config_mpv }}"
   - template: nanorc.j2
     file: "{{ config_nano }}"
   - template: pip.j2
