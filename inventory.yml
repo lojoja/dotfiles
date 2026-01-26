@@ -5,4 +5,5 @@ all:
     devbox:
       hosts:
         jlm:
+        jlm2:
         snm:
