@@ -79,6 +79,7 @@ macports_ports_default:
   - port: py313-wheel
   - port: py313-ansible
   - port: py313-black
+  - port: py313-pexpect
   - port: py313-pygments
   - port: py313-pylint
   - port: nodejs22
