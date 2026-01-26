@@ -1,4 +1,4 @@
-# host_vars/jlm/ssh_vars.yml
+# host_vars/jlm2/ssh_vars.yml
 ---
 ssh_host_default_identities:
   - "{{ ssh_key_lojoja_ed25519 }}"
