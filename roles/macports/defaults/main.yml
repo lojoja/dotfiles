@@ -60,18 +60,6 @@ macports_ports:
   - port: zlib
   # Languages
   - port: go
-  - port: php_select
-  - port: php83
-    variant: -libedit +readline
-  - port: php83-curl
-  - port: php83-iconv
-  - port: php83-intl
-  - port: php83-mbstring
-  - port: php83-openssl
-  - port: php83-pcov
-  - port: php83-posix
-  - port: php83-sodium
-  - port: php83-sqlite
   - port: python3_select
   - port: ansible_select
   - port: black_select
@@ -140,8 +128,6 @@ macports_ports_select:
     binary: py313-ansible
   - program: black
     binary: black313
-  - program: php
-    binary: php83
   - program: pip3
     binary: pip313
   - program: pygments
