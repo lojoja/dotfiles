@@ -20,7 +20,7 @@ macports_overrides:
   - src: /usr/bin/tty
     dest: "{{ local_bin }}/tty"
 
-macports_ports:
+macports_ports_default:
   # Core
   - port: bash
   - port: bash-completion
@@ -120,8 +120,11 @@ macports_ports:
   - port: youtube-dl
   - port: yq
   - port: yt-dlp
-
 macports_ports_abandoned: []
+macports_ports_extra: []
+macports_ports_exclude: []
+
+macports_ports: "{{ (macports_ports_default + macports_ports_extra) | difference(macports_ports_exclude) }}"
 
 macports_ports_select:
   - program: ansible
