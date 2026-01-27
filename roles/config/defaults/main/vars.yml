@@ -585,6 +585,7 @@ config_dirs:
   - "{{ config_git_config_extra_dir }}"
   - "{{ config_google_dir }}"
   - "{{ config_iterm2_dir }}"
+  - "{{ config_mpv_dir }}"
   - "{{ config_nano_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"
