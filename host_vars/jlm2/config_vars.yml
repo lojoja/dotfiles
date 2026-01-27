@@ -2,3 +2,6 @@
 ---
 config_git_account: "{{ config_git_account_lojoja }}"
 config_git_account_alt: "{{ config_git_account_snldev }}"
+
+config_iterm2_profiles_columns: 220
+config_iterm2_profiles_rows: 60

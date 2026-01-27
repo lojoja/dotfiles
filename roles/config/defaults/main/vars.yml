@@ -486,6 +486,8 @@ config_iterm2_profiles:
     command: /opt/bin/zsh
     custom_command: "No"
     load_shell_compat: "true"
+config_iterm2_profiles_columns: 208
+config_iterm2_profiles_rows: 50
 
 config_mpv_dir: "{{ config_dir }}/mpv"
 config_mpv: "{{ config_mpv_dir }}/mpv.conf"
