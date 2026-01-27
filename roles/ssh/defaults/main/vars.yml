@@ -1,6 +1,7 @@
 # roles/ssh/defaults/main/vars.yml
 ---
 ssh_dir: "{{ dotfiles_install_base_dir }}/.ssh"
+ssh_launch_agent_dir: "{{ ansible_facts['env']['HOME'] }}/Library/LaunchAgents"
 
 ssh_host_default_identities: []
 
