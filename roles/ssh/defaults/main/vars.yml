@@ -32,9 +32,6 @@ ssh_host_pve_user: "{{ vault_ssh_host_pve_user }}"
 ssh_host_ds923p_public_keys: "{{ vault_ssh_host_ds923p_public_keys }}"
 ssh_host_ds923p_user: "{{ vault_ssh_host_ds923p_user }}"
 
-ssh_host_ds220j_public_keys: "{{ vault_ssh_host_ds220j_public_keys }}"
-ssh_host_ds220j_user: "{{ vault_ssh_host_ds220j_user }}"
-
 ssh_host_caddy_public_keys: "{{ vault_ssh_host_caddy_public_keys }}"
 ssh_host_caddy_user: "{{ vault_ssh_host_caddy_user }}"
 
@@ -73,12 +70,6 @@ ssh_host_whisparr_user: "{{ vault_ssh_host_whisparr_user }}"
 
 ssh_host_prowlarr_public_keys: "{{ vault_ssh_host_prowlarr_public_keys }}"
 ssh_host_prowlarr_user: "{{ vault_ssh_host_prowlarr_user }}"
-
-ssh_host_configarr_public_keys: "{{ vault_ssh_host_configarr_public_keys }}"
-ssh_host_configarr_user: "{{ vault_ssh_host_configarr_user }}"
-
-ssh_host_flaresolverr_public_keys: "{{ vault_ssh_host_flaresolverr_public_keys }}"
-ssh_host_flaresolverr_user: "{{ vault_ssh_host_flaresolverr_user }}"
 
 ssh_host_byparr_public_keys: "{{ vault_ssh_host_byparr_public_keys }}"
 ssh_host_byparr_user: "{{ vault_ssh_host_byparr_user }}"
@@ -171,20 +162,13 @@ ssh_hosts:
         hosts:
           - ds923p
           - ds923p.internal
+          - nas
+          - nas.internal
           - nas1
           - nas1.internal
         ip: 192.168.50.21
         public_keys: "{{ ssh_host_ds923p_public_keys }}"
         user: "{{ ssh_host_ds923p_user }}"
-      - hostname: ds220j.internal
-        hosts:
-          - ds220j
-          - ds220j.internal
-          - nas2
-          - nas2.internal
-        ip: 192.168.50.22
-        public_keys: "{{ ssh_host_ds220j_public_keys }}"
-        user: "{{ ssh_host_ds220j_user }}"
       - hostname: caddy.internal
         hosts:
           - caddy
@@ -278,20 +262,6 @@ ssh_hosts:
         ip: 192.168.20.65
         public_keys: "{{ ssh_host_prowlarr_public_keys }}"
         user: "{{ ssh_host_prowlarr_user }}"
-      - hostname: configarr.internal
-        hosts:
-          - configarr
-          - configarr.internal
-        ip: 192.168.20.66
-        public_keys: "{{ ssh_host_configarr_public_keys }}"
-        user: "{{ ssh_host_configarr_user }}"
-      - hostname: flaresolverr.internal
-        hosts:
-          - flaresolverr
-          - flaresolverr.internal
-        ip: 192.168.20.67
-        public_keys: "{{ ssh_host_flaresolverr_public_keys }}"
-        user: "{{ ssh_host_flaresolverr_user }}"
       - hostname: byparr.internal
         hosts:
           - byparr
