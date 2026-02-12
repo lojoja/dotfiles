@@ -88,6 +88,9 @@ macports_ports_default:
   - port: ruff
   - port: ruby_select
   - port: ruby
+  # Misc. Deps.
+  - port: x265
+    variant: highdepth
   # Misc.
   - port: act
   - port: age
