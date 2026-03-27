@@ -13,3 +13,6 @@ local_prefix: "{{ dotfiles_install_base_dir }}/.local"
 local_bin: "{{ local_prefix }}/bin"
 local_etc: "{{ local_prefix }}/etc"
 local_opt: "{{ local_prefix }}/opt"
+
+display_height_px: 702
+display_width_px: 1080

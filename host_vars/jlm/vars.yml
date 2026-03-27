@@ -1,2 +1,4 @@
 # host_vars/jlm/vars.yml
 ---
+display_height_px: 956
+display_width_px: 1470
