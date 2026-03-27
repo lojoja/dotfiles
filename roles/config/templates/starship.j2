@@ -15,7 +15,6 @@ $git_status\
 $docker_context\
 $package\
 $nodejs\
-$perl\
 $php\
 $python\
 $ruby\
@@ -32,35 +31,39 @@ scan_timeout = {{ config_starship_scan_timeout }}
 command_timeout = {{ config_starship_command_timeout }}
 add_newline = {{ config_starship_add_newline }}
 
-[aws]
-symbol = " "
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
 
-[buf]
-symbol = " "
+[cmd_duration]
+style = "bold yellow"
 
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
+[container]
+symbol = "󰋘"
+style = "bold red dimmed"
 
 [directory]
 read_only = " 󰌾"
+style = "bold cyan"
+read_only_style = "red"
 
 [docker_context]
 symbol = " "
+style = "bold blue"
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
+[hostname]
+style = "bold green dimmed"
 
 [git_branch]
 symbol = " "
+style = "bold magenta"
+
+[git_commit]
+tag_symbol = " 󰓹 "
+style = "bold green"
+
+[git_state]
+style = "bold yellow"
 
 [git_status]
 conflicted = ""
@@ -73,56 +76,50 @@ renamed = " x${count} "
 deleted = "󰗨 x${count} "
 ahead = "󰈑 "
 behind = "󰑟 "
-style = "bold blue"
+style = "bold red"
 format = '([\[ $conflicted$untracked$stashed$modified$renamed$deleted$staged$ahead$behind\]]($style) )'
-
-[golang]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
 
 [nodejs]
 symbol = " "
+style = "bold green"
+not_capable_style = "bold_red"
 
 [package]
 symbol = "󰏗 "
+style = "bold yellow"
+
+[php]
+symbol = " "
+style = "bold bright-blue"
 
 [python]
 symbol = " "
-
-[rlang]
-symbol = "󰟔 "
+style = "bold bright-yellow"
 
 [ruby]
 symbol = " "
+style = "bold red"
 
-[rust]
-symbol = " "
+[shell]
+disabled = true
 
-[spack]
-symbol = "󰦻 "
+[shlvl]
+style = "bold yellow"
+
+[sudo]
+symbol = "󱑷 "
+style = "bold blue"
 
 [status]
+symbol = ""
+success_symbol = ""
+not_executable_symbol = ""
+not_found_symbol = ""
+sigint_symbol = "󱊈"
+signal_symbol = "󱐋"
+style = "bold red"
 disabled = {{ config_starship_status_disabled }}
+
+[username]
+style_root = "bold red"
+style_user = "bold yellow"
