@@ -5,7 +5,6 @@ env_local: "{{ dotfiles_install_base_dir }}/.zshenv.local"
 
 env_editor: vi
 env_ignore_eof: 1
-env_term: xterm-256color
 env_visual: "{{ env_editor }}"
 env_lc_all: en_US.utf-8
 env_arch_flags: "{{ (ansible_facts['architecture'] == 'arm64') | ternary('-arch arm64', '-arch x86_64 -arch i386') }}"
