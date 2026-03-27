@@ -516,7 +516,7 @@ config_kitty_enable_audio_bell: "no"
 config_kitty_font_family: SauceCodePro Nerd Font Mono
 config_kitty_font_size: 11.0
 config_kitty_inactive_tab_font_style: italic
-config_kitty_initial_window_height: "{{ display_height_px * 0.75 | round | int }}"
+config_kitty_initial_window_height: "{{ (display_height_px * 0.75) | round | int }}"
 config_kitty_initial_window_width: "{{ display_width_px }}"
 config_kitty_macos_show_window_title_in: window
 config_kitty_macos_titlebar_color: dark
