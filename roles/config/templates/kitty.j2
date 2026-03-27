@@ -1,0 +1,84 @@
+{{ ansible_managed | comment }}
+
+cursor_shape {{ config_kitty_cursor_shape }}
+cursor_blink_interval {{ config_kitty_cursor_blink_interval }}
+
+scrollbar_width {{ config_kitty_scrollbar_width }}
+scrollbar_hover_width {{ config_kitty_scrollbar_hover_width }}
+scrollbar_radius {{ config_kitty_scrollbar_radius }}
+scrollbar_hitbox_expansion {{ config_kitty_scrollbar_hitbox_expansion }}
+
+initial_window_width {{ config_kitty_initial_window_width }}
+initial_window_height {{ config_kitty_initial_window_height }}
+remember_window_size {{ config_kitty_remember_window_size }}
+window_padding_width {{ config_kitty_window_padding_width }}
+
+tab_bar_edge {{ config_kitty_tab_bar_edge }}
+tab_bar_style {{ config_kitty_tab_bar_style }}
+tab_powerline_style {{ config_kitty_tab_powerline_style }}
+tab_activity_symbol "{{ config_kitty_tab_activity_symbol }}"
+tab_title_template "{{ config_kitty_title_template }}"
+
+macos_titlebar_color {{ config_kitty_macos_titlebar_color }}
+macos_show_window_title_in {{ config_kitty_macos_show_window_title_in }}
+
+enable_audio_bell {{ config_kitty_enable_audio_bell }}
+
+open_url_with {{ config_kitty_open_url_with }}
+
+shell_integration {{ config_kitty_shell_integration }}
+
+{{ config_kitty_maps | join('\n') }}
+
+# Theme
+
+font_family family="{{ config_kitty_font_family }}"
+font_size {{ config_kitty_font_size }}
+
+foreground {{ config_kitty_color_fg }}
+background {{ config_kitty_color_bg }}
+
+selection_foreground {{ config_kitty_color_bg }}
+selection_background {{ config_kitty_color_fg }}
+
+active_tab_foreground {{ config_kitty_color_fg }}
+active_tab_background {{ config_kitty_color_bg }}
+active_tab_font_style {{ config_kitty_active_tab_font_style }}
+
+inactive_tab_foreground {{ config_kitty_color_bg }}
+inactive_tab_background {{ config_kitty_color_fg }}
+inactive_tab_font_style {{ config_kitty_inactive_tab_font_style }}
+
+cursor {{ config_kitty_color_fg }}
+cursor_text_color {{ config_kitty_color_bg }}
+
+mark1_background "{{ config_kitty_color_blue }}"
+mark2_background "{{ config_kitty_color_yellow }}"
+mark3_background "{{ config_kitty_color_magenta }}"
+
+url_color {{ config_kitty_color_blue }}
+
+color0 {{ config_kitty_color_black }}
+color8 {{ config_kitty_color_black_bright }}
+
+color1 {{ config_kitty_color_red }}
+color9 {{ config_kitty_color_red_bright }}
+
+color2 {{ config_kitty_color_green }}
+color10 {{ config_kitty_color_green_bright }}
+
+color3 {{ config_kitty_color_yellow }}
+color11 {{ config_kitty_color_yellow_bright }}
+
+color4 {{ config_kitty_color_blue }}
+color12 {{ config_kitty_color_blue_bright }}
+
+color5 {{ config_kitty_color_magenta }}
+color13 {{ config_kitty_color_magenta_bright }}
+
+color6 {{ config_kitty_color_cyan }}
+color14 {{ config_kitty_color_cyan_bright }}
+
+color7 {{ config_kitty_color_white }}
+color15 {{ config_kitty_color_white_bright }}
+

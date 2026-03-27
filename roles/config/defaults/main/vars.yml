@@ -489,6 +489,55 @@ config_iterm2_profiles:
 config_iterm2_profiles_columns: 208
 config_iterm2_profiles_rows: 50
 
+config_kitty_dir: "{{ config_dir }}/kitty"
+config_kitty: "{{ config_kitty_dir }}/kitty.conf"
+config_kitty_active_tab_font_style: bold
+config_kitty_color_bg: "#1C2128"
+config_kitty_color_fg: "#768390"
+config_kitty_color_black: "#545D68"
+config_kitty_color_black_bright: "#636E7B"
+config_kitty_color_red: "#F47067"
+config_kitty_color_red_bright: "#FF938A"
+config_kitty_color_green: "#57AB5A"
+config_kitty_color_green_bright: "#6BC46D"
+config_kitty_color_yellow: "#E0823D"
+config_kitty_color_yellow_bright: "#C69026"
+config_kitty_color_blue: "#539BF5"
+config_kitty_color_blue_bright: "#6CB6FF"
+config_kitty_color_magenta: "#B083F0"
+config_kitty_color_magenta_bright: "#DCBDFB"
+config_kitty_color_cyan: "#39C5CF"
+config_kitty_color_cyan_bright: "#56D4DD"
+config_kitty_color_white: "#909DAB"
+config_kitty_color_white_bright: "#CDD9E5"
+config_kitty_cursor_blink_interval: 0.5
+config_kitty_cursor_shape: block
+config_kitty_enable_audio_bell: "no"
+config_kitty_font_family: SauceCodePro Nerd Font Mono
+config_kitty_font_size: 11.0
+config_kitty_inactive_tab_font_style: italic
+config_kitty_initial_window_height: "{{ display_height_px * 0.75 | round | int }}"
+config_kitty_initial_window_width: "{{ display_width_px }}"
+config_kitty_macos_show_window_title_in: window
+config_kitty_macos_titlebar_color: dark
+config_kitty_maps:
+  - map shift+cmd+/ no-op
+  - map cmd+left send_text all \x01
+  - map cmd+right send_text all \x05
+config_kitty_open_url_with: no_op
+config_kitty_remember_window_size: "no"
+config_kitty_scrollbar_hitbox_expansion: 0.5
+config_kitty_scrollbar_hover_width: 1
+config_kitty_scrollbar_radius: 0.5
+config_kitty_scrollbar_width: 1
+config_kitty_shell_integration: no-cursor
+config_kitty_tab_activity_symbol: "⏺ "
+config_kitty_tab_bar_edge: top
+config_kitty_tab_bar_style: powerline
+config_kitty_tab_powerline_style: angled
+config_kitty_title_template: "{fmt.fg.red}{bell_symbol}{fmt.fg.blue}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}"
+config_kitty_window_padding_width: 2 5
+
 config_mpv_dir: "{{ config_dir }}/mpv"
 config_mpv: "{{ config_mpv_dir }}/mpv.conf"
 config_mpv_vo: libmpv
@@ -587,6 +636,7 @@ config_dirs:
   - "{{ config_git_config_extra_dir }}"
   - "{{ config_google_dir }}"
   - "{{ config_iterm2_dir }}"
+  - "{{ config_kitty_dir }}"
   - "{{ config_mpv_dir }}"
   - "{{ config_nano_dir }}"
   - "{{ config_pip_dir }}"
@@ -612,6 +662,8 @@ config_templates:
     file: "{{ config_git_ignore }}"
   - template: gitsigners.j2
     file: "{{ config_git_signers }}"
+  - template: kitty.j2
+    file: "{{ config_kitty }}"
   - template: mpv.j2
     file: "{{ config_mpv }}"
   - template: nanorc.j2
