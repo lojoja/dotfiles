@@ -524,6 +524,10 @@ config_kitty_maps:
   - map shift+cmd+/ no-op
   - map cmd+left send_text all \x01
   - map cmd+right send_text all \x05
+  - map cmd+shift+left previous_tab
+  - map cmd+shift+right next_tab
+  - map cmd+shift+down scroll_page_down
+  - map cmd+shift+up scroll_page_up
 config_kitty_open_url_with: no_op
 config_kitty_remember_window_size: "no"
 config_kitty_scrollbar_hitbox_expansion: 0.5
