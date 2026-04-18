@@ -1,4 +1,0 @@
-# host_vars/jlm2/macports_vars.yml
----
-macports_ports_exclude:
-  - port: shellcheck
