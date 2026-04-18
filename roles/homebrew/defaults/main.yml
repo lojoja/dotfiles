@@ -32,5 +32,6 @@ homebrew_casks:
   - name: homebrew/cask/font-source-code-pro
   - name: homebrew/cask/quicklook-video
   - name: homebrew/cask/sublercli
+  - name: homebrew/cask/syntax-highlight
 
 homebrew_no_analytics: 1
