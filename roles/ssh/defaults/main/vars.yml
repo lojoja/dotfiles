@@ -83,6 +83,9 @@ ssh_host_media_user: "{{ vault_ssh_host_media_user }}"
 ssh_host_profilarr_public_keys: "{{ vault_ssh_host_profilarr_public_keys }}"
 ssh_host_profilarr_user: "{{ vault_ssh_host_profilarr_user }}"
 
+ssh_host_vaultwarden_public_keys: "{{ vault_ssh_host_vaultwarden_public_keys }}"
+ssh_host_vaultwarden_user: "{{ vault_ssh_host_vaultwarden_user }}"
+
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
 ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
@@ -293,6 +296,13 @@ ssh_hosts:
         ip: 192.168.20.71
         public_keys: "{{ ssh_host_profilarr_public_keys }}"
         user: "{{ ssh_host_profilarr_user }}"
+      - hostname: vault.internal
+        hosts:
+          - vault
+          - vault.internal
+        ip: 192.168.20.72
+        public_keys: "{{ ssh_host_vaultwarden_public_keys }}"
+        user: "{{ ssh_host_vaultwarden_user }}"
 
   - name: Servers
     hosts: []
