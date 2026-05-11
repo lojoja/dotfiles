@@ -92,3 +92,5 @@ shell_zsh_config:
 shell_zsh_auto_suggestions: "{{ macports_share }}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 shell_zsh_auto_suggestions_highlight_style: fg=15
 shell_zsh_completions_dir: "{{ macports_share }}/zsh/site-functions"
+shell_zsh_functions:
+  - zmv

@@ -97,6 +97,11 @@ fi
 # User configuration
 #
 
+# Load functions
+{% for shell_zsh_function in shell_zsh_functions %}
+autoload -Uz {{ shell_zsh_function }}
+{% endfor %}
+
 # Init dircolors
 if command -v dircolors &>/dev/null
 then
