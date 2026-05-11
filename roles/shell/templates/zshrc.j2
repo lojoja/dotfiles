@@ -1,5 +1,10 @@
 {{ ansible_managed | comment }}
 
+# Shell options
+{% for shell_zsh_opt in shell_zsh_opts %}
+setopt {{ shell_zsh_opt }}
+{% endfor %}
+
 # Add zsh-completions to $FPATH
 if [[ -d {{ shell_zsh_completions_dir }} ]]
 then

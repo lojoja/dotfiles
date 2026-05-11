@@ -94,3 +94,5 @@ shell_zsh_auto_suggestions_highlight_style: fg=15
 shell_zsh_completions_dir: "{{ macports_share }}/zsh/site-functions"
 shell_zsh_functions:
   - zmv
+shell_zsh_opts:
+  - nobanghist
