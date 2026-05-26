@@ -551,6 +551,9 @@ config_mpv_af: scaletempo
 config_mpv_volume_max: 800
 config_mpv_framedrop: vo
 config_mpv_hwdec: videotoolbox
+config_mpv_script_dir: "{{ config_mpv_dir }}/scripts"
+config_mpv_script_copy_timestamp: "{{ config_mpv_scripts_dir }}/copy_timestamp.lua"
+config_mpv_script_copy_timestamp_shortcut: n
 
 config_nano_dir: "{{ config_dir }}/nano"
 config_nano: "{{ config_nano_dir }}/nanorc"
@@ -642,6 +645,7 @@ config_dirs:
   - "{{ config_iterm2_dir }}"
   - "{{ config_kitty_dir }}"
   - "{{ config_mpv_dir }}"
+  - "{{ config_mpv_script_dir }}"
   - "{{ config_nano_dir }}"
   - "{{ config_pip_dir }}"
   - "{{ config_poetry_dir }}"
@@ -670,6 +674,8 @@ config_templates:
     file: "{{ config_kitty }}"
   - template: mpv.j2
     file: "{{ config_mpv }}"
+  - template: mpv_copy_timestamp.j2
+    file: "{{ config_mpv_script_copy_timestamp }}"
   - template: nanorc.j2
     file: "{{ config_nano }}"
   - template: pip.j2

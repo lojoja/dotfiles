@@ -1,0 +1,33 @@
+{{ ansible_managed | comment(decoration="-- ") }}
+
+-- Copy current video timestamp to clipboard.
+
+require 'mp'
+
+local function div(x, y)
+    return x / y, x % y
+end
+
+local function round(n)
+    return math.floor(n + 0.5)
+end
+
+local function copy(t)
+    local pb = io.popen("pbcopy", "w")
+    pb:write(t)
+    pb:close()
+    return true
+end
+
+local function copy_timestamp()
+    local m, r = div(mp.get_property_number("time-pos"), 60)
+    local h, m = div(m, 60)
+    local s = math.floor(r)
+    local ms = round((r - s) * 1000)
+    local ts = string.format("%02d:%02d:%02d.%03d", h, m, s, ms)
+
+    copy(ts)
+    mp.osd_message(string.format("Copied: %s", ts))
+end
+
+mp.add_key_binding("{{ config_mpv_script_copy_timestamp_shortcut }}", "copy_timestamp", copy_timestamp)
