@@ -86,8 +86,6 @@ macports_ports_default:
   - port: npm10
   - port: openjdk21-temurin
   - port: ruff
-  - port: ruby_select
-  - port: ruby
   # Misc. Deps.
   - port: x265
     variant: highdepth
@@ -124,7 +122,9 @@ macports_ports_default:
   - port: youtube-dl
   - port: yq
   - port: yt-dlp
-macports_ports_abandoned: []
+macports_ports_abandoned:
+  - port: ruby
+  - port: ruby_select
 macports_ports_extra: []
 macports_ports_exclude: []
 
@@ -143,7 +143,5 @@ macports_ports_select:
     binary: pylint313
   - program: python3
     binary: python313
-  - program: ruby
-    binary: ruby18
 
 macports_ports_select_manual: []
