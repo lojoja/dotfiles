@@ -92,6 +92,7 @@ macports_ports_default:
   - port: py314-black
   - port: py314-pexpect
   - port: py314-pygments
+  - port: py314-pylint
   - port: nodejs22
   - port: npm10
   - port: openjdk21-temurin
