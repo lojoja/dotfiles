@@ -132,9 +132,7 @@ macports_ports_default:
   - port: youtube-dl
   - port: yq
   - port: yt-dlp
-macports_ports_abandoned:
-  - port: ruby
-  - port: ruby_select
+macports_ports_abandoned: []
 macports_ports_extra: []
 macports_ports_exclude: []
 
