@@ -82,6 +82,15 @@ macports_ports_default:
   - port: py313-pexpect
   - port: py313-pygments
   - port: py313-pylint
+  - port: python314
+  - port: py314-build
+  - port: py314-installer
+  - port: py314-pip
+  - port: py314-wheel
+  - port: py314-ansible
+  - port: py314-black
+  - port: py314-pexpect
+  - port: py314-pygments
   - port: nodejs22
   - port: npm10
   - port: openjdk21-temurin
@@ -132,16 +141,16 @@ macports_ports: "{{ (macports_ports_default + macports_ports_extra) | difference
 
 macports_ports_select:
   - program: ansible
-    binary: py313-ansible
+    binary: py314-ansible
   - program: black
-    binary: black313
+    binary: black314
   - program: pip3
-    binary: pip313
+    binary: pip314
   - program: pygments
-    binary: py313-pygments
+    binary: py314-pygments
   - program: pylint
-    binary: pylint313
+    binary: pylint314
   - program: python3
-    binary: python313
+    binary: python314
 
 macports_ports_select_manual: []
