@@ -84,6 +84,7 @@ macports_ports_default:
   - port: py313-pylint
   - port: python314
   - port: py314-build
+  - port: py314-curl-cffi
   - port: py314-installer
   - port: py314-pip
   - port: py314-wheel
