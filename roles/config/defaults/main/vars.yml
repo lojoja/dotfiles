@@ -529,6 +529,7 @@ config_kitty_maps:
   - map cmd+shift+down scroll_page_down
   - map cmd+shift+up scroll_page_up
 config_kitty_open_url_with: no_op
+config_kitty_remember_window_position: "yes"
 config_kitty_remember_window_size: "no"
 config_kitty_scrollbar_hitbox_expansion: 0.5
 config_kitty_scrollbar_hover_width: 1
