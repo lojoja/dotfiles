@@ -92,6 +92,12 @@ ssh_host_profilarr1_user: "{{ vault_ssh_host_profilarr1_user }}"
 ssh_host_dispatcharr_public_keys: "{{ vault_ssh_host_dispatcharr_public_keys }}"
 ssh_host_dispatcharr_user: "{{ vault_ssh_host_dispatcharr_user }}"
 
+ssh_host_channels_public_keys: "{{ vault_ssh_host_channels_public_keys }}"
+ssh_host_channels_user: "{{ vault_ssh_host_channels_user }}"
+
+ssh_host_mlb_public_keys: "{{ vault_ssh_host_mlb_public_keys }}"
+ssh_host_mlb_user: "{{ vault_ssh_host_mlb_user }}"
+
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
 ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
@@ -323,6 +329,20 @@ ssh_hosts:
         ip: 192.168.20.74
         public_keys: "{{ ssh_host_dispatcharr_public_keys }}"
         user: "{{ ssh_host_dispatcharr_user }}"
+      - hostname: channels.internal
+        hosts:
+          - channels
+          - channels.internal
+        ip: 192.168.20.75
+        public_keys: "{{ ssh_host_channels_public_keys }}"
+        user: "{{ ssh_host_channels_user }}"
+      - hostname: mlb.internal
+        hosts:
+          - mlb
+          - mlb.internal
+        ip: 192.168.20.76
+        public_keys: "{{ ssh_host_mlb_public_keys }}"
+        user: "{{ ssh_host_mlb_user }}"
 
   - name: Servers
     hosts: []
