@@ -98,6 +98,9 @@ ssh_host_channels_user: "{{ vault_ssh_host_channels_user }}"
 ssh_host_mlb_public_keys: "{{ vault_ssh_host_mlb_public_keys }}"
 ssh_host_mlb_user: "{{ vault_ssh_host_mlb_user }}"
 
+ssh_host_fastchannels_public_keys: "{{ vault_ssh_host_fastchannels_public_keys }}"
+ssh_host_fastchannels_user: "{{ vault_ssh_host_fastchannels_user }}"
+
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
 ssh_host_github_public_keys: "{{ vault_ssh_host_github_public_keys }}"
@@ -343,6 +346,13 @@ ssh_hosts:
         ip: 192.168.20.76
         public_keys: "{{ ssh_host_mlb_public_keys }}"
         user: "{{ ssh_host_mlb_user }}"
+      - hostname: fastchannels.internal
+        hosts:
+          - fastchannels
+          - fastchannels.internal
+        ip: 192.168.20.76
+        public_keys: "{{ ssh_host_fastchannels_public_keys }}"
+        user: "{{ ssh_host_fastchannels_user }}"
 
   - name: Servers
     hosts: []
