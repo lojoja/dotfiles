@@ -350,7 +350,7 @@ ssh_hosts:
         hosts:
           - fastchannels
           - fastchannels.internal
-        ip: 192.168.20.76
+        ip: 192.168.20.77
         public_keys: "{{ ssh_host_fastchannels_public_keys }}"
         user: "{{ ssh_host_fastchannels_user }}"
 
