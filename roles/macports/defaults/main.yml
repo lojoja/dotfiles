@@ -93,8 +93,8 @@ macports_ports_default:
   - port: py314-pexpect
   - port: py314-pygments
   - port: py314-pylint
-  - port: npm10
   - port: nodejs24
+  - port: npm11
   - port: openjdk21-temurin
   - port: ruff
   # Misc. Deps.
