@@ -53,9 +53,6 @@ ssh_host_stash_user: "{{ vault_ssh_host_stash_user }}"
 ssh_host_sabnzbd_public_keys: "{{ vault_ssh_host_sabnzbd_public_keys }}"
 ssh_host_sabnzbd_user: "{{ vault_ssh_host_sabnzbd_user }}"
 
-ssh_host_wireguard_public_keys: "{{ vault_ssh_host_wireguard_public_keys }}"
-ssh_host_wireguard_user: "{{ vault_ssh_host_wireguard_user }}"
-
 ssh_host_qbit_public_keys: "{{ vault_ssh_host_qbit_public_keys }}"
 ssh_host_qbit_user: "{{ vault_ssh_host_qbit_user }}"
 
@@ -103,9 +100,6 @@ ssh_host_fastchannels_user: "{{ vault_ssh_host_fastchannels_user }}"
 
 ssh_host_slm_public_keys: "{{ vault_ssh_host_slm_public_keys }}"
 ssh_host_slm_user: "{{ vault_ssh_host_slm_user }}"
-
-ssh_host_mlbvpn_public_keys: "{{ vault_ssh_host_mlbvpn_public_keys }}"
-ssh_host_mlbvpn_user: "{{ vault_ssh_host_mlbvpn_user }}"
 
 ssh_host_github_alt_identities: []
 ssh_host_github_alt_suffix: alt
@@ -245,13 +239,6 @@ ssh_hosts:
         ip: 192.168.20.59
         public_keys: "{{ ssh_host_sabnzbd_public_keys }}"
         user: "{{ ssh_host_sabnzbd_user }}"
-      - hostname: wireguard.internal
-        hosts:
-          - wireguard
-          - wireguard.internal
-        ip: 192.168.20.60
-        public_keys: "{{ ssh_host_wireguard_public_keys }}"
-        user: "{{ ssh_host_wireguard_user }}"
       - hostname: qbittorrent.internal
         hosts:
           - qbit
@@ -366,13 +353,6 @@ ssh_hosts:
         ip: 192.168.20.78
         public_keys: "{{ ssh_host_slm_public_keys }}"
         user: "{{ ssh_host_slm_user }}"
-      - hostname: mlbvpn.internal
-        hosts:
-          - mlbvpn
-          - mlbvpn.internal
-        ip: 192.168.20.79
-        public_keys: "{{ ssh_host_mlbvpn_public_keys }}"
-        user: "{{ ssh_host_mlbvpn_user }}"
 
   - name: Servers
     hosts: []
