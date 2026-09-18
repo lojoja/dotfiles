@@ -53,6 +53,7 @@ macports_ports_default:
   - port: openssl
   - port: p7zip
   - port: pkgconfig
+  - port: rsync
   - port: sqlite3
   - port: texinfo
   - port: wget
