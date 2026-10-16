@@ -157,8 +157,6 @@ ssh_hosts:
           - ds923p.internal
           - nas
           - nas.internal
-          - nas1
-          - nas1.internal
         ip: 192.168.50.21
         public_keys: "{{ ssh_host_ds923p_public_keys }}"
         user: "{{ ssh_host_ds923p_user }}"
@@ -180,21 +178,21 @@ ssh_hosts:
         hosts:
           - hass
           - hass.internal
-        ip: 192.168.20.54
+        ip: 192.168.50.54
         public_keys: "{{ ssh_host_hass_public_keys }}"
         user: "{{ ssh_host_hass_user }}"
       - hostname: jellyfin.internal
         hosts:
           - jellyfin
           - jellyfin.internal
-        ip: 192.168.20.56
+        ip: 192.168.50.56
         public_keys: "{{ ssh_host_jellyfin_public_keys }}"
         user: "{{ ssh_host_jellyfin_user }}"
       - hostname: stash.internal
         hosts:
           - stash
           - stash.internal
-        ip: 192.168.20.58
+        ip: 192.168.50.58
         public_keys: "{{ ssh_host_stash_public_keys }}"
         user: "{{ ssh_host_stash_user }}"
       - hostname: sabnzbd.internal
@@ -273,7 +271,7 @@ ssh_hosts:
         hosts:
           - dispatcharr
           - dispatcharr.internal
-        ip: 192.168.20.74
+        ip: 192.168.50.74
         public_keys: "{{ ssh_host_dispatcharr_public_keys }}"
         user: "{{ ssh_host_dispatcharr_user }}"
       - hostname: mlb.internal
