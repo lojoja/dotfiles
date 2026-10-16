@@ -17,9 +17,4 @@ util_python_public:
     cmd: wake
     python_version: 3.11
 
-util_python_private:
-  - name: clientfile
-    cmd: clientfile
-    python_version: 3.11
-    owner: snldev
-    repo: clientfile
+util_python_private: []
