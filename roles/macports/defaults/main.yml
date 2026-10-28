@@ -108,6 +108,7 @@ macports_ports_default:
   - port: exiv2
   - port: ffmpeg
   - port: ffmpeg7
+  - port: ffmpeg8
   - port: fzf
   - port: guetzli
   - port: hugo
