@@ -9,6 +9,7 @@ macports_opt: "{{ macports_prefix }}/opt"
 macports_sbin: "{{ macports_prefix }}/sbin"
 macports_share: "{{ macports_prefix }}/share"
 macports_gnubin: "{{ macports_prefix }}/libexec/gnubin"
+macports_im7bin: "{{ macports_lib }}/ImageMagick7/bin"
 
 macports_man: "{{ macports_prefix }}/man"
 macports_gnuman: "{{ macports_gnubin }}/man"
