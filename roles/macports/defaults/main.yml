@@ -113,6 +113,9 @@ macports_ports_default:
   - port: guetzli
   - port: hugo
   - port: ImageMagick
+    variant: +rsvg
+  - port: ImageMagick7
+    variant: +rsvg
   - port: jq
   - port: lame
   - port: mediainfo
